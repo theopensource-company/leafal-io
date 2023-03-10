@@ -1,7 +1,7 @@
 import { JSX } from "solid-js";
 import style from "~/styles/components/Button.module.scss";
 import { cva } from "cva";
-import { VariantPropOptions } from "constants/Types/helpers.types";
+import { VariantPropOptions } from "constants/Types/Helpers.types";
 
 export const buttonStyle = cva([style.reset], {
   variants: {
@@ -23,8 +23,8 @@ export const buttonStyle = cva([style.reset], {
 export type ButtonSize = VariantPropOptions<typeof buttonStyle, 'size'>;
 export type ButtonIntent = Exclude<VariantPropOptions<typeof buttonStyle, 'intent'>, 'disabled'>;
 export type ButtonProps = {
-    size: ButtonSize,
-    intent: ButtonIntent
+    size?: ButtonSize,
+    intent?: ButtonIntent
 };
 
 export function Button({
