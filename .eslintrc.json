@@ -1,0 +1,19 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "extends": ["eslint:recommended", "plugin:solid/typescript", "prettier", "plugin:@typescript-eslint/recommended", "plugin:json/recommended"],
+    "plugins": ["only-error", "prettier", "unused-imports", "solid"],
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "extends": [".prettierrc"]
+        }
+      ],
+          "unused-imports/no-unused-imports": "error",
+          "unused-imports/no-unused-vars": [
+              "error",
+              { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
+          ],
+      "@typescript-eslint/no-unused-vars": "off"
+    }
+  }
