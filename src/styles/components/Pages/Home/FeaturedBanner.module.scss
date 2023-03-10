@@ -1,0 +1,121 @@
+.banner {
+    width: 100vw;
+    height: 500px;
+    position: relative;
+}
+
+.banner:focus {
+    opacity: .5;    
+}
+
+.banner::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-image: url("/images/pages/home/banner-gradient.svg");
+    background-size: cover;
+    z-index: 3;
+}
+
+.slide {
+    display: flex;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        transition: .3s ease;
+
+        z-index: 2;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &:hover, &:focus-visible {
+        .background {
+            filter: brightness(120%);
+        }
+
+        .thumbnail {
+            transform: scale(1.02);
+            border-color: #ccc;
+        }
+    }
+
+    .foreground {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        
+        z-index: 4;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.details {
+    display: flex;
+    gap: 100px;
+    font-size: 16px;
+
+    text-decoration: none;
+
+    .thumbnail {
+        width: 550px;
+        height: 300px;
+        border: 2px solid transparent;
+        border-radius: 30px;
+        overflow: hidden;
+
+        transition: .3s ease;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1em;
+
+        .title {
+            font-size: 4em;
+            line-height: 1em;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .description {
+            max-width: 550px;
+            font-size: 1.5em;
+            font-weight: normal;
+            color: #ccc;
+            margin: 0;
+        }
+    }
+}

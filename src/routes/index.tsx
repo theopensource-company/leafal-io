@@ -1,9 +1,5 @@
-import { Button } from '~/components/Button';
+import { FeaturedBanner } from '~/components/Pages/Home/FeaturedBanner';
 
 export default function Home() {
-    return (
-        <main>
-            <Button size="normal">Hello</Button>
-        </main>
-    );
+    return <FeaturedBanner />;
 }
