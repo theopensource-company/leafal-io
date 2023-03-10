@@ -22,7 +22,7 @@ export function Navbar(props: JSX.HTMLElementTags['div'] & NavbarProps) {
                 </div>
                 <div class={style.links} />
                 <div class={style.account}>
-                    <Button>Log in</Button>
+                    <Button size="normal">Log in</Button>
                 </div>
             </div>
         </div>
