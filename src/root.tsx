@@ -7,6 +7,7 @@ import {
   FileRoutes,
   Head,
   Html,
+  Link,
   Meta,
   Routes,
   Scripts,
@@ -18,18 +19,19 @@ export default function Root() {
   return (
     <Html lang="en">
       <Head>
-        <Title>SolidStart - Bare</Title>
+        <Title>leafal.io</Title>
         <Meta charset="utf-8" />
         <Meta name="viewport" content="width=device-width, initial-scale=1" />
+        <Link rel="icon shortcut" href="/logo.svg" />
       </Head>
       <Body>
         <Suspense>
           <ErrorBoundary>
-            <A href="/">Index</A>
-            <A href="/about">About</A>
-            <Routes>
-              <FileRoutes />
-            </Routes>
+            <div id="app">
+              <Routes>
+                <FileRoutes />
+              </Routes>
+            </div>
           </ErrorBoundary>
         </Suspense>
         <Scripts />
