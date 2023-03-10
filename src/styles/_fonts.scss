@@ -1,0 +1,9 @@
+@supports (font-variation-settings: normal) {
+    @font-face {
+        font-family: 'Open Sans';
+        src: url('/fonts/open-sans/OpenSans-VariableFont_wdth,wght.ttf') format('ttf supports variations'),
+             url('/fonts/open-sans/OpenSans-VariableFont_wdth,wght.ttf') format('ttf-variations');
+        font-weight: 100 1000;
+        font-stretch: 25% 151%;
+    }
+}
