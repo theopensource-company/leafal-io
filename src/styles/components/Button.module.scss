@@ -1,0 +1,28 @@
+.reset {
+    border: none;
+    outline: none;
+}
+
+.intentDefault {
+    background-color: #2d7b21;
+    color: #ffffff;
+}
+
+.intentDisabled {
+    background-color: #2c2e2c;
+    color: #ffffff;
+}
+
+.sizeSmall {
+    font-size: 1rem;
+    line-height: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.2rem;
+}
+
+.sizeNormal {
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    padding: 0.7rem 1.2rem;
+    border-radius: 0.3rem;
+}
