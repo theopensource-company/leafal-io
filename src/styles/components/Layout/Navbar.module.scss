@@ -3,22 +3,21 @@
     height: 5em;
 
     display: flex;
+    justify-content: stretch;
     align-items: stretch;
 }
 
 .content {
     margin: .5em 5vw;
+    width: 100%;
     display: flex;
-    flex: 1 1;
-    flex-basis: 70%;
+    gap: 2em;
     align-items: center;
     justify-content: flex-start;
     font-size: 18px;
 }
 
 .logo {
-    height: 2.5em;
-    max-height: 2.5em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,4 +32,12 @@
         font-size: 2em;
         font-weight: 700;
     }
+}
+
+.links {
+    flex: 1;
+}
+
+.account {
+    display: flex;
 }

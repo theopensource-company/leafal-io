@@ -1,4 +1,4 @@
-import { mergeProps } from "solid-js";
+import { mergeProps } from 'solid-js';
 
 export function Logo(_props: {
     width?: number | string;
