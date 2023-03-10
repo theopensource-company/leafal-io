@@ -6,6 +6,12 @@
 .intentDefault {
     background-color: #2d7b21;
     color: #ffffff;
+    cursor: pointer;
+    transition: .15s ease;
+}
+
+.intentDefault:hover {
+    background-color: #3dad2c;
 }
 
 .intentDisabled {
