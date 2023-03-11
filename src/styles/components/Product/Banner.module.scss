@@ -48,25 +48,9 @@
         }
     }
 
-    &:hover, &:focus-visible {
+    &:hover, &:focus-within {
         .background {
             filter: brightness(120%);
-        }
-
-        .thumbnail {
-            transform: scale(1.02);
-            border-color: #ccc;
-        }
-    }
-
-    &:active {
-        .background {
-            filter: brightness(120%);
-        }
-
-        .thumbnail {
-            transform: scale(1.00);
-            transition: .1s ease;
         }
     }
 
