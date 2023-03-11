@@ -30,7 +30,16 @@
     width: 100%;
     height: 100%;
 
-    transition: border-bottom .05s ease-in;
+    &::after {
+        content: ' ';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        background: linear-gradient(0deg, rgba(19,19,19,1) 0%, rgba(19,19,19,0.4) 50%, rgba(19,19,19,0) 100%);
+        z-index: 100;
+    }
 
     .background {
         position: absolute;
@@ -38,6 +47,7 @@
         left: 0;
         width: 100%;
         height: 100%;
+        overflow: hidden;
 
         transition: .3s ease;
 
@@ -47,19 +57,25 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform .4s ease;
+            transform: scale(1.02);
         }
     }
 
     &:hover, &:focus-visible {
-        border-bottom: 3px solid #222;
-
         .background {
             filter: brightness(120%);
+
+            img {
+                transform: scale(1);
+                transition: transform 0.8s ease;
+            }
         }
 
         .thumbnail {
             transform: scale(1.02);
             border-color: #ccc;
+            transition: .5s ease;
         }
     }
 
