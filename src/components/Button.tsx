@@ -3,7 +3,7 @@ import { cva } from 'cva';
 import { JSX, splitProps } from 'solid-js';
 import style from '~/styles/components/Button.module.scss';
 
-export const buttonStyle = cva([style.reset], {
+export const buttonStyle = cva([style.default], {
     variants: {
         intent: {
             default: [style.intentDefault],
