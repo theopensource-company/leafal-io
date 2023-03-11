@@ -1,4 +1,5 @@
-import { JSX, splitProps } from 'solid-js';
+import { ComponentProps, splitProps } from 'solid-js';
+import { A } from 'solid-start';
 import style from '~/styles/components/Product/Summary.module.scss';
 
 export type SlideProps = {
@@ -8,16 +9,20 @@ export type SlideProps = {
     description?: string;
 };
 
-export function BannerSlide(_props: JSX.HTMLElementTags['a'] & SlideProps) {
+export function BannerSlide(_props: ComponentProps<typeof A> & SlideProps) {
     const [props, rest] = splitProps(_props, [
         'background',
         'thumbnail',
         'title',
         'description',
+        'class',
     ]);
 
     return (
-        <a href="" class={style.slide} {...rest}>
+        <A
+            class={[style.slide, props.class].filter((a) => a).join(' ')}
+            {...rest}
+        >
             <div class={style.background}>
                 <img src={props.background} />
             </div>
@@ -32,7 +37,7 @@ export function BannerSlide(_props: JSX.HTMLElementTags['a'] & SlideProps) {
                     </div>
                 </div>
             </div>
-        </a>
+        </A>
     );
 }
 
@@ -40,6 +45,7 @@ export function ProductSummary() {
     return (
         <div class={style.banner}>
             <BannerSlide
+                href="/store/celesteia"
                 background="https://raw.githubusercontent.com/leafal-io/celesteia/production/img/background.jpg"
                 thumbnail="https://raw.githubusercontent.com/leafal-io/celesteia/production/img/thumbnail.jpg"
                 title="Celesteia"
