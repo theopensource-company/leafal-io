@@ -21,7 +21,7 @@ export function ProductSummary(_props: SummaryProps) {
                 </div>
                 <div class={style.text}>
                     <span class={style.title}>{props.product.title}</span>
-                    <p class={style.description}>{props.product.description}</p>
+                    <p class={style.description}>{props.product.tagline}</p>
                 </div>
             </a>
         </ProductBanner>
