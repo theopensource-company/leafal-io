@@ -22,6 +22,18 @@
         }
     }
 
+    &:hover, &:focus-visible {
+        .thumbnail {
+            transform: scale(1.02);
+        }
+    }
+
+    &:active {
+        .thumbnail {
+            transform: scale(1);
+        }
+    }
+
     .text {
         display: flex;
         flex-direction: column;
