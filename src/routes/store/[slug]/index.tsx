@@ -5,7 +5,7 @@ import { ProductBanner } from '~/components/Product/Banner';
 function mockup(slug: string): MockupProduct {
     return {
         slug: slug,
-        title: slug.substring(0, 1).toUpperCase() + slug.substring(1),
+        productTitle: slug.substring(0, 1).toUpperCase() + slug.substring(1),
         tagline: 'This is a mockup product.',
         overview: 'This is a mockup of a product, it is not a real product.',
         description:
@@ -26,7 +26,7 @@ export default function StoreItemPage(_props: StoreItemProps) {
 
     return (
         <>
-            <Title>{product.title} on leafal.io</Title>
+            <Title>{product.productTitle} on leafal.io</Title>
             <Link rel="icon shortcut" href={product.logo} />
             <ProductBanner interactive={false} product={product} />
         </>
