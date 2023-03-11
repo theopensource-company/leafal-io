@@ -30,6 +30,8 @@
     width: 100%;
     height: 100%;
 
+    transition: border-bottom .05s ease-in;
+
     .background {
         position: absolute;
         top: 0;
@@ -49,6 +51,8 @@
     }
 
     &:hover, &:focus-visible {
+        border-bottom: 3px solid #222;
+
         .background {
             filter: brightness(120%);
         }
