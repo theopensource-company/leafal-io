@@ -77,6 +77,11 @@
             border-color: #ccc;
             transition: .5s ease;
         }
+
+        .text {
+            transition: margin-left .5s ease;
+            margin-left: 7px;
+        }
     }
 
     &:active {
@@ -137,6 +142,8 @@
 
         width: 100%;
         max-width: 550px;
+
+        transition: margin-left .3s ease;
 
         .title {
             font-size: 4em;
