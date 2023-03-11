@@ -5,7 +5,8 @@
     "build": "solid-start build",
     "start": "solid-start start",
     "lint": "eslint . --ext ts --ext tsx --ext js --ext jsx --ext json --ext html --max-warnings 0",
-    "ts": "tsc --watch"
+    "ts": "tsc --watch",
+    "clean": "rm -rf .solid dist functions node_modules"
   },
   "type": "module",
   "devDependencies": {
@@ -23,6 +24,7 @@
     "postcss": "^8.4.21",
     "prettier": "^2.8.4",
     "sass": "^1.58.3",
+    "solid-start-cloudflare-pages": "^0.2.23",
     "solid-start-node": "^0.2.19",
     "typescript": "^4.9.4",
     "vite": "^4.1.4"
