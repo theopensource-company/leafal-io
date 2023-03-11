@@ -1,5 +1,5 @@
 import { JSX, splitProps } from 'solid-js';
-import style from '~/styles/components/Pages/Home/FeaturedBanner.module.scss';
+import style from '~/styles/components/Product/Summary.module.scss';
 
 export type SlideProps = {
     background?: string;
@@ -36,7 +36,7 @@ export function BannerSlide(_props: JSX.HTMLElementTags['a'] & SlideProps) {
     );
 }
 
-export function FeaturedBanner() {
+export function ProductSummary() {
     return (
         <div class={style.banner}>
             <BannerSlide

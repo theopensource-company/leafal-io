@@ -1,5 +1,5 @@
-import { FeaturedBanner } from '~/components/Pages/Home/FeaturedBanner';
+import { ProductSummary } from '~/components/Product/Summary';
 
 export default function Home() {
-    return <FeaturedBanner />;
+    return <ProductSummary />;
 }
