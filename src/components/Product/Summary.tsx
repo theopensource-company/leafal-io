@@ -1,50 +1,29 @@
-import { JSX, splitProps } from 'solid-js';
+import { MockupProduct } from 'constants/Types/Products.types';
+import { splitProps } from 'solid-js';
 import style from '~/styles/components/Product/Summary.module.scss';
+import { ProductBanner } from './Banner';
 
-export type SlideProps = {
-    background?: string;
-    thumbnail?: string;
-    title?: string;
-    description?: string;
+export type SummaryProps = {
+    product: MockupProduct;
 };
 
-export function BannerSlide(_props: JSX.HTMLElementTags['a'] & SlideProps) {
-    const [props, rest] = splitProps(_props, [
-        'background',
-        'thumbnail',
-        'title',
-        'description',
-    ]);
-
+export function ProductSummary(_props: SummaryProps) {
+    const [props, rest] = splitProps(_props, ['product']);
     return (
-        <a href="" class={style.slide} {...rest}>
-            <div class={style.background}>
-                <img src={props.background} />
-            </div>
-            <div class={style.foreground}>
-                <div class={style.details} tabIndex="0">
-                    <div class={style.thumbnail}>
-                        <img src={props.thumbnail} />
-                    </div>
-                    <div class={style.text}>
-                        <span class={style.title}>{props.title}</span>
-                        <p class={style.description}>{props.description}</p>
-                    </div>
+        <ProductBanner product={props.product} {...rest}>
+            <a
+                href={`/product/${props.product.slug}`}
+                class={style.details}
+                tabIndex="0"
+            >
+                <div class={style.thumbnail}>
+                    <img src={props.product.thumbnail} />
                 </div>
-            </div>
-        </a>
-    );
-}
-
-export function ProductSummary() {
-    return (
-        <div class={style.banner}>
-            <BannerSlide
-                background="https://raw.githubusercontent.com/leafal-io/celesteia/production/img/background.jpg"
-                thumbnail="https://raw.githubusercontent.com/leafal-io/celesteia/production/img/thumbnail.jpg"
-                title="Celesteia"
-                description="Humankind's last hope spreads across the galaxy to rebuild humanity's glory."
-            />
-        </div>
+                <div class={style.text}>
+                    <span class={style.title}>{props.product.title}</span>
+                    <p class={style.description}>{props.product.description}</p>
+                </div>
+            </a>
+        </ProductBanner>
     );
 }
