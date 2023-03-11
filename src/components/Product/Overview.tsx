@@ -18,7 +18,17 @@ export function ProductOverview(_props: SummaryProps) {
                 {...rest}
             />
             <div class={style.details} tabIndex="0">
-                <div class={style.showcase} />
+                <div class={style.showcase}>
+                    {props.product.showcase ? (
+                        <div />
+                    ) : (
+                        <div class={style.noshow}>
+                            <b>Words speak a thousand pictures...</b>
+                            <br />
+                            This game doesn't have anything to show here.
+                        </div>
+                    )}
+                </div>
                 <div class={style.overview}>
                     <div class={style.thumbnail}>
                         <img src={props.product.thumbnail} />

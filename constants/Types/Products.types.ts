@@ -8,4 +8,14 @@ export type MockupProduct = {
     thumbnail?: string;
     background?: string;
     reception?: number;
+    showcase?: MockupProductShowcase;
+};
+
+export type MockupProductShowcase = {
+    slides: MockupProductSlide[];
+};
+
+export type MockupProductSlide = {
+    video?: string;
+    image?: string;
 };

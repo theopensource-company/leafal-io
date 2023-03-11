@@ -16,11 +16,18 @@
 
     .showcase {
         display: flex;
+        justify-content: center;
+        align-items: center;
+
         height: 100%;
         background-color: black;
         aspect-ratio: 16 / 9;
         overflow: hidden;
         border-radius: 2em;
+
+        .noshow {
+            text-align: center;
+        }
     }
 
     .overview {
