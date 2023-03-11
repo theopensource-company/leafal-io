@@ -38,7 +38,7 @@ export default function Root() {
                 />
             </Head>
             <Body>
-                <Suspense>
+                <Suspense fallback={<p>Loading...</p>}>
                     <ErrorBoundary>
                         <div id="app">
                             <Navbar />

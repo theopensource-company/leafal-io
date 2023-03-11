@@ -59,6 +59,17 @@
         }
     }
 
+    &:active {
+        .background {
+            filter: brightness(120%);
+        }
+
+        .thumbnail {
+            transform: scale(1.00);
+            transition: .1s ease;
+        }
+    }
+
     .foreground {
         position: absolute;
         top: 0;
@@ -82,7 +93,8 @@
     text-decoration: none;
 
     .thumbnail {
-        width: 550px;
+        width: 100%;
+        max-width: 550px;
         height: 300px;
         border: 2px solid transparent;
         border-radius: 30px;
@@ -103,6 +115,9 @@
         justify-content: center;
         gap: 1em;
 
+        width: 100%;
+        max-width: 550px;
+
         .title {
             font-size: 4em;
             line-height: 1em;
@@ -111,7 +126,6 @@
         }
 
         .description {
-            max-width: 550px;
             font-size: 1.5em;
             font-weight: normal;
             color: #ccc;
