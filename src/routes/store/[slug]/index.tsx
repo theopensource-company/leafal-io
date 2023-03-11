@@ -2,6 +2,7 @@ import { MockupProduct } from 'constants/Types/Products.types';
 import { Title, useParams } from 'solid-start';
 import { mockup } from '~/components/Product';
 import { ProductOverview } from '~/components/Product/Overview';
+import style from '~/styles/pages/StoreItem.module.scss';
 
 export type StoreItemProps = {
     product: MockupProduct;
@@ -15,7 +16,13 @@ export default function StoreItemPage(_props: StoreItemProps) {
     return (
         <>
             <Title>{pageTitle}</Title>
-            <ProductOverview product={product} />
+            <div class={style.content}>
+                <ProductOverview product={product} />
+                <div class={style.columns}>
+                    <div class={style.column} />
+                    <div class={style.column} />
+                </div>
+            </div>
         </>
     );
 }

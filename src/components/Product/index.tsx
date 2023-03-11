@@ -12,5 +12,19 @@ export function mockup(slug: string): MockupProduct {
         logo: `https://raw.githubusercontent.com/leafal-io/${slug}/production/Icon.bmp`,
         thumbnail: `https://raw.githubusercontent.com/leafal-io/${slug}/production/img/thumbnail.jpg`,
         background: `https://raw.githubusercontent.com/leafal-io/${slug}/production/img/background.jpg`,
+        showcase: {
+            slides: [
+                {
+                    image: `https://raw.githubusercontent.com/leafal-io/${slug}/production/img/thumbnail.jpg`,
+                },
+                {
+                    image: `https://pbs.twimg.com/media/Fqh7MYnWcAAmjk0?format=png&name=large`,
+                },
+                {
+                    image: `https://pbs.twimg.com/media/Fqfnve6WYAAZT19?format=png&name=large`,
+                },
+            ],
+        },
+        reception: 0.6,
     };
 }

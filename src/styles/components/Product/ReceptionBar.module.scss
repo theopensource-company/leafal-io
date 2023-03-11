@@ -1,12 +1,13 @@
 .bar {
-    line-height: 1em;
-    padding: 1em;
+    line-height: 1.5em;
+    padding: 0 1em;
     overflow: hidden;
     display: flex;
     align-items: stretch;
     flex-direction: row;
 
     span {
+        font-size: .75em;
         white-space: nowrap;
     }
 

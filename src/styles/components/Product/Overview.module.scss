@@ -2,12 +2,14 @@
     display: flex;
     justify-content: center;
     align-items: stretch;
-    gap: 30px;
+    gap: 2em;
     font-size: 16px;
 
-    margin: 10em 0;
+    margin: 10em auto;
+    position: relative;
     
     width: 100%;
+    max-width: 90vw;
     height: 30em;
 
     z-index: 6;
@@ -16,23 +18,27 @@
 
     .showcase {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: stretch;
+        align-items: stretch;
 
-        height: 100%;
-        background-color: black;
         aspect-ratio: 16 / 9;
+        background-color: black;
         overflow: hidden;
         border-radius: 2em;
 
+        & > * {
+            flex: 1;
+        }
+
         .noshow {
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
     }
 
     .overview {
-        flex-basis: 100%;
-
         display: flex;
         flex-direction: column;
 
@@ -42,7 +48,8 @@
         max-width: 350px;
         border-radius: 2em;
 
-        overflow: hidden;
+        z-index: 8;
+        position: relative;
 
         .content {
             display: flex;
@@ -58,6 +65,9 @@
             width: 100%;
             aspect-ratio: 16 / 9;
             overflow: hidden;
+
+            border-top-left-radius: 2em;
+            border-top-right-radius: 2em;
     
             transition: .3s ease;
     
@@ -76,7 +86,43 @@
         }
 
         .public {
+            position: relative;
+            min-height: 1em;
 
+            .reception {
+                position: absolute;
+                top: -.75em;
+                left: 1em;
+                right: 1em;
+                border-radius: .5em;
+                overflow: hidden;
+                background-color: #333;
+
+                z-index: 10;
+            }
+        }
+    }
+
+    @media screen and (orientation: portrait) {
+        & {
+            flex-direction: column;
+            height: auto;
+            gap: 0;
+
+            .showcase {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+
+            .overview {
+                max-width: 100%;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+            }
+
+            .thumbnail {
+                display: none;
+            }
         }
     }
 }
