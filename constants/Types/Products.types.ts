@@ -7,4 +7,5 @@ export type MockupProduct = {
     logo: string;
     thumbnail?: string;
     background?: string;
+    reception?: number;
 };

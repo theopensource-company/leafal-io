@@ -1,0 +1,75 @@
+.details {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+    font-size: 16px;
+
+    margin: 10em 0;
+    
+    width: 100%;
+    height: 30em;
+
+    z-index: 6;
+
+    text-decoration: none;
+
+    .showcase {
+        display: flex;
+        height: 100%;
+        background-color: black;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        border-radius: 2em;
+    }
+
+    .overview {
+        flex-basis: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        background-color: #232323;
+
+        width: 100%;
+        max-width: 350px;
+        border-radius: 2em;
+
+        overflow: hidden;
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+
+            flex: 1;
+
+            padding: 1em;
+        }
+
+        .thumbnail {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+    
+            transition: .3s ease;
+    
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .text {
+            font-size: 1em;
+            font-weight: normal;
+            color: #ccc;
+            margin: 0;
+        }
+
+        .public {
+
+        }
+    }
+}
