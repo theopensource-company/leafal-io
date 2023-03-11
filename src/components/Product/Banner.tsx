@@ -16,7 +16,7 @@ export const bannerStyle = cva([style.banner], {
 });
 
 export type BannerProps = {
-    interactive: boolean;
+    interactive?: boolean;
     product: MockupProduct;
 };
 

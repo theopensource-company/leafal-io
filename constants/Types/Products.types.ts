@@ -1,6 +1,6 @@
 export type MockupProduct = {
     slug: string;
-    productTitle: string;
+    title: string;
     tagline?: string;
     overview: string;
     description: string;
