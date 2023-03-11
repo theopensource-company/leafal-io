@@ -1,0 +1,20 @@
+.bar {
+    line-height: 1em;
+    padding: 1em;
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
+
+    span {
+        white-space: nowrap;
+    }
+
+    &.positive {
+        background: linear-gradient(90deg, rgba(61, 173, 44, 0.3) -20%, transparent 100%);
+    }
+
+    &.negative {
+        background: linear-gradient(90deg, transparent 0%, rgba(173, 44, 44, 0.3) 120%);
+    }
+}

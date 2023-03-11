@@ -1,6 +1,6 @@
 import { MockupProduct } from 'constants/Types/Products.types';
-import { Link, Title, useParams } from 'solid-start';
-import { ProductBanner } from '~/components/Product/Banner';
+import { Title, useParams } from 'solid-start';
+import { ProductOverview } from '~/components/Product/Overview';
 
 function mockup(slug: string): MockupProduct {
     return {
@@ -13,6 +13,7 @@ function mockup(slug: string): MockupProduct {
         logo: `https://raw.githubusercontent.com/leafal-io/${slug}/production/Icon.bmp`,
         thumbnail: `https://raw.githubusercontent.com/leafal-io/${slug}/production/img/thumbnail.jpg`,
         background: `https://raw.githubusercontent.com/leafal-io/${slug}/production/img/background.jpg`,
+        reception: 0.6,
     };
 }
 
@@ -28,8 +29,7 @@ export default function StoreItemPage(_props: StoreItemProps) {
     return (
         <>
             <Title>{pageTitle}</Title>
-            <Link rel="icon shortcut" href={product.logo} />
-            <ProductBanner interactive={false} product={product} />
+            <ProductOverview product={product} />
         </>
     );
 }
