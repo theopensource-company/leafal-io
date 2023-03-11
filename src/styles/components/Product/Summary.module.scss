@@ -5,6 +5,19 @@
 
     text-decoration: none;
 
+    &:hover, &:focus-visible {
+        .thumbnail {
+            transform: scale(1.02);
+            border-color: #ccc;
+            transition: .5s ease;
+        }
+
+        .text {
+            transition: transform .5s ease;
+            transform: translateX(7px);
+        }
+    }
+
     .thumbnail {
         width: 100%;
         max-width: 550px;
@@ -12,25 +25,16 @@
         border: 2px solid transparent;
         border-radius: 30px;
         overflow: hidden;
+        
+        flex-grow: 1;
+        flex-basis: 550px;
 
-        transition: .3s ease;
+        transition: transform .3s ease;
 
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-    }
-
-    &:hover, &:focus-visible {
-        .thumbnail {
-            transform: scale(1.02);
-        }
-    }
-
-    &:active {
-        .thumbnail {
-            transform: scale(1);
         }
     }
 
@@ -40,7 +44,6 @@
         justify-content: center;
         gap: 1em;
 
-        width: 100%;
         max-width: 550px;
 
         transition: transform .3s ease;
