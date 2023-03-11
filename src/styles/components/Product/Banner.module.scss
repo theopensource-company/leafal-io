@@ -48,12 +48,6 @@
         }
     }
 
-    &:hover, &:focus-within {
-        .background {
-            filter: brightness(120%);
-        }
-    }
-
     .foreground {
         position: absolute;
         top: 0;
@@ -66,5 +60,13 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+}
+
+.interactive {
+    &:hover, &:focus-within {
+        .background {
+            filter: brightness(120%);
+        }
     }
 }

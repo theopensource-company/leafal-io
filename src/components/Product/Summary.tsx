@@ -10,9 +10,9 @@ export type SummaryProps = {
 export function ProductSummary(_props: SummaryProps) {
     const [props, rest] = splitProps(_props, ['product']);
     return (
-        <ProductBanner product={props.product} {...rest}>
+        <ProductBanner interactive={true} product={props.product} {...rest}>
             <a
-                href={`/product/${props.product.slug}`}
+                href={`/store/${props.product.slug}`}
                 class={style.details}
                 tabIndex="0"
             >
