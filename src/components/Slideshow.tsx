@@ -43,7 +43,7 @@ export function Slideshow(_props: SlideshowProps) {
             const x = setInterval(() => {
                 setActiveSlide(activeSlide() + 1);
                 if (activeSlide() >= props.slides.length) setActiveSlide(0);
-            }, 10000);
+            }, 5000);
 
             onCleanup(() => clearInterval(x));
         }
