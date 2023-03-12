@@ -1,3 +1,4 @@
+import { A } from '@solidjs/router';
 import { MockupProduct } from 'constants/Types/Products.types';
 import { splitProps } from 'solid-js';
 import style from '~/styles/components/Product/Summary.module.scss';
@@ -16,7 +17,7 @@ export function ProductSummary(_props: SummaryProps) {
                 product={props.product}
                 {...rest}
             />
-            <a
+            <A
                 href={`/store/${props.product.slug}`}
                 class={style.details}
                 tabIndex="0"
@@ -28,7 +29,7 @@ export function ProductSummary(_props: SummaryProps) {
                     <span class={style.title}>{props.product.title}</span>
                     <p class={style.description}>{props.product.tagline}</p>
                 </div>
-            </a>
+            </A>
         </>
     );
 }
