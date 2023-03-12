@@ -4,8 +4,10 @@ import { Column } from '~/components/Layout/Groups/Columns/Column';
 import { ColumnBar } from '~/components/Layout/Groups/Columns/ColumnBar';
 import { MainWrapper } from '~/components/Layout/MainWrapper';
 import { mockup } from '~/components/Product';
+import { MakerProfile } from '~/components/Product/Maker/Profile';
 import { ProductOverview } from '~/components/Product/Overview';
 import { PageContent } from '~/components/Product/PageContent';
+import { PageSection, SectionHeading } from '~/components/Product/PageSection';
 
 export type StoreItemProps = {
     product: MockupProduct;
@@ -24,10 +26,23 @@ export default function StoreItemPage(_props: StoreItemProps) {
                 <MainWrapper>
                     <ColumnBar>
                         <Column variant="twothird">
-                            <span>Yo but two thirds</span>
+                            {product.description && (
+                                <>
+                                    <SectionHeading>
+                                        About this game
+                                    </SectionHeading>
+                                    <PageSection wrapped={false}>
+                                        <p>{product.description}</p>
+                                    </PageSection>
+                                </>
+                            )}
                         </Column>
                         <Column variant="onethird">
-                            <span>Yo but one third</span>
+                            <SectionHeading>Details</SectionHeading>
+                            <PageSection wrapped={true}>
+                                <SectionHeading>Made by</SectionHeading>
+                                <MakerProfile maker={product.maker} />
+                            </PageSection>
                         </Column>
                     </ColumnBar>
                 </MainWrapper>

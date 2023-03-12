@@ -1,0 +1,25 @@
+.section {
+    &.wrapped {
+        background-color: #232323;
+        padding: 1em;
+        border-radius: 2em;
+    }
+
+    .heading {
+        border-bottom: 0px;
+        margin-bottom: 0px;
+    }
+
+    p { margin: 0; }
+}
+
+.heading {
+    display: block;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    height: 2em;
+    color: #ccc;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1em;
+}

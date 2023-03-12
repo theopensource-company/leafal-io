@@ -6,7 +6,6 @@ import { ColumnBar } from '../Layout/Groups/Columns/ColumnBar';
 import { MainWrapper } from '../Layout/MainWrapper';
 import { Slideshow, SlideshowSlide } from '../Slideshow';
 import { ProductBanner } from './Banner';
-import { MakerProfile } from './Maker/Profile';
 import { ReceptionBar } from './ReceptionBar';
 
 export type SummaryProps = {
@@ -77,13 +76,6 @@ export function ProductOverview(_props: SummaryProps) {
                                         <p class={style.text}>
                                             {props.product.overview}
                                         </p>
-                                        <MakerProfile
-                                            maker={{
-                                                slug: 'leafal-io',
-                                                name: 'leafal.io',
-                                                logo: '/images/icons/icon_512x512.png',
-                                            }}
-                                        />
                                     </div>
                                 </div>
                             </div>

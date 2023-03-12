@@ -6,8 +6,9 @@ export function mockup(slug: string): MockupProduct {
         title: 'Celesteia',
         tagline: `Humankind's last hope spreads across the galaxy to rebuild humanity's glory.`,
         overview: `In the wake of a terrible calamity, humankind's last hope spreads across the galaxy to rebuild humanity's glory.`,
-        description:
-            'This is a mockup of a product intended for testing purposes, it is not a real product and you cannot buy or play it. Please, do not believe anyone that tells you you can buy this. You cannot. Believe me.',
+        description: `This page reflects a mockup of a product that is intended for testing purposes.
+                In its current state, this page does not have any functioning options to purchase or play this game. 
+                Don't trust anyone that tells you you can buy this if this text appears. You cannot. Believe me.`,
         logo: `https://raw.githubusercontent.com/leafal-io/${slug}/production/Icon.bmp`,
         thumbnail: `https://raw.githubusercontent.com/leafal-io/${slug}/production/img/thumbnail.jpg`,
         background: `https://raw.githubusercontent.com/leafal-io/${slug}/production/img/background.jpg`,
