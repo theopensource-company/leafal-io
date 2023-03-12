@@ -13,6 +13,11 @@
     z-index: 99;
 }
 
+.item {
+    outline: none;
+    text-decoration: none;
+}
+
 .content {
     margin: .5em 5vw;
     width: 100%;
@@ -37,10 +42,36 @@
 
     svg {
         height: 3em;
+
+        transition-property: filter, transform;
+        transition-duration: .3s;
+        transition-timing-function: ease;
     }
+
     span {
         font-size: 2em;
         font-weight: 700;
+    }
+
+    *:hover > &, *:focus-visible > & {
+        svg {
+            filter: brightness(120%);
+            transform: scale(1.05);
+
+            animation: logo-animation .2s ease;
+        }
+    }
+}
+
+@keyframes logo-animation {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(-5deg) scale(1.025);
+    }
+    100% {
+        transform: rotate(0deg) scale((1.05));
     }
 }
 

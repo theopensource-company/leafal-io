@@ -15,7 +15,7 @@
     transition: .15s ease;
 }
 
-.intentDefault:hover {
+.intentDefault:hover, .intentDefault:focus-visible {
     background-color: #3dad2c;
 }
 
