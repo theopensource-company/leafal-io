@@ -1,0 +1,80 @@
+.banner {
+    width: 100vw;
+    height: 0;
+    position: absolute;
+}
+
+.banner:focus {
+    opacity: .5;    
+}
+
+.banner::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    height: 500px;
+    background-image: url("/images/pages/home/banner-gradient.svg");
+    background-size: cover;
+    z-index: 3;
+}
+
+.slide {
+    display: flex;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+
+    .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        transition: .3s ease;
+
+        z-index: 2;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .4s ease;
+            transform: scale(1.02);
+        }
+    }
+
+    .foreground {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        
+        z-index: 4;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.interactive {
+    &:hover, &:focus-within {
+        .background {
+            filter: brightness(120%);
+
+            img {
+                transform: scale(1);
+                transition: transform 0.8s ease;
+            }
+        }
+    }
+}

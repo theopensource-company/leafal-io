@@ -3,6 +3,7 @@ import { JSX } from 'solid-js';
 import style from '~/styles/components/Layout/Navbar.module.scss';
 import { Logo } from '../Brand/Logo';
 import { Button } from '../Button';
+import { NavItem } from './NavItem';
 
 export const navbarStyle = cva([style.default]);
 
@@ -16,10 +17,10 @@ export function Navbar(props: JSX.HTMLElementTags['div'] & NavbarProps) {
             })}
         >
             <div class={style.content}>
-                <div class={style.logo}>
+                <NavItem href="/" class={style.logo}>
                     <Logo />
                     <span>leafal.io</span>
-                </div>
+                </NavItem>
                 <div class={style.links} />
                 <div class={style.account}>
                     <Button size="normal">Log in</Button>
