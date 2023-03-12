@@ -4,10 +4,6 @@
     position: absolute;
 }
 
-.banner:focus {
-    opacity: .5;    
-}
-
 .banner::before {
     content: "";
     display: block;
@@ -63,18 +59,5 @@
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-}
-
-.interactive {
-    &:hover, &:focus-within {
-        .background {
-            filter: brightness(120%);
-
-            img {
-                transform: scale(1);
-                transition: transform 0.8s ease;
-            }
-        }
     }
 }
