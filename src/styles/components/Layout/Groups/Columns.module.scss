@@ -3,10 +3,10 @@
     flex-direction: row;
     width: 100%;
     gap: 3em;
+    padding-bottom: 1em;
 
     @media screen and (orientation: portrait) {
         flex-direction: column;
-        gap: 0;
 
         > * {
             flex-basis: 0;

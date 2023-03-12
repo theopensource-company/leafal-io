@@ -1,4 +1,7 @@
 .section {
+    position: relative;
+    z-index: 12;
+
     &.wrapped {
         background-color: #232323;
         padding: 1em;
@@ -14,6 +17,9 @@
 }
 
 .heading {
+    position: relative;
+    z-index: 12;
+    
     display: block;
     font-size: 1em;
     font-weight: bold;
