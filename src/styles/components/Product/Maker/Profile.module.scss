@@ -1,0 +1,21 @@
+.profile {
+    display: flex;
+    align-items: center;
+    min-height: 2.5em;
+    gap: 1em;
+    overflow: hidden;
+
+    text-decoration: none;
+    color: inherit;
+
+    .avatar {
+        width: 2.5em;
+        height: 2.5em;
+        border-radius: 50%;
+    }
+
+    .name {
+        font-size: 1em;
+        font-weight: 500;
+    }
+}

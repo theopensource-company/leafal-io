@@ -9,6 +9,7 @@ export type MockupProduct = {
     background?: string;
     reception?: number;
     showcase?: MockupProductShowcase;
+    maker: MockupProductMaker;
 };
 
 export type MockupProductShowcase = {
@@ -18,4 +19,10 @@ export type MockupProductShowcase = {
 export type MockupProductSlide = {
     video?: string;
     image?: string;
+};
+
+export type MockupProductMaker = {
+    slug: string;
+    name: string;
+    logo: string;
 };

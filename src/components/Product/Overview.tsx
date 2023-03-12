@@ -3,6 +3,7 @@ import { createEffect, createSignal, splitProps } from 'solid-js';
 import style from '~/styles/components/Product/Overview.module.scss';
 import { Slideshow, SlideshowSlide } from '../Slideshow';
 import { ProductBanner } from './Banner';
+import { MakerProfile } from './Maker/Profile';
 import { ReceptionBar } from './ReceptionBar';
 
 export type SummaryProps = {
@@ -61,6 +62,13 @@ export function ProductOverview(_props: SummaryProps) {
                         </div>
                         <div class={style.content}>
                             <p class={style.text}>{props.product.overview}</p>
+                            <MakerProfile
+                                maker={{
+                                    slug: 'leafal-io',
+                                    name: 'leafal.io',
+                                    logo: '/images/icons/icon_512x512.png',
+                                }}
+                            />
                         </div>
                     </div>
                 </div>
