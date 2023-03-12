@@ -45,21 +45,23 @@ export function ProductOverview(_props: SummaryProps) {
                         </div>
                     )}
                 </div>
-                <div class={style.overview}>
-                    <div class={style.thumbnail}>
-                        <img src={props.product.thumbnail} />
-                    </div>
-                    <div class={style.public}>
-                        {props.product.reception && (
-                            <div class={style.reception}>
-                                <ReceptionBar
-                                    rating={props.product.reception}
-                                />
-                            </div>
-                        )}
-                    </div>
-                    <div class={style.content}>
-                        <p class={style.text}>{props.product.overview}</p>
+                <div class={style.side}>
+                    <div class={style.overview}>
+                        <div class={style.thumbnail}>
+                            <img src={props.product.thumbnail} />
+                        </div>
+                        <div class={style.public}>
+                            {props.product.reception && (
+                                <div class={style.reception}>
+                                    <ReceptionBar
+                                        rating={props.product.reception}
+                                    />
+                                </div>
+                            )}
+                        </div>
+                        <div class={style.content}>
+                            <p class={style.text}>{props.product.overview}</p>
+                        </div>
                     </div>
                 </div>
             </div>

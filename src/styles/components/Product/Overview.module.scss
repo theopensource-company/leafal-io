@@ -38,6 +38,13 @@
         }
     }
 
+    .side {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: stretch;
+    }
+
     .overview {
         display: flex;
         flex-direction: column;
@@ -47,6 +54,8 @@
         width: 100%;
         max-width: 350px;
         border-radius: 2em;
+
+        flex: 1;
 
         z-index: 8;
         position: relative;
@@ -68,8 +77,6 @@
 
             border-top-left-radius: 2em;
             border-top-right-radius: 2em;
-    
-            transition: .3s ease;
     
             img {
                 width: 100%;
