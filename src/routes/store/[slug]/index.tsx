@@ -1,8 +1,11 @@
 import { MockupProduct } from 'constants/Types/Products.types';
 import { Title, useParams } from 'solid-start';
+import { Column } from '~/components/Layout/Groups/Columns/Column';
+import { ColumnBar } from '~/components/Layout/Groups/Columns/ColumnBar';
+import { MainWrapper } from '~/components/Layout/MainWrapper';
 import { mockup } from '~/components/Product';
 import { ProductOverview } from '~/components/Product/Overview';
-import style from '~/styles/pages/StoreItem.module.scss';
+import { PageContent } from '~/components/Product/PageContent';
 
 export type StoreItemProps = {
     product: MockupProduct;
@@ -16,13 +19,19 @@ export default function StoreItemPage(_props: StoreItemProps) {
     return (
         <>
             <Title>{pageTitle}</Title>
-            <div class={style.content}>
+            <PageContent>
                 <ProductOverview product={product} />
-                <div class={style.columns}>
-                    <div class={style.column} />
-                    <div class={style.column} />
-                </div>
-            </div>
+                <MainWrapper>
+                    <ColumnBar>
+                        <Column variant="twothird">
+                            <span>Yo but two thirds</span>
+                        </Column>
+                        <Column variant="onethird">
+                            <span>Yo but one third</span>
+                        </Column>
+                    </ColumnBar>
+                </MainWrapper>
+            </PageContent>
         </>
     );
 }

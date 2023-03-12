@@ -1,0 +1,14 @@
+.bar {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 3em;
+}
+
+.onethird {
+    flex-basis: 33.3%;
+}
+
+.twothird {
+    flex-basis: 66.6%;
+}
