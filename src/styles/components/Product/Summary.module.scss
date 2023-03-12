@@ -1,7 +1,24 @@
 .details {
     display: flex;
-    gap: 100px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
     font-size: 16px;
+
+    width: 100%;
+    max-width: 90vw;
+    
+    margin: 10em auto;
+    position: relative;
+
+    z-index: 8;
+
+    @media screen and (orientation: portrait) {
+        & {
+            flex-direction: column;
+        }
+    }
 
     text-decoration: none;
 
@@ -21,13 +38,12 @@
     .thumbnail {
         width: 100%;
         max-width: 550px;
-        height: 300px;
+        aspect-ratio: 16 / 9;
         border: 2px solid transparent;
         border-radius: 30px;
         overflow: hidden;
         
         flex-grow: 1;
-        flex-basis: 550px;
 
         transition: transform .3s ease;
 
