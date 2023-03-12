@@ -25,5 +25,10 @@ export function mockup(slug: string): MockupProduct {
             ],
         },
         reception: 0.6,
+        maker: {
+            slug: 'leafal-io',
+            name: 'leafal.io',
+            logo: '/images/icons/icon_512x512.png',
+        },
     };
 }

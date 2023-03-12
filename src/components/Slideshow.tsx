@@ -1,11 +1,4 @@
-import {
-    createEffect,
-    createSignal,
-    For,
-    JSX,
-    onCleanup,
-    splitProps,
-} from 'solid-js';
+import { createEffect, createSignal, For, JSX, splitProps } from 'solid-js';
 import style from '~/styles/components/Slideshow.module.scss';
 
 export type SlideshowProps = {
@@ -33,19 +26,42 @@ export function Slide(_props: JSX.HTMLElementTags['div'] & SlideshowSlide) {
     );
 }
 
+export type SlideshowSelectorProps = {
+    activeSlideFunction: (v: number) => number;
+    index: number;
+};
+
+export function SlideSelector(
+    _props: JSX.HTMLElementTags['div'] & SlideshowSelectorProps
+) {
+    const [props, rest] = splitProps(_props, ['activeSlideFunction', 'index']);
+    return (
+        <div
+            class={style.selector}
+            // eslint-disable-next-line solid/reactivity
+            onClick={() => props.activeSlideFunction(props.index)}
+            {...rest}
+        />
+    );
+}
+
 export function Slideshow(_props: SlideshowProps) {
     const [props] = splitProps(_props, ['slides']);
 
     const [activeSlide, setActiveSlide] = createSignal(0);
 
+    let x: NodeJS.Timer;
+
     createEffect(() => {
+        activeSlide();
+        clearTimeout(x);
         if (props.slides.length > 1) {
-            const x = setInterval(() => {
+            console.log('Test');
+
+            x = setTimeout(() => {
                 setActiveSlide(activeSlide() + 1);
                 if (activeSlide() >= props.slides.length) setActiveSlide(0);
             }, 5000);
-
-            onCleanup(() => clearInterval(x));
         }
     });
 
@@ -63,6 +79,21 @@ export function Slideshow(_props: SlideshowProps) {
                     );
                 }}
             </For>
+            <div class={style.selectors}>
+                <For each={props.slides}>
+                    {(s, index) => {
+                        return (
+                            <SlideSelector
+                                class={`${style.selector} ${
+                                    index() == activeSlide() ? style.active : ''
+                                }`}
+                                activeSlideFunction={setActiveSlide}
+                                index={index()}
+                            />
+                        );
+                    }}
+                </For>
+            </div>
         </div>
     );
 }
