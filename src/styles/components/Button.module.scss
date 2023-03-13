@@ -1,3 +1,5 @@
+@use '../color';
+
 .default {
     text-transform: uppercase;
     font-weight: bold;
@@ -9,19 +11,19 @@
 }
 
 .intentDefault {
-    background-color: #2d7b21;
-    color: #ffffff;
+    background-color: #{color.$accent2};
+    color: #{color.$light1};
     cursor: pointer;
     transition: .15s ease;
-}
 
-.intentDefault:hover, .intentDefault:focus-visible {
-    background-color: #3dad2c;
+    &:hover, &:focus-visible {
+        background-color: #{color.$accent2};
+    }
 }
 
 .intentDisabled {
-    background-color: #2c2e2c;
-    color: #ffffff;
+    background-color: #{color.$gray};
+    color: #{color.$light1};
 }
 
 .sizeSmall {

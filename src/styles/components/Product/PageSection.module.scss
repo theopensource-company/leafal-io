@@ -1,9 +1,11 @@
+@use '../../color';
+
 .section {
     position: relative;
     z-index: 12;
 
     &.wrapped {
-        background-color: #232323;
+        background-color: #{color.$dark2};
         padding: 1em;
         border-radius: 2em;
     }
@@ -25,7 +27,7 @@
     font-weight: bold;
     text-transform: uppercase;
     height: 2em;
-    color: #ccc;
+    color: #{color.$light2};
     border-bottom: 1px solid #ccc;
     margin-bottom: 1em;
 }
