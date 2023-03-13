@@ -63,40 +63,22 @@
 
             cursor: pointer;
 
-            &::before {
-                content: "";
-                display: block;
-
-                position: absolute;
-                
-                top: 40%;
-                left: 40%;
-                width: 20%;
-                height: 20%;
-
-                transform: scale(1);
-                transition: transform .3s ease;
-
-                border-radius: 50%;
-                background-color: #131313;
-
-                z-index: 2;
-            }
-
             &::after {
                 content: "";
                 display: block;
 
                 position: absolute;
 
-                top: 45%;
-                left: 45%;
+                top: 1.25em;
+                left: 1.25em;
 
-                width: 10%;
-                height: 10%;
+                width: .5em;
+                height: .5em;
 
                 transform: scale(1);
                 transition: transform .3s ease;
+
+                border: .1em solid #131313;
 
                 border-radius: 50%;
                 background-color: #fff;
@@ -104,7 +86,7 @@
                 z-index: 4;
             }
 
-            &.active::before, &.active::after {
+            &.active::after {
                 transform: scale(2);
             }
         }
