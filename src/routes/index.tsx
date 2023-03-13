@@ -8,6 +8,7 @@ export default function Home() {
         <>
             <Title>{standardTitle}</Title>
             <ProductSummary product={mockup('celesteia')} />
+            <p>{process.env.TEST ?? 456}</p>
         </>
     );
 }
