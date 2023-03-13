@@ -6,6 +6,16 @@ DEFINE TABLE user SCHEMAFULL
 
 DEFINE FIELD username ON TABLE user TYPE string ASSERT $value = /^[a-z0-9](?:[a-z0-9._-]{1,14}[a-z0-9.])$/;
 DEFINE FIELD email ON TABLE user TYPE string ASSERT is::email($value);
+
+DEFINE FIELD emailverified ON TABLE user TYPE bool 
+    VALUE
+        IF $value != NONE THEN $value
+        ELSE IF $before != NONE THEN $before
+        ELSE false
+        END
+    PERMISSIONS
+        FOR update NONE;
+
 DEFINE FIELD firstname ON TABLE user TYPE string ASSERT $value != NONE;
 DEFINE FIELD lastname ON TABLE user TYPE string ASSERT $value != NONE;
 DEFINE FIELD password ON TABLE user TYPE string ASSERT $value != NONE
