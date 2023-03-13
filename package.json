@@ -6,7 +6,7 @@
     "dev-run-solid": "solid-start dev --port 14000",
     "dev-run-surreal": "surreal start --log debug --user root --pass root --bind 0.0.0.0:14001 file:dev.db",
     "deploy": "export NEXT_PUBLIC_DEPLOYMENT_STATUS=\"deployed\" SURREAL_DATABASE=leafal-deployment_$CF_PAGES_BRANCH && export NEXT_PUBLIC_SURREAL_NAMESPACE=$SURREAL_NAMESPACE && node ./cli/predeploy.mjs && pnpm build",
-    "build": "solid-start build",
+    "build": "export VITE_TEST=\"789\" && solid-start build",
     "start": "solid-start start",
     "lint": "eslint . --ext ts --ext tsx --ext js --ext jsx --ext json --ext html --max-warnings 0",
     "ts": "tsc --watch",
