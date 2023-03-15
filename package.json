@@ -1,8 +1,12 @@
 {
   "name": "leafal-io",
   "scripts": {
-    "dev": "solid-start dev",
-    "build": "solid-start build",
+    "dev": "concurrently --names \"leafal,surrl\" --hide 1 \"pnpm run dev-run-solid\" \"pnpm run dev-run-surreal\"",
+    "debug": "concurrently --names \"leafal,surrl\" \"pnpm run dev-run-solid\" \"pnpm run dev-run-surreal\"",
+    "dev-run-solid": "solid-start dev --port 14000",
+    "dev-run-surreal": "surreal start --log debug --user root --pass root --bind 0.0.0.0:14001 file:dev.db",
+    "deploy": "export NEXT_PUBLIC_DEPLOYMENT_STATUS=\"deployed\" SURREAL_DATABASE=leafal-deployment_$CF_PAGES_BRANCH && export NEXT_PUBLIC_SURREAL_NAMESPACE=$SURREAL_NAMESPACE && node ./cli/predeploy.mjs && pnpm build",
+    "build": "export VITE_TEST=\"789\" && solid-start build",
     "start": "solid-start start",
     "lint": "eslint . --ext ts --ext tsx --ext js --ext jsx --ext json --ext html --max-warnings 0",
     "ts": "tsc --watch",
@@ -10,9 +14,13 @@
   },
   "type": "module",
   "devDependencies": {
+    "@theopensource-company/awaited-surrealdb": "^0.5.1",
+    "@theopensource-company/surrealdb-cloudflare": "^1.0.4",
     "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",
+    "concurrently": "^7.6.0",
+    "cross-env": "^7.0.3",
     "esbuild": "^0.14.54",
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.7.0",
