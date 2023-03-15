@@ -12,6 +12,7 @@ import {
     Scripts,
     Title,
 } from 'solid-start';
+import { ModalBackdrop, openModalID } from './components/Layout/Modal';
 import { Navbar } from './components/Layout/Navbar';
 import './styles/root.scss';
 
@@ -41,6 +42,7 @@ export default function Root() {
                 <Suspense fallback={<p>Loading...</p>}>
                     <ErrorBoundary>
                         <div id="app">
+                            <ModalBackdrop open={() => !!openModalID()} />
                             <Navbar />
                             <Routes>
                                 <FileRoutes />
