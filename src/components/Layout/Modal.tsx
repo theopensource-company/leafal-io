@@ -108,7 +108,9 @@ export function ModalBackdrop(
 // Modal state
 const [openModalID, setOpenModalID] = createSignal<string | undefined>();
 export { openModalID };
-export function createModalState({ defaultOpen }: { defaultOpen?: boolean }) {
+export function createModalState({
+    defaultOpen,
+}: { defaultOpen?: boolean } = {}) {
     const id = createUniqueId();
     const open = createMemo(() => openModalID() === id);
     const setOpen = (open: boolean) => setOpenModalID(open ? id : undefined);
