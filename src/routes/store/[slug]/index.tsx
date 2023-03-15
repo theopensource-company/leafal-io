@@ -32,7 +32,9 @@ export default function StoreItemPage(_props: StoreItemProps) {
                                         About this game
                                     </SectionHeading>
                                     <PageSection wrapped={false}>
-                                        <p>{mockupProduct.product.description}</p>
+                                        <p>
+                                            {mockupProduct.product.description}
+                                        </p>
                                     </PageSection>
                                 </>
                             )}

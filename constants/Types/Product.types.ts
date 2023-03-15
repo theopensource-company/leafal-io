@@ -1,9 +1,9 @@
-import { TRecordID } from "./Common.types";
+import { TRecordID } from './Common.types';
 
 export type TProductRecordID = TRecordID<'product'>;
 export type TProductRecord = {
     id: TProductRecordID;
-    
+
     slug: string;
     title: string;
     tagline?: string;
@@ -19,4 +19,4 @@ export type TProductRecord = {
 
     created: Date;
     updated: Date;
-}
+};

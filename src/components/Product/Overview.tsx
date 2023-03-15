@@ -59,7 +59,11 @@ export function ProductOverview(_props: SummaryProps) {
                             <div class={style.side}>
                                 <div class={style.overview}>
                                     <div class={style.thumbnail}>
-                                        <img src={props.product.product.thumbnail} />
+                                        <img
+                                            src={
+                                                props.product.product.thumbnail
+                                            }
+                                        />
                                     </div>
                                     <div class={style.public}>
                                         {props.product.reception && (

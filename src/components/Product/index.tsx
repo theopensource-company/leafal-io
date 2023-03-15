@@ -17,7 +17,7 @@ export function mockup(slug: string): MockupProduct {
             published: true,
             discoverable: true,
             created: new Date(),
-            updated: new Date()
+            updated: new Date(),
         },
         showcase: {
             slides: [

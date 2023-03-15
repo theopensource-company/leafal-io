@@ -1,4 +1,4 @@
-import { TProductRecord } from "./Product.types";
+import { TProductRecord } from './Product.types';
 
 export type MockupProduct = {
     product: TProductRecord;
