@@ -1,4 +1,4 @@
-import { MockupProduct } from 'constants/Types/Products.types';
+import { TProductRecord } from 'constants/Types/Product.types';
 import { Title, useParams } from 'solid-start';
 import { Column } from '~/components/Layout/Groups/Columns/Column';
 import { ColumnBar } from '~/components/Layout/Groups/Columns/ColumnBar';
@@ -10,13 +10,13 @@ import { PageContent } from '~/components/Product/PageContent';
 import { PageSection, SectionHeading } from '~/components/Product/PageSection';
 
 export type StoreItemProps = {
-    product: MockupProduct;
+    product: TProductRecord;
 };
 
 export default function StoreItemPage(_props: StoreItemProps) {
     const { slug } = useParams<{ slug: string }>();
     const mockupProduct = mockup(slug);
-    const pageTitle = `${mockupProduct.product.title} on leafal.io`;
+    const pageTitle = `${mockupProduct.title} on leafal.io`;
 
     return (
         <>
@@ -26,14 +26,14 @@ export default function StoreItemPage(_props: StoreItemProps) {
                 <MainWrapper>
                     <ColumnBar>
                         <Column variant="twothird">
-                            {mockupProduct.product.description && (
+                            {mockupProduct.description && (
                                 <>
                                     <SectionHeading>
                                         About this game
                                     </SectionHeading>
                                     <PageSection wrapped={false}>
                                         <p>
-                                            {mockupProduct.product.description}
+                                            {mockupProduct.description}
                                         </p>
                                     </PageSection>
                                 </>

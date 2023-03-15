@@ -45,10 +45,13 @@ DEFINE FIELD discoverable   ON product TYPE boolean VALUE {
     END;
 }
 
+-- The producer/developer and publisher of the product.
+DEFINE FIELD producer       ON product TYPE maker ASSERT $value != NONE;
+DEFINE FIELD publisher      ON product TYPE maker ASSERT $value != NONE;
+
 -- Get some historical data :)
 DEFINE FIELD created        ON product VALUE $before OR time::now();
 DEFINE FIELD updated        ON product VALUE time::now(); -- will only change when you update the record.
-
 
 #################
 #### INDEXES ####

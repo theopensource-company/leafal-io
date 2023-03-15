@@ -7,7 +7,7 @@ export default function Home() {
     return (
         <>
             <Title>{standardTitle}</Title>
-            <ProductSummary product={mockup('celesteia').product} />
+            <ProductSummary product={mockup('celesteia')} />
             <p>{import.meta.env.VITE_TEST ?? 456}</p>
         </>
     );

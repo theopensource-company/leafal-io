@@ -1,4 +1,4 @@
-import { MockupProduct } from 'constants/Types/Products.types';
+import { TProductRecord } from 'constants/Types/Product.types';
 import { createEffect, createSignal, splitProps } from 'solid-js';
 import style from '~/styles/components/Product/Overview.module.scss';
 import { Column } from '../Layout/Groups/Columns/Column';
@@ -9,7 +9,7 @@ import { ProductBanner } from './Banner';
 import { ReceptionBar } from './ReceptionBar';
 
 export type SummaryProps = {
-    product: MockupProduct;
+    product: TProductRecord;
 };
 
 export function ProductOverview(_props: SummaryProps) {
@@ -19,10 +19,10 @@ export function ProductOverview(_props: SummaryProps) {
     createEffect(() => {
         if (props.product.showcase) {
             setSlides(
-                props.product.showcase.slides.map((slide): SlideshowSlide => {
+                props.product.showcase.map((slide): SlideshowSlide => {
                     return {
-                        video: slide.video,
-                        image: slide.image,
+                        video: slide.type === 'video' ? slide.source : '',
+                        image: slide.type === 'image' ? slide.source : '',
                     };
                 })
             );
@@ -32,7 +32,7 @@ export function ProductOverview(_props: SummaryProps) {
     return (
         <>
             <ProductBanner
-                product={props.product.product}
+                product={props.product}
                 interactive={false}
                 {...rest}
             />
@@ -59,26 +59,20 @@ export function ProductOverview(_props: SummaryProps) {
                             <div class={style.side}>
                                 <div class={style.overview}>
                                     <div class={style.thumbnail}>
-                                        <img
-                                            src={
-                                                props.product.product.thumbnail
-                                            }
-                                        />
+                                        <img src={props.product.thumbnail} />
                                     </div>
                                     <div class={style.public}>
-                                        {props.product.reception && (
-                                            <div class={style.reception}>
-                                                <ReceptionBar
-                                                    rating={
-                                                        props.product.reception
-                                                    }
-                                                />
-                                            </div>
-                                        )}
+                                        <div class={style.reception}>
+                                            <ReceptionBar
+                                                rating={
+                                                    0.6
+                                                }
+                                            />
+                                        </div>
                                     </div>
                                     <div class={style.content}>
                                         <p class={style.text}>
-                                            {props.product.product.overview}
+                                            {props.product.overview}
                                         </p>
                                     </div>
                                 </div>
