@@ -116,6 +116,10 @@ export function createModalState(defaultOpen = false) {
     const onOpen = () => setOpenModalID(id);
     const onClose = () => setOpenModalID(undefined);
 
+    onCleanup(() => {
+        if (open()) setOpenModalID(undefined);
+    });
+
     if (defaultOpen) onOpen();
     return { open, setOpen, onOpen, onClose, toggleOpen };
 }
