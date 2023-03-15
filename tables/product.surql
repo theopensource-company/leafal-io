@@ -25,7 +25,7 @@ DEFINE FIELD thumbnail      ON product TYPE string;
 DEFINE FIELD background     ON product TYPE string;
 
 -- State of product
-DEFINE FIELD published      ON product TYPE boolean VALUE {
+DEFINE FIELD published      ON product TYPE bool VALUE {
     IF (is_bool($value)) THEN
         RETURN $value;
     ELSE IF (is_bool($before)) THEN
@@ -35,7 +35,7 @@ DEFINE FIELD published      ON product TYPE boolean VALUE {
     END;
 }
 
-DEFINE FIELD discoverable   ON product TYPE boolean VALUE {
+DEFINE FIELD discoverable   ON product TYPE bool VALUE {
     IF (is_bool($value)) THEN
         RETURN $value;
     ELSE IF (is_bool($before)) THEN

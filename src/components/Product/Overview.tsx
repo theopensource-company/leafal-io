@@ -63,11 +63,7 @@ export function ProductOverview(_props: SummaryProps) {
                                     </div>
                                     <div class={style.public}>
                                         <div class={style.reception}>
-                                            <ReceptionBar
-                                                rating={
-                                                    0.6
-                                                }
-                                            />
+                                            <ReceptionBar rating={0.6} />
                                         </div>
                                     </div>
                                     <div class={style.content}>
