@@ -15,24 +15,24 @@ export type StoreItemProps = {
 
 export default function StoreItemPage(_props: StoreItemProps) {
     const { slug } = useParams<{ slug: string }>();
-    const product = mockup(slug);
-    const pageTitle = `${product.title} on leafal.io`;
+    const mockupProduct = mockup(slug);
+    const pageTitle = `${mockupProduct.product.title} on leafal.io`;
 
     return (
         <>
             <Title>{pageTitle}</Title>
             <PageContent>
-                <ProductOverview product={product} />
+                <ProductOverview product={mockupProduct} />
                 <MainWrapper>
                     <ColumnBar>
                         <Column variant="twothird">
-                            {product.description && (
+                            {mockupProduct.product.description && (
                                 <>
                                     <SectionHeading>
                                         About this game
                                     </SectionHeading>
                                     <PageSection wrapped={false}>
-                                        <p>{product.description}</p>
+                                        <p>{mockupProduct.product.description}</p>
                                     </PageSection>
                                 </>
                             )}
@@ -41,7 +41,7 @@ export default function StoreItemPage(_props: StoreItemProps) {
                             <SectionHeading>Details</SectionHeading>
                             <PageSection wrapped={true}>
                                 <SectionHeading>Made by</SectionHeading>
-                                <MakerProfile maker={product.maker} />
+                                <MakerProfile maker={mockupProduct.maker} />
                             </PageSection>
                         </Column>
                     </ColumnBar>

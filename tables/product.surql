@@ -10,12 +10,14 @@ DEFINE TABLE product SCHEMAFULL
 #### FIELDS ####
 ################
 
+-- Slug will need to start & end with letter or number, can contain a `-` in between words (?) and has to be lowercase.
+DEFINE FIELD slug           ON product TYPE string ASSERT $value != NONE AND $value = /^[a-z0-9]+(?:-[a-z0-9]+)+$/;
+
+-- Product branding
 DEFINE FIELD title          ON product TYPE string ASSERT $value != NONE;
 DEFINE FIELD tagline        ON product TYPE string;
 DEFINE FIELD overview       ON product TYPE string ASSERT $value != NONE;
 DEFINE FIELD description    ON product TYPE string ASSERT $value != NONE;
--- Slug will need to start & end with letter or number, can contain a `-` in between words (?) and has to be lowercase.
-DEFINE FIELD slug           ON product TYPE string ASSERT $value != NONE AND $value = /^[a-z0-9]+(?:-[a-z0-9]+)+$/;
 
 -- Logo is required, rest can have a fallback.
 DEFINE FIELD logo           ON product TYPE string ASSERT $value != NONE;

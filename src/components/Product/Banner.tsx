@@ -1,4 +1,4 @@
-import { MockupProduct } from 'constants/Types/Products.types';
+import { TProductRecord } from 'constants/Types/Product.types';
 import { cva } from 'cva';
 import { JSX, splitProps } from 'solid-js';
 import style from '~/styles/components/Product/Banner.module.scss';
@@ -17,7 +17,7 @@ export const bannerStyle = cva([style.banner], {
 
 export type BannerProps = {
     interactive?: boolean;
-    product: MockupProduct;
+    product: TProductRecord;
 };
 
 export function ProductBanner(

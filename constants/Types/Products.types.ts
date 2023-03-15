@@ -1,12 +1,7 @@
+import { TProductRecord } from "./Product.types";
+
 export type MockupProduct = {
-    slug: string;
-    title: string;
-    tagline?: string;
-    overview: string;
-    description: string;
-    logo: string;
-    thumbnail?: string;
-    background?: string;
+    product: TProductRecord;
     reception?: number;
     showcase?: MockupProductShowcase;
     maker: MockupProductMaker;

@@ -32,7 +32,7 @@ export function ProductOverview(_props: SummaryProps) {
     return (
         <>
             <ProductBanner
-                product={props.product}
+                product={props.product.product}
                 interactive={false}
                 {...rest}
             />
@@ -59,7 +59,7 @@ export function ProductOverview(_props: SummaryProps) {
                             <div class={style.side}>
                                 <div class={style.overview}>
                                     <div class={style.thumbnail}>
-                                        <img src={props.product.thumbnail} />
+                                        <img src={props.product.product.thumbnail} />
                                     </div>
                                     <div class={style.public}>
                                         {props.product.reception && (
@@ -74,7 +74,7 @@ export function ProductOverview(_props: SummaryProps) {
                                     </div>
                                     <div class={style.content}>
                                         <p class={style.text}>
-                                            {props.product.overview}
+                                            {props.product.product.overview}
                                         </p>
                                     </div>
                                 </div>

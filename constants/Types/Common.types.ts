@@ -1,0 +1,1 @@
+export type TRecordID<Table extends string> = `${Table}:${string}`;
