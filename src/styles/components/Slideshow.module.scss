@@ -75,14 +75,26 @@
             border-radius: .25em;
 
             height: .5em;
-            transition: max-width .3s ease;
             background-color: #{color.$light1};
         }
 
         &.active::after {
-            max-width: 100%;
-            transition: max-width 5s linear;
+            animation: selector 5s linear 0s forwards;
         }
+
+        &.viewed::after {
+            max-width: 100%;
+        }
+    }
+}
+
+@keyframes selector {
+    0% {
+        max-width: 0;
+    }
+
+    100% {
+        max-width: 100%;
     }
 }
 

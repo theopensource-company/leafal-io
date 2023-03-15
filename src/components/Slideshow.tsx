@@ -90,7 +90,11 @@ export function Slideshow(_props: SlideshowProps) {
                         return (
                             <SlideSelector
                                 class={`${style.selector} ${
-                                    index() == activeSlide() ? style.active : ''
+                                    index() == activeSlide()
+                                        ? style.active
+                                        : index() < activeSlide()
+                                        ? style.viewed
+                                        : ''
                                 }`}
                                 activeSlideFunction={setActiveSlide}
                                 index={index()}
