@@ -51,28 +51,39 @@ export function Slideshow(_props: SlideshowProps) {
     const [activeSlide, setActiveSlide] = createSignal(-1);
     const [time, setTime] = createSignal(0);
 
+    let x: NodeJS.Timer;
+
     createEffect(() => {
-        setTimeout(() => {
-            setActiveSlide(activeSlide() + 1);
-            if (activeSlide() >= props.slides.length) setActiveSlide(0);
-        }, time());
-        setTime(5000);
+        clearTimeout(x);
+        if (props.slides.length > 1) {
+            console.log(activeSlide());
+
+            x = setTimeout(() => {
+                setActiveSlide(activeSlide() + 1);
+                if (activeSlide() >= props.slides.length) setActiveSlide(0);
+
+                setTime(5000);
+            }, time());
+        }
     });
 
     return (
-        <div class={style.slideshow}>
-            <For each={props.slides}>
-                {(s, index) => {
-                    return (
-                        <Slide
-                            class={`${style.slide} ${
-                                index() == activeSlide() ? style.active : ''
-                            }`}
-                            {...s}
-                        />
-                    );
-                }}
-            </For>
+        <div class={style.container}>
+            <div class={style.slideshow}>
+                <For each={props.slides}>
+                    {(s, index) => {
+                        return (
+                            <Slide
+                                class={`${style.slide} ${
+                                    index() == activeSlide() ? style.active : ''
+                                }`}
+                                {...s}
+                            />
+                        );
+                    }}
+                </For>
+            </div>
+
             <div class={style.selectors}>
                 <For each={props.slides}>
                     {(s, index) => {

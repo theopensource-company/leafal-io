@@ -15,14 +15,10 @@
     text-decoration: none;
 
     .showcase {
-        display: flex;
-        justify-content: stretch;
-        align-items: stretch;
+        display: block;
+        height: 100%;
 
-        aspect-ratio: 16 / 9;
-        background-color: black;
         overflow: hidden;
-        border-radius: 2em;
 
         & > * {
             flex: 1;
@@ -117,15 +113,6 @@
             height: auto;
             gap: 0;
 
-            .showcase {
-                border-bottom-left-radius: 0;
-                border-bottom-right-radius: 0;
-            }
-
-            .side {
-                margin-top: -3em;
-            }
-
             .reception {
                 position: static !important;
                 margin: 1em 1em 0;
@@ -133,8 +120,6 @@
 
             .overview {
                 max-width: 100%;
-                border-top-left-radius: 0;
-                border-top-right-radius: 0;
             }
 
             .thumbnail {
