@@ -48,21 +48,15 @@ export function SlideSelector(
 export function Slideshow(_props: SlideshowProps) {
     const [props] = splitProps(_props, ['slides']);
 
-    const [activeSlide, setActiveSlide] = createSignal(0);
-
-    let x: NodeJS.Timer;
+    const [activeSlide, setActiveSlide] = createSignal(-1);
+    const [time, setTime] = createSignal(0);
 
     createEffect(() => {
-        activeSlide();
-        clearTimeout(x);
-        if (props.slides.length > 1) {
-            console.log('Test');
-
-            x = setTimeout(() => {
-                setActiveSlide(activeSlide() + 1);
-                if (activeSlide() >= props.slides.length) setActiveSlide(0);
-            }, 5000);
-        }
+        setTimeout(() => {
+            setActiveSlide(activeSlide() + 1);
+            if (activeSlide() >= props.slides.length) setActiveSlide(0);
+        }, time());
+        setTime(5000);
     });
 
     return (
