@@ -17,7 +17,7 @@
     transition: .15s ease;
 
     &:hover, &:focus-visible {
-        background-color: #{color.$accent2};
+        background-color: #{color.$accent1};
     }
 }
 

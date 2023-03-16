@@ -2,9 +2,10 @@ import { cva } from 'cva';
 import { ComponentProps, JSX, splitProps } from 'solid-js';
 import { A } from 'solid-start';
 import style from '~/styles/components/Layout/Navbar.module.scss';
-import { Logo } from '../Brand/Logo';
+import { Logo, TextLogo } from '../Brand/Logo';
 import { Button } from '../Button';
 import Modal, { createModalState } from './Modal';
+import { Login } from './ModalVariants/Login';
 
 export const navbarStyle = cva([style.default]);
 
@@ -27,10 +28,7 @@ export function Navbar(props: JSX.HTMLElementTags['div'] & NavbarProps) {
             >
                 <div class={style.content}>
                     <NavItem href="/" tabIndex="0">
-                        <div class={style.logo}>
-                            <Logo />
-                            <span>leafal.io</span>
-                        </div>
+                        <TextLogo />
                     </NavItem>
                     <div class={style.links} />
                     <div class={style.account}>
@@ -41,9 +39,7 @@ export function Navbar(props: JSX.HTMLElementTags['div'] & NavbarProps) {
                 </div>
             </div>
 
-            <Modal open={open} onClose={onClose}>
-                Wanna signin? lol <i>not yet implemented</i>
-            </Modal>
+            <Login open={open} onClose={onClose} />
         </>
     );
 }
