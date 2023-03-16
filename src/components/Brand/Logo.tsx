@@ -35,9 +35,9 @@ export function TextLogo(_props: {
 }) {
     const props = mergeProps({ height: 'auto', animate: true }, _props);
     return (
-        <div class='text-logo' data-animate={props.animate}>
+        <div class="text-logo" data-animate={props.animate}>
             <Logo height={props.height} />
             <span>leafal.io</span>
         </div>
-    )
+    );
 }

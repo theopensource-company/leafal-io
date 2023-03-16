@@ -2,9 +2,9 @@ import { cva } from 'cva';
 import { ComponentProps, JSX, splitProps } from 'solid-js';
 import { A } from 'solid-start';
 import style from '~/styles/components/Layout/Navbar.module.scss';
-import { Logo, TextLogo } from '../Brand/Logo';
+import { TextLogo } from '../Brand/Logo';
 import { Button } from '../Button';
-import Modal, { createModalState } from './Modal';
+import { createModalState } from './Modal';
 import { Login } from './ModalVariants/Login';
 
 export const navbarStyle = cva([style.default]);
