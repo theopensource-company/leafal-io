@@ -4,6 +4,8 @@ DEFINE TABLE user SCHEMAFULL
         FOR create WHERE $scope = 'admin'
 ;
 
+DEFINE TABLE pubuser AS SELECT username, created FROM user;
+
 DEFINE FIELD username ON TABLE user TYPE string ASSERT $value = /^[a-z0-9](?:[a-z0-9._-]{1,14}[a-z0-9.])$/;
 DEFINE FIELD email ON TABLE user TYPE string ASSERT is::email($value);
 
