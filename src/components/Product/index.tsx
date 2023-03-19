@@ -1,7 +1,8 @@
-import { MockupProduct } from 'constants/Types/Products.types';
+import { TProductRecord } from '~/library/Types/Product.types';
 
-export function mockup(slug: string): MockupProduct {
+export function mockup(slug: string): TProductRecord {
     return {
+        id: 'product:mockup',
         slug: slug,
         title: 'Celesteia',
         tagline: `Humankind's last hope spreads across the galaxy to rebuild humanity's glory.`,
@@ -12,24 +13,29 @@ export function mockup(slug: string): MockupProduct {
         logo: `https://raw.githubusercontent.com/leafal-io/${slug}/production/Icon.bmp`,
         thumbnail: `https://raw.githubusercontent.com/leafal-io/${slug}/production/img/thumbnail.jpg`,
         background: `https://raw.githubusercontent.com/leafal-io/${slug}/production/img/background.jpg`,
-        showcase: {
-            slides: [
-                {
-                    image: `https://raw.githubusercontent.com/leafal-io/${slug}/production/img/thumbnail.jpg`,
-                },
-                {
-                    image: `https://pbs.twimg.com/media/Fqh7MYnWcAAmjk0?format=png&name=large`,
-                },
-                {
-                    image: `https://pbs.twimg.com/media/Fqfnve6WYAAZT19?format=png&name=large`,
-                },
-            ],
-        },
-        reception: 0.6,
+        published: true,
+        discoverable: true,
+        created: new Date(),
+        updated: new Date(),
         maker: {
+            id: 'maker:test',
             slug: 'leafal-io',
             name: 'leafal.io',
             logo: '/images/icons/icon_512x512.png',
         },
+        showcase: [
+            {
+                type: 'image',
+                source: `https://raw.githubusercontent.com/leafal-io/${slug}/production/img/thumbnail.jpg`,
+            },
+            {
+                type: 'image',
+                source: `https://pbs.twimg.com/media/Fqh7MYnWcAAmjk0?format=png&name=large`,
+            },
+            {
+                type: 'image',
+                source: `https://pbs.twimg.com/media/Fqfnve6WYAAZT19?format=png&name=large`,
+            },
+        ],
     };
 }

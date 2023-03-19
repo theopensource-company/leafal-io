@@ -1,0 +1,96 @@
+@use '../../../color';
+
+.tab {
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    padding: 20px 40px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: color.$light1;
+    cursor: pointer;
+
+    &:hover {
+        background-color: color.$dark3;
+    }
+}
+
+// .tabIdle { }
+.tabVertical { 
+    border-bottom: 2px solid rgba(0, 0, 0, 0);
+}
+.tabHorizontal {
+    border-right: 4px solid rgba(0, 0, 0, 0);
+    width: 100%;
+}
+
+.tabActive {
+    border-color: color.$light1;
+    background-color: color.$gray;
+}
+
+.tabDisabled {
+    color: color.$dark4;
+    cursor: not-allowed;
+    background-color: transparent !important;
+}
+
+.tabHidden {
+    display: none;
+}
+
+
+/////////////////
+/// TAB GROUP ///
+/////////////////
+
+.tabGroup {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.tabGroupVertical {
+    flex-direction: column;
+}
+
+// .tabGroupHorizontal { }
+
+
+
+////////////////
+/// TAB LIST ///
+////////////////
+
+.tabList {
+    display: flex;
+    background-color: color.$dark2;
+}
+
+.tabListHorizontal {
+    flex-direction: column;
+    width: 10%;
+    height: 100%;
+    min-width: 250px;
+}
+
+// .tabListVertical { }
+
+
+/////////////////
+/// TAB PANEL ///
+/////////////////
+
+
+.tabPanel {
+    width: 100%;
+    height: 100%;
+}
+
+.tabPanelIdle {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+// .tabPanelActive { }

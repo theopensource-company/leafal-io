@@ -28,3 +28,16 @@ export function Logo(_props: {
         </svg>
     );
 }
+
+export function TextLogo(_props: {
+    height?: number | string;
+    animate?: boolean;
+}) {
+    const props = mergeProps({ height: 'auto', animate: true }, _props);
+    return (
+        <div class="text-logo" data-animate={props.animate}>
+            <Logo height={props.height} />
+            <span>leafal.io</span>
+        </div>
+    );
+}

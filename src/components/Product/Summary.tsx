@@ -1,11 +1,11 @@
 import { A } from '@solidjs/router';
-import { MockupProduct } from 'constants/Types/Products.types';
 import { splitProps } from 'solid-js';
+import { TProductRecord } from '~/library/Types/Product.types';
 import style from '~/styles/components/Product/Summary.module.scss';
 import { ProductBanner } from './Banner';
 
 export type SummaryProps = {
-    product: MockupProduct;
+    product: TProductRecord;
 };
 
 export function ProductSummary(_props: SummaryProps) {

@@ -1,4 +1,3 @@
-import { MockupProduct } from 'constants/Types/Products.types';
 import { Title, useParams } from 'solid-start';
 import { Column } from '~/components/Layout/Groups/Columns/Column';
 import { ColumnBar } from '~/components/Layout/Groups/Columns/ColumnBar';
@@ -8,31 +7,32 @@ import { MakerProfile } from '~/components/Product/Maker/Profile';
 import { ProductOverview } from '~/components/Product/Overview';
 import { PageContent } from '~/components/Product/PageContent';
 import { PageSection, SectionHeading } from '~/components/Product/PageSection';
+import { TProductRecord } from '~/library/Types/Product.types';
 
 export type StoreItemProps = {
-    product: MockupProduct;
+    product: TProductRecord;
 };
 
 export default function StoreItemPage(_props: StoreItemProps) {
     const { slug } = useParams<{ slug: string }>();
-    const product = mockup(slug);
-    const pageTitle = `${product.title} on leafal.io`;
+    const mockupProduct = mockup(slug);
+    const pageTitle = `${mockupProduct.title} on leafal.io`;
 
     return (
         <>
             <Title>{pageTitle}</Title>
             <PageContent>
-                <ProductOverview product={product} />
+                <ProductOverview product={mockupProduct} />
                 <MainWrapper>
                     <ColumnBar>
                         <Column variant="twothird">
-                            {product.description && (
+                            {mockupProduct.description && (
                                 <>
                                     <SectionHeading>
                                         About this game
                                     </SectionHeading>
                                     <PageSection wrapped={false}>
-                                        <p>{product.description}</p>
+                                        <p>{mockupProduct.description}</p>
                                     </PageSection>
                                 </>
                             )}
@@ -41,7 +41,7 @@ export default function StoreItemPage(_props: StoreItemProps) {
                             <SectionHeading>Details</SectionHeading>
                             <PageSection wrapped={true}>
                                 <SectionHeading>Made by</SectionHeading>
-                                <MakerProfile maker={product.maker} />
+                                <MakerProfile maker={mockupProduct.maker} />
                             </PageSection>
                         </Column>
                     </ColumnBar>
