@@ -1,32 +1,30 @@
 export type TEnv = 'dev' | 'prod';
+export const Environment = (import.meta.env.VITE_ENV ?? 'prod') as TEnv;
+console.log(Environment);
 
+export type FeatureFlagValue = boolean | number | string;
 export type FeatureFlagSchema = Record<
     string,
     {
         readonly?: boolean;
-        options: readonly (boolean | number | string)[];
+        options: readonly [FeatureFlagValue, ...FeatureFlagValue[]];
     }
 >;
 
-export type FeatureFlagDefaults = Record<
-    TEnv,
-    Partial<{
-        [T in FeatureFlag]: FeatureFlagOption<T>;
-    }>
->;
+export type FeatureFlags = {
+    [T in FeatureFlag]: FeatureFlagOption<T>;
+};
+
+export type FeatureFlagDefaults = Record<TEnv, Partial<FeatureFlags>>;
 
 export type FeatureFlag = keyof typeof featureFlagSchema;
-export type FeatureFlagReadonly<TFeatureFlag extends FeatureFlag> =
-    (typeof featureFlagSchema)[TFeatureFlag]['readonly'];
 export type FeatureFlagOption<TFeatureFlag extends FeatureFlag> =
     (typeof featureFlagSchema)[TFeatureFlag]['options'][number];
-export type FeatureFlagDefaultOption<TFeatureFlag extends FeatureFlag> =
-    (typeof featureFlagSchema)[TFeatureFlag]['options'][0];
 
 export const featureFlagSchema = {
     allowDatabaseMigration: {
         readonly: true,
-        options: [false, true, 'bla'] as const,
+        options: [false, true] as const,
     },
 } satisfies FeatureFlagSchema;
 
@@ -36,3 +34,37 @@ export const featureFlagDefaults = {
         allowDatabaseMigration: true,
     },
 } satisfies FeatureFlagDefaults;
+
+const featureFlagFromEnv = (flag: FeatureFlag): FeatureFlagValue | void => {
+    if (process.env[`VITE_FFLAG_${flag.toUpperCase()}`]) {
+        const v = process.env[`VITE_FFLAG_${flag.toUpperCase()}`];
+        const lower = v?.toLowerCase();
+        return lower === 'true'
+            ? true
+            : lower === 'false'
+            ? false
+            : !v || isNaN(+v)
+            ? v
+            : parseInt(v);
+    }
+};
+
+const featureFlagDefault = (flag: FeatureFlag) => {
+    const envFlags = featureFlagDefaults[Environment];
+    return flag in envFlags
+        ? envFlags[flag]
+        : featureFlagSchema[flag].options[0];
+};
+
+export const featureFlagOptions = Object.keys(
+    featureFlagSchema
+) as FeatureFlag[];
+
+export const featureFlags = featureFlagOptions.reduce(
+    (prev, flag) =>
+        ({
+            ...prev,
+            [flag]: featureFlagFromEnv(flag) ?? featureFlagDefault(flag),
+        } as FeatureFlags),
+    {} as FeatureFlags
+);
