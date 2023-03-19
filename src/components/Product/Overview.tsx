@@ -1,5 +1,5 @@
-import { TProductRecord } from 'constants/Types/Product.types';
 import { createEffect, createSignal, splitProps } from 'solid-js';
+import { TProductRecord } from '~/library/Types/Product.types';
 import style from '~/styles/components/Product/Overview.module.scss';
 import { Column } from '../Layout/Groups/Columns/Column';
 import { ColumnBar } from '../Layout/Groups/Columns/ColumnBar';

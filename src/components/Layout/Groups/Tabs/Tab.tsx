@@ -1,6 +1,6 @@
-import { VariantPropOptions } from 'constants/Types/Helpers.types';
 import { cva } from 'cva';
 import { createSignal, JSX, splitProps, useContext } from 'solid-js';
+import { VariantPropOptions } from '~/library/Types/Helpers.types';
 import styles from '~/styles/components/Layout/Groups/Tabs.module.scss';
 import { TabsContext } from '.';
 import { TabGroup } from './Group';

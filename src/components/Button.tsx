@@ -1,6 +1,6 @@
-import { VariantPropOptions } from 'constants/Types/Helpers.types';
 import { cva } from 'cva';
 import { JSX, splitProps } from 'solid-js';
+import { VariantPropOptions } from '~/library/Types/Helpers.types';
 import style from '~/styles/components/Button.module.scss';
 
 export const buttonStyle = cva([style.default], {

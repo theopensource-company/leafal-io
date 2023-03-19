@@ -1,6 +1,6 @@
 import { A } from '@solidjs/router';
-import { TProductRecord } from 'constants/Types/Product.types';
 import { splitProps } from 'solid-js';
+import { TProductRecord } from '~/library/Types/Product.types';
 import style from '~/styles/components/Product/Summary.module.scss';
 import { ProductBanner } from './Banner';
 

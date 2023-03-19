@@ -1,4 +1,3 @@
-import { VariantPropOptions } from 'constants/Types/Helpers.types';
 import { cva } from 'cva';
 import {
     Accessor,
@@ -12,6 +11,7 @@ import {
     splitProps,
     useContext,
 } from 'solid-js';
+import { VariantPropOptions } from '~/library/Types/Helpers.types';
 import styles from '~/styles/components/Layout/Modal.module.scss';
 
 export default function Modal(_props: ModalProps) {

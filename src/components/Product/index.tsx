@@ -1,4 +1,4 @@
-import { TProductRecord } from 'constants/Types/Product.types';
+import { TProductRecord } from '~/library/Types/Product.types';
 
 export function mockup(slug: string): TProductRecord {
     return {

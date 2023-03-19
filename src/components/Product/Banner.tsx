@@ -1,6 +1,6 @@
-import { TProductRecord } from 'constants/Types/Product.types';
 import { cva } from 'cva';
 import { JSX, splitProps } from 'solid-js';
+import { TProductRecord } from '~/library/Types/Product.types';
 import style from '~/styles/components/Product/Banner.module.scss';
 
 export const bannerStyle = cva([style.banner], {

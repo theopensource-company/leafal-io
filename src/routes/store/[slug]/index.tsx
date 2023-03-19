@@ -1,4 +1,3 @@
-import { TProductRecord } from 'constants/Types/Product.types';
 import { Title, useParams } from 'solid-start';
 import { Column } from '~/components/Layout/Groups/Columns/Column';
 import { ColumnBar } from '~/components/Layout/Groups/Columns/ColumnBar';
@@ -8,6 +7,7 @@ import { MakerProfile } from '~/components/Product/Maker/Profile';
 import { ProductOverview } from '~/components/Product/Overview';
 import { PageContent } from '~/components/Product/PageContent';
 import { PageSection, SectionHeading } from '~/components/Product/PageSection';
+import { TProductRecord } from '~/library/Types/Product.types';
 
 export type StoreItemProps = {
     product: TProductRecord;
