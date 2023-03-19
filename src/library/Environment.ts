@@ -36,8 +36,8 @@ export const featureFlagDefaults = {
 } satisfies FeatureFlagDefaults;
 
 const featureFlagFromEnv = (flag: FeatureFlag): FeatureFlagValue | void => {
-    if (process.env[`VITE_FFLAG_${flag.toUpperCase()}`]) {
-        const v = process.env[`VITE_FFLAG_${flag.toUpperCase()}`];
+    if (import.meta.env[`VITE_FFLAG_${flag.toUpperCase()}`]) {
+        const v = import.meta.env[`VITE_FFLAG_${flag.toUpperCase()}`];
         const lower = v?.toLowerCase();
         return lower === 'true'
             ? true
