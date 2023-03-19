@@ -1,7 +1,10 @@
 import { createEffect, onCleanup } from 'solid-js';
 import { Tab } from '~/components/Layout/Groups/Tabs';
 import styles from '~/styles/components/Development/Suite.module.scss';
-import Modal, { createModalState } from '../Layout/Modal';
+import Modal, { createModalState } from '../../Layout/Modal';
+import { Environment } from './Environment';
+import { Introduction } from './Introduction';
+import { MigrateDatabase } from './MigrateDatabase';
 
 export default function DevelopmentSuite() {
     const keyword = 'taswell';
@@ -45,10 +48,17 @@ export default function DevelopmentSuite() {
         >
             <Tab.Group direction="horizontal">
                 <Tab.List>
-                    <Tab default>Migrate database</Tab>
+                    <Introduction.Tab />
+                    <MigrateDatabase.Tab />
+                    <Environment.Tab />
                 </Tab.List>
-                <Tab.Panel>Working on it :)</Tab.Panel>
+                <Introduction />
+                <MigrateDatabase />
+                <Environment />
             </Tab.Group>
+            <button class={styles.closeButton} onClick={onClose}>
+                Close
+            </button>
         </Modal>
     );
 }

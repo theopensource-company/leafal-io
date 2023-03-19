@@ -9,3 +9,55 @@
     padding: 0px !important;
     background-color: color.$dark1 !important;
 }
+
+.introductionPanel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.closeButton {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 30px;
+    padding: 10px 15px;
+    border-radius: 7px;
+    border: none;
+    outline: none;
+    background-color: color.$light1;
+    color: color.$dark1;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.environmentPanel {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 10%;
+
+    & table {
+        background-color: color.$dark2;
+        margin-top: 50px;
+
+        & th, & td {
+            padding: 10px 100px 10px 30px;
+            min-width: 100px;
+        }
+
+        & th {
+            font-size: 1.4rem;
+        }
+
+        & tbody tr:nth-child(odd) {
+            background-color: color.$dark1;
+            font-size: 1.2rem;
+        }
+
+        & thead th {
+            text-align: left;
+        }
+    }
+}
