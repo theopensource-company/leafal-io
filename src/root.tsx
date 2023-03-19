@@ -12,6 +12,7 @@ import {
     Scripts,
     Title,
 } from 'solid-start';
+import DevelopmentSuite from './components/Development/Suite';
 import { ModalBackdrop, openModalID } from './components/Layout/Modal';
 import { Navbar } from './components/Layout/Navbar';
 import './styles/root.scss';
@@ -43,6 +44,7 @@ export default function Root() {
                     <ErrorBoundary>
                         <div id="app">
                             <ModalBackdrop open={() => !!openModalID()} />
+                            <DevelopmentSuite />
                             <Navbar />
                             <Routes>
                                 <FileRoutes />
