@@ -4,7 +4,7 @@ DEFINE TABLE user SCHEMAFULL
         FOR create WHERE $scope = 'admin'
 ;
 
-DEFINE TABLE pubuser AS SELECT username, created FROM user;
+DEFINE TABLE pubuser AS SELECT username, profile, created FROM user;
 
 DEFINE FIELD username ON TABLE user TYPE string ASSERT $value = /^[a-z0-9](?:[a-z0-9._-]{1,14}[a-z0-9.])$/;
 DEFINE FIELD email ON TABLE user TYPE string ASSERT is::email($value);
@@ -23,6 +23,12 @@ DEFINE FIELD lastname ON TABLE user TYPE string ASSERT $value != NONE;
 DEFINE FIELD password ON TABLE user TYPE string ASSERT $value != NONE
     PERMISSIONS
         FOR select NONE;
+
+// To be implemented.
+DEFINE FIELD picture ON TABLE user VALUE NONE;
+
+DEFINE FIELD profile ON TABLE user TYPE object VALUE $value OR $before OR {};
+DEFINE FIELD profile.displayname ON TABLE user TYPE string;
 
 DEFINE FIELD created ON TABLE user VALUE $before OR time::now();
 DEFINE FIELD updated ON TABLE user VALUE time::now();

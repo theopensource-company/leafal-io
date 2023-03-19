@@ -1,6 +1,6 @@
 import { TProductRecord } from '~/library/Types/Product.types';
 
-export function mockup(slug: string): TProductRecord {
+export function mockupProduct(slug: string): TProductRecord {
     return {
         id: 'product:mockup',
         slug: slug,
