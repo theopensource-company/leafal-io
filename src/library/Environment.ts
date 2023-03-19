@@ -51,7 +51,7 @@ const featureFlagFromEnv = (flag: FeatureFlag): FeatureFlagValue | void => {
 
 const featureFlagDefault = (flag: FeatureFlag) => {
     const envFlags = featureFlagDefaults[Environment];
-    return flag in envFlags
+    return !featureFlagSchema[flag].readonly && flag in envFlags
         ? envFlags[flag]
         : featureFlagSchema[flag].options[0];
 };
