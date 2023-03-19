@@ -10,6 +10,7 @@ import { TabPanel } from './Panel';
 export function Tab(
     _props: JSX.HTMLElementTags['button'] & {
         default?: boolean;
+        hidden?: boolean;
     }
 ) {
     const tabsContext = useContext(TabsContext);
@@ -19,6 +20,7 @@ export function Tab(
         'onClick',
         'default',
         'class',
+        'hidden',
     ]);
 
     const active = () => index() == tabsContext?.activeIndex();
@@ -37,7 +39,13 @@ export function Tab(
 
     const classes = () =>
         tabStyles({
-            state: active() ? 'active' : 'idle',
+            state: split.hidden
+                ? 'hidden'
+                : rest.disabled
+                ? 'disabled'
+                : active()
+                ? 'active'
+                : 'idle',
             direction: tabsContext?.direction,
             class: split.class,
         });
@@ -68,6 +76,8 @@ const tabStyles = cva([styles.tab], {
         state: {
             idle: [styles.tabIdle],
             active: [styles.tabActive],
+            disabled: [styles.tabDisabled],
+            hidden: [styles.tabHidden],
         },
         direction: {
             vertical: [styles.tabVertical],
