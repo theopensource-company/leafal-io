@@ -1,0 +1,35 @@
+.backdropContainer {
+    width: 100vw;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("/images/pages/home/banner-gradient.svg");
+        background-size: cover;
+        z-index: 2;
+    }
+
+    & > img {
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        object-fit: cover;
+        z-index: 1;
+    }
+
+    .content {
+        position: relative;
+        z-index: 10;
+    }
+}

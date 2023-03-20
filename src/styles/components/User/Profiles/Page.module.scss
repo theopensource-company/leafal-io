@@ -1,0 +1,15 @@
+@use '../../../color';
+
+.container {
+    width: 100%;
+    margin: 10em auto;
+
+    border-radius: 2em;
+
+    background-color: #{color.$dark1};
+
+    .banner {
+        padding: 2em;
+        display: flex;
+    }
+}
