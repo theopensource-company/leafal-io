@@ -22,7 +22,9 @@ export default function StoreItemPage(_props: ProfileProps) {
         <>
             <Title>{pageTitle}</Title>
 
-            <PageBackdrop src={`https://raw.githubusercontent.com/leafal-io/celesteia/production/img/background.jpg`}>
+            <PageBackdrop
+                src={`https://raw.githubusercontent.com/leafal-io/celesteia/production/img/background.jpg`}
+            >
                 <MainWrapper>
                     <ProfileContainer>
                         <ProfileBanner>

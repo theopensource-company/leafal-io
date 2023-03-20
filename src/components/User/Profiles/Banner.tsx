@@ -1,4 +1,4 @@
-import { JSX } from "solid-js";
+import { JSX } from 'solid-js';
 
 import styles from '~/styles/components/User/Profiles/Page.module.scss';
 
