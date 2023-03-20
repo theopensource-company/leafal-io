@@ -6,6 +6,10 @@
 
     border-radius: 2em;
 
+    display: flex;
+    flex-direction: column;
+
+    gap: 2em;
     background-color: #{color.$dark1};
 
     .banner {

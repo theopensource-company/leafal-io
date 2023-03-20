@@ -1,4 +1,6 @@
 import { Title, useParams } from 'solid-start';
+import { Column } from '~/components/Layout/Groups/Columns/Column';
+import { ColumnBar } from '~/components/Layout/Groups/Columns/ColumnBar';
 import { MainWrapper } from '~/components/Layout/MainWrapper';
 import { PageBackdrop } from '~/components/Layout/PageBackdrop';
 import { mockupUser, toPublic } from '~/components/User';
@@ -28,8 +30,12 @@ export default function StoreItemPage(_props: ProfileProps) {
                 <MainWrapper>
                     <ProfileContainer>
                         <ProfileBanner>
-                            <ProfileCard user={user} />
+                            <ProfileCard user={user} size={`large`} />
                         </ProfileBanner>
+                        <ColumnBar>
+                            <Column variant="twothird" />
+                            <Column variant="onethird" />
+                        </ColumnBar>
                     </ProfileContainer>
                 </MainWrapper>
             </PageBackdrop>

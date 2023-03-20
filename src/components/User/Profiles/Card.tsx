@@ -10,6 +10,7 @@ export const cardStyle = cva([style.profile], {
             mini: [style.mini],
             small: [style.small],
             normal: [style.normal],
+            large: [style.large],
         },
     },
     defaultVariants: {
