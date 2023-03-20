@@ -47,7 +47,7 @@ export function ProfileCard(
 
     return (
         <a
-            href={`/me/${user().username}`}
+            href={`/profile/${user().username}`}
             class={cardStyle({
                 size: props.size,
             })}
