@@ -3,16 +3,29 @@
 .container {
     width: 100%;
     margin: 10em auto;
+}
 
-    border-radius: 2em;
-
+.side {
     display: flex;
     flex-direction: column;
+    gap: 1em;
+}
 
-    gap: 2em;
+.main {
+    margin-top: 4rem;
+}
 
-    .banner {
-        padding: 2em;
-        display: flex;
-    }
+.list {
+    width: 100%;
+
+    background-color: transparent;
+
+    gap: 1em;
+}
+
+.list > * {
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+    background-color: #{color.$dark1};
+    &:hover { background-color: #{color.$dark2}; }
 }

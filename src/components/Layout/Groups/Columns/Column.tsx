@@ -2,7 +2,7 @@ import { JSX, splitProps } from 'solid-js';
 import style from '~/styles/components/Layout/Groups/Columns.module.scss';
 
 export type ColumnProps = {
-    variant: 'twothird' | 'onethird' | 'onehalf';
+    variant: 'onefourth' | 'threefourth' | 'twothird' | 'onethird' | 'onehalf';
 };
 
 export function Column(_props: JSX.HTMLElementTags['div'] & ColumnProps) {

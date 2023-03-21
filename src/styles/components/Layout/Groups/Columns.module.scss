@@ -5,6 +5,10 @@
     gap: 3em;
     padding-bottom: 1em;
 
+    > * {
+        flex: 1;
+    }
+
     @media screen and (orientation: portrait) {
         flex-direction: column;
 
@@ -12,6 +16,14 @@
             flex-basis: 0;
         }
     }
+}
+
+.onefourth {
+    flex-basis: 25%;
+}
+
+.threefourth {
+    flex-basis: 75%;
 }
 
 .onethird {
