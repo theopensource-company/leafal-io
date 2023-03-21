@@ -35,12 +35,13 @@ export type ProfileSize = VariantPropOptions<typeof cardStyle, 'size'>;
 export type ProfileCardProps = {
     user: TPublicUserRecord;
     size?: ProfileSize;
+    status?: 'offline' | 'online' | 'ingame'; // TODO: proper localization for statuses.
 };
 
 export function ProfileCard(
     _props: JSX.HTMLElementTags['a'] & ProfileCardProps
 ) {
-    const [props, rest] = splitProps(_props, ['user', 'size']);
+    const [props, rest] = splitProps(_props, ['user', 'size', 'status']);
 
     const user = () => props.user;
     const profile = () => props.user.profile;
@@ -60,7 +61,9 @@ export function ProfileCard(
 
             <div class={style.infoContainer}>
                 <span class={style.name}>{name()}</span>
-                <span class={statusStyle({ status: 'online' })}>Online</span>
+                <span class={statusStyle({ status: props.status })}>
+                    {props.status || 'offline'}
+                </span>
             </div>
         </a>
     );

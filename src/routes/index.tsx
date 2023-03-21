@@ -25,12 +25,14 @@ export default function Home() {
                         <ProfileCard
                             size="small"
                             user={toPublic(mockupUser('johndoe'))}
+                            status="online"
                         />
                     </Column>
                     <Column variant="onethird">
                         <ProfileCard
                             size="normal"
                             user={toPublic(mockupUser('johndoe'))}
+                            status="ingame"
                         />
                     </Column>
                 </ColumnBar>
