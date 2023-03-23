@@ -52,6 +52,7 @@ export function ProfileCard(
             href={`/profile/${user().username}`}
             class={cardStyle({
                 size: props.size,
+                class: props.class,
             })}
             {...rest}
         >
