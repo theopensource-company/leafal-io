@@ -21,7 +21,7 @@ export function ProfileContainer(
     const user = () => props.user;
 
     return (
-        <div class={styles.container} {...rest}>
+        <div class={[styles.container, props.class].filter(a => a).join(' ')} {...rest}>
             <Tab.Group direction="horizontal">
                 <ColumnBar>
                     <Column variant="onefourth">
