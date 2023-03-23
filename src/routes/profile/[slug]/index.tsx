@@ -12,7 +12,10 @@ export type ProfileProps = {
 export default function StoreItemPage(_props: ProfileProps) {
     const { slug } = useParams<{ slug: string }>();
     const user = toPublic(mockupUser(slug));
-    const pageTitle = `@${user.username} - leafal.io`;
+
+    const name = () => `${user.profile.displayname || user.username}`;
+
+    const pageTitle = `${name()} - leafal.io`;
 
     // Todo: make these components into a context.
 

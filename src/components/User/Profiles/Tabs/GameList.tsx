@@ -10,5 +10,5 @@ export function GameList() {
 }
 
 GameList.Tab = function () {
-    return <Tab default>Games</Tab>;
+    return <Tab>Games</Tab>;
 };
