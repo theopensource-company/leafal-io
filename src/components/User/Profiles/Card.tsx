@@ -41,7 +41,7 @@ export type ProfileCardProps = {
 export function ProfileCard(
     _props: JSX.HTMLElementTags['a'] & ProfileCardProps
 ) {
-    const [props, rest] = splitProps(_props, ['user', 'size', 'status']);
+    const [props, rest] = splitProps(_props, ['user', 'size', 'status', 'class']);
 
     const user = () => props.user;
     const profile = () => props.user.profile;
