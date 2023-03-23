@@ -1,0 +1,77 @@
+@use '../../../color';
+
+.profile {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5em;
+
+    color: inherit;
+    text-decoration: none;
+
+    position: relative;
+    border-radius: 1em;
+
+    .avatarContainer {
+        display: flex;
+        height: 4em;
+        overflow: hidden;
+
+        img {
+            height: 100%;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+
+    .infoContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: .5em;
+
+        .name {
+            font-size: 2em;
+            line-height: 1em;
+            font-weight: 500;
+        }
+    }
+}
+
+.mini {
+    font-size: 14px;
+    .infoContainer { display: none; }
+}
+
+.small {
+    font-size: 14px;
+}
+
+.large {
+    flex-direction: column;
+    background-color: #{color.$dark1};
+    padding: 5rem 2rem 2rem;
+    margin-top: 4rem;
+
+    text-align: center;
+
+    .avatarContainer {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -4rem;
+        justify-content: center;
+
+        height: 8em;
+    }
+}
+
+
+
+.status {
+    text-transform: capitalize;
+    
+    &.offline { color: #{color.$offline}; }
+    &.online { color: #{color.$online}; }
+    &.ingame { color: #{color.$ingame}; }
+}

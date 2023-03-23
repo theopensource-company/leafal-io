@@ -42,6 +42,7 @@ main {
   color: #{color.$light1};
 
   svg {
+      width: 3em;
       height: 3em;
 
       transition-property: filter, transform;

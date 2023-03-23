@@ -11,9 +11,18 @@ export type TUserRecord = {
     firstname: string;
     lastname: string;
 
+    picture: string;
+    profile: TUserProfile;
+
     created: Date;
     updated: Date;
 };
 
+export type TUserProfile = {
+    displayname?: string;
+};
+
 export type TPublicUserRecordID = TRecordID<'pubuser'>;
-export type TPublicUserRecord = Pick<TUserRecord, 'username' | 'email'>;
+export type TPublicUserRecord = {
+    id: TPublicUserRecordID;
+} & Pick<TUserRecord, 'username' | 'picture' | 'profile' | 'created'>;

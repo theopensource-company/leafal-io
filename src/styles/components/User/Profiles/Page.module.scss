@@ -1,0 +1,31 @@
+@use '../../../color';
+
+.container {
+    width: 100%;
+    margin: 10em auto;
+}
+
+.side {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.main {
+    margin-top: 4rem;
+}
+
+.list {
+    width: 100%;
+
+    background-color: transparent;
+
+    gap: 1em;
+}
+
+.list > * {
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+    background-color: #{color.$dark1};
+    &:hover { background-color: #{color.$dark2}; }
+}
