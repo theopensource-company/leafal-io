@@ -17,7 +17,7 @@ export function ProfileContainer(
         user: TPublicUserRecord;
     }
 ) {
-    const [props, rest] = splitProps(_props, ['user']);
+    const [props, rest] = splitProps(_props, ['user', 'class']);
     const user = () => props.user;
 
     return (
