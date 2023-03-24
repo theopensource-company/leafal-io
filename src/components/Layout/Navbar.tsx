@@ -1,5 +1,11 @@
 import { cva } from 'cva';
-import { ComponentProps, JSX, splitProps } from 'solid-js';
+import {
+    ComponentProps,
+    createSignal,
+    JSX,
+    onMount,
+    splitProps,
+} from 'solid-js';
 import { A } from 'solid-start';
 import style from '~/styles/components/Layout/Navbar.module.scss';
 import { TextLogo } from '../Brand/Logo';
@@ -7,7 +13,17 @@ import { Button } from '../Button';
 import { createModalState } from './Modal';
 import { Login } from './ModalVariants/Login';
 
-export const navbarStyle = cva([style.default]);
+export const navbarStyle = cva([style.default], {
+    variants: {
+        state: {
+            default: [],
+            collapsed: [style.collapsed],
+        },
+    },
+    defaultVariants: {
+        state: 'default',
+    },
+});
 
 export function NavItem(_props: ComponentProps<typeof A>) {
     const [, rest] = splitProps(_props, []);
@@ -18,12 +34,20 @@ export type NavbarProps = object;
 
 export function Navbar(props: JSX.HTMLElementTags['div'] & NavbarProps) {
     const { open, onClose, onOpen } = createModalState();
+    const [collapsed, setCollapsed] = createSignal(false);
+
+    const onScroll = () => setCollapsed(window.scrollY > 0);
+    onMount(() => {
+        document.onscroll = onScroll;
+        onScroll();
+    });
 
     return (
         <>
             <div
                 class={navbarStyle({
                     class: props.class,
+                    state: collapsed() ? 'collapsed' : 'default',
                 })}
             >
                 <div class={style.content}>
