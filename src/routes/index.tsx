@@ -37,8 +37,6 @@ export default function Home() {
                     </Column>
                 </ColumnBar>
             </MainWrapper>
-
-            <p>{import.meta.env.VITE_TEST ?? 456}</p>
         </>
     );
 }
