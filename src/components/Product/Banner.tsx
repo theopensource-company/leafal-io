@@ -35,7 +35,6 @@ export function ProductBanner(
                 <div class={style.background}>
                     <img src={props.product.background} />
                 </div>
-                <div class={style.foreground}>{_props.children}</div>
             </div>
         </div>
     );
