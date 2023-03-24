@@ -11,6 +11,10 @@ export type SummaryProps = {
 
 export function ProductSummary(_props: SummaryProps) {
     const [props, rest] = splitProps(_props, ['product']);
+
+    const price = () =>
+        props.product.pricing == 0 ? 'Free' : props.product.pricing.toFixed(2);
+
     return (
         <>
             <ProductBanner
@@ -30,6 +34,11 @@ export function ProductSummary(_props: SummaryProps) {
                     <div class={style.text}>
                         <span class={style.title}>{props.product.title}</span>
                         <p class={style.description}>{props.product.tagline}</p>
+                        <span class={style.specifications}>
+                            <span class={style.pricing}>{price()}</span>
+                            {' • '}
+                            {props.product.platforms.join(', ')}
+                        </span>
                     </div>
                 </A>
             </MainWrapper>

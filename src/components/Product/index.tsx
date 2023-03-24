@@ -13,10 +13,12 @@ export function mockupProduct(slug: string): TProductRecord {
         logo: `https://raw.githubusercontent.com/leafal-io/${slug}/production/Icon.bmp`,
         thumbnail: `https://raw.githubusercontent.com/leafal-io/${slug}/production/img/thumbnail.jpg`,
         background: `https://raw.githubusercontent.com/leafal-io/${slug}/production/img/background.jpg`,
+        pricing: 0.0,
         published: true,
         discoverable: true,
         created: new Date(),
         updated: new Date(),
+        platforms: ['Windows', 'Mac OSX', 'Linux'],
         maker: {
             id: 'maker:test',
             slug: 'leafal-io',

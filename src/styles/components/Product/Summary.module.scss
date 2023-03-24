@@ -30,7 +30,7 @@
 
         .text {
             transition: transform .5s ease;
-            transform: translateX(7px);
+            transform: translateX(4px);
         }
     }
 
@@ -62,6 +62,7 @@
         flex-basis: 50%;
 
         transition: transform .3s ease;
+        color: #ccc;
 
         .title {
             font-size: 4em;
@@ -73,8 +74,14 @@
         .description {
             font-size: 1.5em;
             font-weight: normal;
-            color: #ccc;
             margin: 0;
+        }
+
+        .specifications {
+            font-size: 1.5em;
+            font-weight: normal;
+
+            .pricing { color: #{color.$price}; }
         }
     }
 }

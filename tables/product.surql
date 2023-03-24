@@ -24,6 +24,12 @@ DEFINE FIELD logo           ON product TYPE string ASSERT $value != NONE;
 DEFINE FIELD thumbnail      ON product TYPE string;
 DEFINE FIELD background     ON product TYPE string;
 
+-- Pricing in currency that will be decided later.
+DEFINE FIELD pricing        ON product TYPE number ASSERT $value != NONE;
+
+-- TODO: List of platform identifiers.
+//DEFINE FIELD platforms ON product TYPE (array?);
+
 -- State of product
 DEFINE FIELD published      ON product TYPE bool VALUE {
     IF (is_bool($value)) THEN

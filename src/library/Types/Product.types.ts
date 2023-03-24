@@ -15,11 +15,15 @@ export type TProductRecord = {
     thumbnail?: string;
     background?: string;
 
+    pricing: number;
+
     published: boolean;
     discoverable: boolean;
 
     created: Date;
     updated: Date;
+
+    platforms: string[];
 
     maker: TMakerRecord;
     showcase?: TProductShowcase;
