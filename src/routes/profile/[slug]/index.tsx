@@ -17,8 +17,6 @@ export default function StoreItemPage(_props: ProfileProps) {
 
     const pageTitle = `${name()} - leafal.io`;
 
-    // Todo: make these components into a context.
-
     return (
         <>
             <Title>{pageTitle}</Title>

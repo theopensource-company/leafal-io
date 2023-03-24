@@ -7,10 +7,8 @@
     align-items: center;
     gap: 3em;
     font-size: 16px;
-
-    max-width: 90vw;
     
-    margin: 10em auto;
+    margin: 10em 0;
     position: relative;
 
     z-index: 8;
@@ -38,12 +36,12 @@
 
     .thumbnail {
         width: 100%;
-        max-width: 550px;
         aspect-ratio: 16 / 9;
         border: 2px solid transparent;
         border-radius: 2em;
         overflow: hidden;
         
+        flex-basis: 50%;
         flex-grow: 1;
 
         transition: transform .3s ease;
@@ -61,7 +59,7 @@
         justify-content: center;
         gap: 1em;
 
-        max-width: 550px;
+        flex-basis: 50%;
 
         transition: transform .3s ease;
 
