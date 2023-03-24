@@ -3,6 +3,7 @@ import {
     ComponentProps,
     createSignal,
     JSX,
+    onCleanup,
     onMount,
     splitProps,
 } from 'solid-js';
@@ -38,8 +39,12 @@ export function Navbar(props: JSX.HTMLElementTags['div'] & NavbarProps) {
 
     const onScroll = () => setCollapsed(window.scrollY > 0);
     onMount(() => {
-        document.onscroll = onScroll;
+        addEventListener('scroll', onScroll);
         onScroll();
+    });
+    onCleanup(() => {
+        if (typeof window !== 'undefined')
+            removeEventListener('scroll', onScroll);
     });
 
     return (
