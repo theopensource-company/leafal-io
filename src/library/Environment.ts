@@ -1,5 +1,7 @@
 export type TEnv = 'dev' | 'prod';
 export const Environment = (import.meta.env.VITE_ENV ?? 'prod') as TEnv;
+export const Deployed = import.meta.env.VITE_DEPLOYMENT_STATUS === 'deployed';
+export const Preview = Environment != 'prod' && Deployed;
 
 export type FeatureFlagValue = boolean | number | string;
 export type FeatureFlagSchema = Record<
@@ -14,7 +16,10 @@ export type FeatureFlags = {
     [T in FeatureFlag]: FeatureFlagOption<T>;
 };
 
-export type FeatureFlagDefaults = Record<TEnv, Partial<FeatureFlags>>;
+export type FeatureFlagDefaults = Record<
+    TEnv | 'preview',
+    Partial<FeatureFlags>
+>;
 
 export type FeatureFlag = keyof typeof featureFlagSchema;
 export type FeatureFlagOption<TFeatureFlag extends FeatureFlag> =
@@ -35,6 +40,9 @@ export const featureFlagDefaults = {
     dev: {
         allowDatabaseMigration: true,
     },
+    preview: {
+        allowDatabaseMigration: false,
+    },
 } satisfies FeatureFlagDefaults;
 
 const featureFlagFromEnv = (flag: FeatureFlag): FeatureFlagValue | void => {
@@ -53,7 +61,7 @@ const featureFlagFromEnv = (flag: FeatureFlag): FeatureFlagValue | void => {
 };
 
 const featureFlagDefault = (flag: FeatureFlag) => {
-    const envFlags = featureFlagDefaults[Environment];
+    const envFlags = featureFlagDefaults[Preview ? 'preview' : Environment];
     return flag in envFlags
         ? envFlags[flag]
         : featureFlagSchema[flag].options[0];
