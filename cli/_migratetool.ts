@@ -3,13 +3,24 @@ import fs from 'fs';
 import fetch from 'node-fetch';
 import path from 'path';
 
+export type EnvironmentKey = `LEAFAL_ENV_${string}`;
+export type MigrationEnvironment = {
+    SURREAL_HOST: string;
+    SURREAL_NAMESPACE: string;
+    SURREAL_DATABASE: string;
+    SURREAL_USERNAME: string;
+    SURREAL_PASSWORD: string;
+    LEAFAL_DEFAULT_ADMIN?: string;
+    [k: EnvironmentKey]: string;
+};
+
 export const migrateDatabase = async (
-    env,
+    env: MigrationEnvironment,
     exit = true,
-    log = true,
+    logsEnabled = true,
     __root = ''
 ) => {
-    log = log ? console.log : null;
+    const log = logsEnabled ? console.log : null;
     log?.('\nHost: ' + env.SURREAL_HOST);
     log?.('NS: ' + env.SURREAL_NAMESPACE);
     log?.('DB: ' + env.SURREAL_DATABASE);
@@ -22,8 +33,12 @@ export const migrateDatabase = async (
 
     if (__root.startsWith('file://')) __root = __root.slice('file://'.length);
 
-    const dbfiles = fs.readdirSync(__root + '/tables');
-    const emailtemplates = fs.readdirSync(__root + '/email_templates');
+    const dbfiles = fs
+        .readdirSync(__root + '/tables')
+        .filter((a) => !['.gitkeep'].includes(a));
+    const emailtemplates = fs
+        .readdirSync(__root + '/email_templates')
+        .filter((a) => !['.gitkeep'].includes(a));
 
     const db = new Surreal(
         {
@@ -66,7 +81,7 @@ export const migrateDatabase = async (
 
     const envvars = Object.keys(env).filter((k) =>
         k.toUpperCase().startsWith('LEAFAL_ENV_')
-    );
+    ) as EnvironmentKey[];
     if (envvars.length > 0) {
         log?.('\nMigrating predefined environment keys');
 

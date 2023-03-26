@@ -1,4 +1,4 @@
-import { migrateDatabase } from './_migratetool.mjs';
+import { migrateDatabase, MigrationEnvironment } from './_migratetool';
 
 if (
     !process.env.SURREAL_HOST ||
@@ -11,4 +11,4 @@ if (
     process.exit(1);
 }
 
-migrateDatabase(process.env);
+migrateDatabase(process.env as MigrationEnvironment);

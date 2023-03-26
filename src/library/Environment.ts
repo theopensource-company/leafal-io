@@ -1,6 +1,5 @@
 export type TEnv = 'dev' | 'prod';
 export const Environment = (import.meta.env.VITE_ENV ?? 'prod') as TEnv;
-console.log(Environment);
 
 export type FeatureFlagValue = boolean | number | string;
 export type FeatureFlagSchema = Record<
@@ -21,6 +20,9 @@ export type FeatureFlag = keyof typeof featureFlagSchema;
 export type FeatureFlagOption<TFeatureFlag extends FeatureFlag> =
     (typeof featureFlagSchema)[TFeatureFlag]['options'][number];
 
+const hasFFValue = (v: unknown): v is FeatureFlagValue =>
+    ['string', 'number', 'boolean'].includes(typeof v);
+
 export const featureFlagSchema = {
     allowDatabaseMigration: {
         readonly: true,
@@ -36,6 +38,7 @@ export const featureFlagDefaults = {
 } satisfies FeatureFlagDefaults;
 
 const featureFlagFromEnv = (flag: FeatureFlag): FeatureFlagValue | void => {
+    if (featureFlagSchema[flag].readonly) return undefined;
     if (import.meta.env[`VITE_FFLAG_${flag.toUpperCase()}`]) {
         const v = import.meta.env[`VITE_FFLAG_${flag.toUpperCase()}`];
         const lower = v?.toLowerCase();
@@ -51,7 +54,7 @@ const featureFlagFromEnv = (flag: FeatureFlag): FeatureFlagValue | void => {
 
 const featureFlagDefault = (flag: FeatureFlag) => {
     const envFlags = featureFlagDefaults[Environment];
-    return !featureFlagSchema[flag].readonly && flag in envFlags
+    return flag in envFlags
         ? envFlags[flag]
         : featureFlagSchema[flag].options[0];
 };
@@ -60,11 +63,10 @@ export const featureFlagOptions = Object.keys(
     featureFlagSchema
 ) as FeatureFlag[];
 
-export const featureFlags = featureFlagOptions.reduce(
-    (prev, flag) =>
-        ({
-            ...prev,
-            [flag]: featureFlagFromEnv(flag) ?? featureFlagDefault(flag),
-        } as FeatureFlags),
-    {} as FeatureFlags
-);
+export const featureFlags = featureFlagOptions.reduce((prev, flag) => {
+    const fromEnv = featureFlagFromEnv(flag);
+    return {
+        ...prev,
+        [flag]: hasFFValue(fromEnv) ? fromEnv : featureFlagDefault(flag),
+    } as FeatureFlags;
+}, {} as FeatureFlags);
