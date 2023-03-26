@@ -6,6 +6,7 @@ patchedDependencies:
     path: patches/class-variance-authority@0.4.0.patch
 
 specifiers:
+  '@cloudflare/workers-types': ^4.20230321.0
   '@solidjs/meta': ^0.28.2
   '@solidjs/router': ^0.7.0
   '@theopensource-company/awaited-surrealdb': ^0.5.1
@@ -51,6 +52,7 @@ dependencies:
   undici: 5.20.0
 
 devDependencies:
+  '@cloudflare/workers-types': 4.20230321.0
   '@theopensource-company/awaited-surrealdb': 0.5.1
   '@theopensource-company/surrealdb-cloudflare': 1.0.4
   '@types/express': 4.17.17
@@ -1186,6 +1188,10 @@ packages:
 
   /@cloudflare/workers-types/3.19.0:
     resolution: {integrity: sha512-0FRcsz7Ea3jT+gc5gKPIYciykm1bbAaTpygdzpCwGt0RL+V83zWnYN30NWDW4rIHj/FHtz+MIuBKS61C8l7AzQ==}
+
+  /@cloudflare/workers-types/4.20230321.0:
+    resolution: {integrity: sha512-zyRFz9AUS0tbg3/kJ+3zxvp9fl/O9yOJlChih/o86hhOqRMcZVbWefYAvFPidRvYUHM5YTG1wjU1bF9FFckRVg==}
+    dev: true
 
   /@cspotcode/source-map-support/0.8.1:
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
