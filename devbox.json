@@ -1,0 +1,12 @@
+{
+  "packages": [
+    "nodePackages.pnpm",
+    "nodejs-16_x"
+  ],
+  "shell": {
+    "init_hook": null
+  },
+  "nixpkgs": {
+    "commit": "f80ac848e3d6f0c12c52758c0f25c10c97ca3b62"
+  }
+}

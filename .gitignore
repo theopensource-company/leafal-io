@@ -26,3 +26,7 @@ Thumbs.db
 
 # Development database
 dev.db
+
+# DevBox
+.devbox
+.direnv

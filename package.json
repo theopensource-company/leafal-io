@@ -10,7 +10,7 @@
     "start": "solid-start start",
     "lint": "eslint . --ext ts --ext tsx --ext js --ext jsx --ext json --ext html --max-warnings 0",
     "ts": "tsc --watch",
-    "clean": "rm -rf .solid dist functions node_modules"
+    "clean": "rm -rf .solid .devbox .direnv dist functions node_modules"
   },
   "type": "module",
   "devDependencies": {
