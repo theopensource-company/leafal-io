@@ -1,4 +1,5 @@
 import { createEffect, createSignal, For, JSX, splitProps } from 'solid-js';
+import { logDev } from '~/library/Logging';
 import style from '~/styles/components/Slideshow.module.scss';
 
 export type SlideshowProps = {
@@ -56,7 +57,7 @@ export function Slideshow(_props: SlideshowProps) {
     createEffect(() => {
         clearTimeout(x);
         if (props.slides.length > 1) {
-            console.log(activeSlide());
+            logDev(activeSlide());
 
             x = setTimeout(() => {
                 setActiveSlide(activeSlide() + 1);
