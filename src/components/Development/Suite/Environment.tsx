@@ -54,8 +54,7 @@ const FeatureFlagsTable = () => {
 };
 
 const EnvironmentVariablesTable = () => {
-    console.log(import.meta.env);
-    const env = () => import.meta.env;
+    const env = () => ('env' in import.meta ? import.meta.env : {});
     const envKeys = () => Object.keys(env()) as (keyof typeof env)[];
     return (
         <div>
