@@ -54,5 +54,10 @@
   },
   "engines": {
     "node": ">=16.8"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "class-variance-authority@0.4.0": "patches/class-variance-authority@0.4.0.patch"
+    }
   }
 }

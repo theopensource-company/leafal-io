@@ -1,5 +1,10 @@
 lockfileVersion: 5.4
 
+patchedDependencies:
+  class-variance-authority@0.4.0:
+    hash: urj5u4rpcvxkgtfocs6ml4qdhu
+    path: patches/class-variance-authority@0.4.0.patch
+
 specifiers:
   '@solidjs/meta': ^0.28.2
   '@solidjs/router': ^0.7.0
@@ -39,7 +44,7 @@ specifiers:
 dependencies:
   '@solidjs/meta': 0.28.2_solid-js@1.6.13
   '@solidjs/router': 0.7.1_solid-js@1.6.13
-  cva: /class-variance-authority/0.4.0_typescript@5.0.2
+  cva: /class-variance-authority/0.4.0_urj5u4rpcvxkgtfocs6ml4qdhu_typescript@5.0.2
   prettier-plugin-organize-imports: 3.2.2_za2cb7z32ksq5gw6txs6br4sn4
   solid-js: 1.6.13
   solid-start: 0.2.23_qtl5y6kaudftz3dp7yodo2fffm
@@ -2506,7 +2511,7 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
 
-  /class-variance-authority/0.4.0_typescript@5.0.2:
+  /class-variance-authority/0.4.0_urj5u4rpcvxkgtfocs6ml4qdhu_typescript@5.0.2:
     resolution: {integrity: sha512-74enNN8O9ZNieycac/y8FxqgyzZhZbxmCitAtAeUrLPlxjSd5zA7LfpprmxEcOmQBnaGs5hYhiSGnJ0mqrtBLQ==}
     peerDependencies:
       typescript: '>= 4.5.5 < 5'
@@ -2516,6 +2521,7 @@ packages:
     dependencies:
       typescript: 5.0.2
     dev: false
+    patched: true
 
   /cliui/8.0.1:
     resolution: {integrity: sha512-BSeNnyus75C4//NQ9gQt1/csTXyo/8Sb+afLAkzAptFuMsod9HFokGNudZpi/oQV73hnVK+sR+5PVRMd+Dr7YQ==}
