@@ -7,7 +7,6 @@
     justify-content: stretch;
     align-items: stretch;
     overflow: hidden;
-    gap: 1em;
 }
 
 .slideshow {
@@ -30,11 +29,13 @@
     flex-direction: row;
     justify-content: stretch;
     align-items: stretch;
+    height: 2.5em;
 
     .selector {
         flex: 1;
 
         position: relative;
+        padding: 1em 0;
 
         cursor: pointer;
 
@@ -47,8 +48,9 @@
             right: 0;
             top: 0;
             z-index: 1;
+            margin: 1em .5em;
 
-            width: 100%;
+            width: calc(100% - 1em);
             height: .5em;
 
             border-radius: .25em;
@@ -68,8 +70,9 @@
             right: 0;
             top: 0;
             z-index: 2;
+            margin: 1em .5em;
 
-            width: 100%;
+            width: calc(100% - 1em);
             max-width: 0;
 
             border-radius: .25em;
