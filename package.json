@@ -1,9 +1,10 @@
 {
   "name": "leafal-io",
   "scripts": {
-    "dev": "concurrently --names \"leafal,surrl\" --hide 1 \"pnpm run dev-run-solid\" \"pnpm run dev-run-surreal\"",
-    "debug": "concurrently --names \"leafal,surrl\" \"pnpm run dev-run-solid\" \"pnpm run dev-run-surreal\"",
+    "dev": "concurrently --names \"leafal,surrl,devkit\" --hide 1 \"pnpm run dev-run-solid\" \"pnpm run dev-run-surreal\" \"pnpm run dev-run-devkit\"",
+    "debug": "concurrently --names \"leafal,surrl,devkit\" \"pnpm run dev-run-solid\" \"pnpm run dev-run-surreal\" \"pnpm run dev-run-devkit\"",
     "dev-run-solid": "cross-env VITE_ENV=dev solid-start dev --port 14000",
+    "dev-run-devkit": "ts-node scripts/devkit.ts",
     "dev-run-surreal": "surreal start --log debug --user root --pass root --bind 0.0.0.0:14001 file:dev.db",
     "deploy": "export NEXT_PUBLIC_DEPLOYMENT_STATUS=\"deployed\" SURREAL_DATABASE=leafal-deployment_$CF_PAGES_BRANCH && export NEXT_PUBLIC_SURREAL_NAMESPACE=$SURREAL_NAMESPACE && node ./cli/predeploy.mjs && pnpm build",
     "build": "export VITE_TEST=\"789\" && solid-start build",
@@ -16,6 +17,7 @@
   "devDependencies": {
     "@theopensource-company/awaited-surrealdb": "^0.5.1",
     "@theopensource-company/surrealdb-cloudflare": "^1.0.4",
+    "@types/express": "^4.17.17",
     "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",
@@ -29,13 +31,15 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-solid": "^0.11.0",
     "eslint-plugin-unused-imports": "^2.0.0",
+    "express": "^4.18.2",
     "node-fetch": "^3.3.1",
     "postcss": "^8.4.21",
     "prettier": "^2.8.4",
     "sass": "^1.58.3",
     "solid-start-cloudflare-pages": "^0.2.23",
     "solid-start-node": "^0.2.19",
-    "typescript": "^4.9.4",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.2",
     "vite": "^4.1.4",
     "wrangler": "^2.13.0"
   },

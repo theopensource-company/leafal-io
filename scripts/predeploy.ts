@@ -1,4 +1,4 @@
-import { migrateDatabase, MigrationEnvironment } from './_migratetool';
+import { migrateDatabase, MigrationEnvironment } from './_migratetool.ts';
 
 if (
     !process.env.SURREAL_HOST ||
