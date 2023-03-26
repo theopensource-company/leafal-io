@@ -32,19 +32,40 @@
     cursor: pointer;
 }
 
+.migrateDatabasePanel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    & button {
+        margin-top: 20px;
+        text-transform: none;
+    }
+}
+
 .environmentPanel {
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding-top: 10%;
+    padding: 10%;
+    gap: 50px;
+
+    & > div {
+        width: 100%;
+    }
 
     & table {
         background-color: color.$dark2;
         margin-top: 50px;
+        width: 100%;
+        table-layout: fixed;
 
-        & th, & td {
-            padding: 10px 100px 10px 30px;
-            min-width: 100px;
+        & th,
+        & td {
+            padding: 10px 30px 10px 30px;
+            font-size: 1.1rem;
+            word-wrap: break-word;
         }
 
         & th {
@@ -53,7 +74,6 @@
 
         & tbody tr:nth-child(odd) {
             background-color: color.$dark1;
-            font-size: 1.2rem;
         }
 
         & thead th {

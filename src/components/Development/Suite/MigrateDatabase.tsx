@@ -2,6 +2,7 @@ import server$ from 'solid-start/server';
 import { Button } from '~/components/Button';
 import { Tab } from '~/components/Layout/Groups/Tabs';
 import { featureFlags } from '~/library/Environment';
+import styles from '~/styles/components/Development/Suite.module.scss';
 import { migrateDatabase } from '../../../../cli/_migratetool';
 
 export function MigrateDatabase() {
@@ -26,8 +27,12 @@ export function MigrateDatabase() {
     });
 
     return (
-        <Tab.Panel>
-            <Button onClick={migrate}>Migrate!</Button>
+        <Tab.Panel class={styles.migrateDatabasePanel}>
+            <h1>Migrate Database</h1>
+            <p>
+                <b>Warning!</b> This is a tool for development instances only!
+            </p>
+            <Button onClick={migrate}>Execute migrations</Button>
         </Tab.Panel>
     );
 }
