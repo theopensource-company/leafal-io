@@ -81,3 +81,33 @@
         }
     }
 }
+
+.queryPanel {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10%;
+
+    & h1 {
+        margin-bottom: 100px;
+    }
+
+    & div,
+    & textarea {
+        width: 100%;
+        min-height: 200px;
+        background-color: color.$dark3;
+        border: none;
+        padding: 30px;
+        border-radius: 10px;
+        font-size: 1.2rem;
+        color: white;
+        white-space: pre;
+        font-family: 'Courier New', monospace;
+        resize: vertical;
+    }
+
+    & button {
+        margin: 50px 0px;
+    }
+}
