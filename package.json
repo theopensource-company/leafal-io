@@ -37,7 +37,9 @@
     "postcss": "^8.4.21",
     "prettier": "^2.8.4",
     "sass": "^1.58.3",
+    "solid-devtools": "^0.26.0",
     "solid-start-cloudflare-pages": "^0.2.23",
+    "solid-start-deno": "^0.2.24",
     "solid-start-node": "^0.2.19",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.2",
@@ -58,7 +60,8 @@
   },
   "pnpm": {
     "patchedDependencies": {
-      "class-variance-authority@0.4.0": "patches/class-variance-authority@0.4.0.patch"
+      "class-variance-authority@0.4.0": "patches/class-variance-authority@0.4.0.patch",
+      "solid-start-deno@0.2.24": "patches/solid-start-deno@0.2.24.patch"
     }
   }
 }

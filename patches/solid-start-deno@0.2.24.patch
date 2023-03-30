@@ -1,0 +1,26 @@
+diff --git a/index.js b/index.js
+index 42c603c9eaabd0065ef52cb9998f7b85a14ea83a..78d1aba2458932e8d4b39184489316ef539aef7d 100644
+--- a/index.js
++++ b/index.js
+@@ -2,7 +2,7 @@ import common from "@rollup/plugin-commonjs";
+ import json from "@rollup/plugin-json";
+ import nodeResolve from "@rollup/plugin-node-resolve";
+ import { spawn } from "child_process";
+-import { copyFileSync } from "fs";
++import { copyFileSync, readFileSync, writeFileSync } from "fs";
+ import { dirname, join } from "path";
+ import { rollup } from "rollup";
+ import { fileURLToPath } from "url";
+@@ -37,6 +37,12 @@ export default function () {
+         await builder.server(join(config.root, ".solid", "server"));
+       }
+ 
++      // Some extra code that's needed to:
++      // - Replace the node awaited-surrealdb dependency with the deno variant.
++      let entryServerFile = readFileSync(join(config.root, ".solid", "server", "entry-server.js")).toString();
++      entryServerFile = entryServerFile.replaceAll("from '@theopensource-company/awaited-surrealdb'", "from 'https://deno.land/x/awaited_surrealdb@0.5.1/mod.ts'");
++      writeFileSync(join(config.root, ".solid", "server", "entry-server.js"), entryServerFile);
++
+       copyFileSync(join(__dirname, "entry.js"), join(config.root, ".solid", "server", "server.js"));
+       const bundle = await rollup({
+         input: join(config.root, ".solid", "server", "server.js"),
