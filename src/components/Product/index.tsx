@@ -45,9 +45,7 @@ export function mockupProduct(slug: string): TProductRecord {
     };
 }
 
-export async function getProduct(
-    slug: string
-): Promise<TProductRecord | null> {
+export async function getProduct(slug: string): Promise<TProductRecord | null> {
     const result = await SurrealQuery<TProductRecord>(
         `SELECT * FROM product WHERE slug=$slug`,
         { slug }
