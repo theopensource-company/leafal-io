@@ -8,7 +8,7 @@ export function PageBackdrop(
     const [props, rest] = splitProps(_props, ['src']);
     return (
         <div class={style.backdropContainer}>
-            <img src={props.src} alt="Page backdrop" />
+            <img src={props.src} alt="" />
             <div class={style.content} {...rest} />
         </div>
     );
