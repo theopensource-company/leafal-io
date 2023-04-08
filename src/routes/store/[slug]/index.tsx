@@ -1,8 +1,9 @@
+import { For, Show, createEffect, createSignal } from 'solid-js';
 import { Title, useParams } from 'solid-start';
 import { Column } from '~/components/Layout/Groups/Columns/Column';
 import { ColumnBar } from '~/components/Layout/Groups/Columns/ColumnBar';
 import { MainWrapper } from '~/components/Layout/MainWrapper';
-import { mockupProduct } from '~/components/Product';
+import { getProduct, mockupProduct } from '~/components/Product';
 import { MakerProfile } from '~/components/Product/Maker/Profile';
 import { ProductOverview } from '~/components/Product/Overview';
 import { PageContent } from '~/components/Product/PageContent';
@@ -15,38 +16,63 @@ export type StoreItemProps = {
 
 export default function StoreItemPage(_props: StoreItemProps) {
     const { slug } = useParams<{ slug: string }>();
-    const product = mockupProduct(slug);
-    const pageTitle = `${product.title} on leafal.io`;
+
+    const [product, setProduct] = createSignal<TProductRecord | undefined | null>(
+        undefined
+    );
+
+    createEffect(() => getProduct(slug).then((res) => setProduct(res)));
+
+    const resolvedProduct = () => product() as TProductRecord;
+    const pageTitle = () => `${resolvedProduct().title} - leafal.io`;
 
     return (
         <>
-            <Title>{pageTitle}</Title>
-            <PageContent>
-                <ProductOverview product={product} />
+            <Show when={product() === null}>
+                <Title>{'Product not found - leafal.io'}</Title>
+
                 <MainWrapper>
-                    <ColumnBar>
-                        <Column variant="twothird">
-                            {product.description && (
-                                <>
-                                    <SectionHeading>
-                                        About this game
-                                    </SectionHeading>
-                                    <PageSection wrapped={false}>
-                                        <p>{product.description}</p>
-                                    </PageSection>
-                                </>
-                            )}
-                        </Column>
-                        <Column variant="onethird">
-                            <SectionHeading>Details</SectionHeading>
-                            <PageSection wrapped={true}>
-                                <SectionHeading>Made by</SectionHeading>
-                                <MakerProfile maker={product.maker} />
-                            </PageSection>
-                        </Column>
-                    </ColumnBar>
+                    <span>Product not found</span>
                 </MainWrapper>
-            </PageContent>
+            </Show>
+
+            <Show when={product()}>
+                <Title>{pageTitle()}</Title>
+
+                <PageContent>
+                    <ProductOverview product={resolvedProduct()} />
+                    <MainWrapper>
+                        <ColumnBar>
+                            <Column variant="twothird">
+                                {resolvedProduct().description && (
+                                    <>
+                                        <SectionHeading>
+                                            About this game
+                                        </SectionHeading>
+                                        <PageSection wrapped={false}>
+                                            <p>{resolvedProduct().description}</p>
+                                        </PageSection>
+                                    </>
+                                )}
+                            </Column>
+                            <Column variant="onethird">
+                                <Show when={resolvedProduct().makers/* && other stuff */}>
+                                    <SectionHeading>Details</SectionHeading>
+                                    {resolvedProduct().makers && (
+                                        <PageSection wrapped={true}>
+                                            <SectionHeading>Made by</SectionHeading>
+
+                                                <For each={resolvedProduct().makers}>{(maker) => 
+                                                    <MakerProfile maker={maker} />
+                                                }</For>
+                                        </PageSection>
+                                    )}
+                                </Show>
+                            </Column>
+                        </ColumnBar>
+                    </MainWrapper>
+                </PageContent>
+            </Show>
         </>
     );
 }

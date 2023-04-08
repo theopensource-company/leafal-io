@@ -2,7 +2,7 @@ import { Show, createEffect, createSignal } from 'solid-js';
 import { Title, useParams } from 'solid-start';
 import { MainWrapper } from '~/components/Layout/MainWrapper';
 import { PageBackdrop } from '~/components/Layout/PageBackdrop';
-import { PublicProfile } from '~/components/User';
+import { getPublicProfile } from '~/components/User';
 import { ProfileContainer } from '~/components/User/Profiles/Container';
 import { TPublicUserRecord } from '~/library/Types/User.types';
 
@@ -17,7 +17,7 @@ export default function ProfilePage() {
         undefined
     );
 
-    createEffect(() => PublicProfile(slug).then((res) => setUser(res)));
+    createEffect(() => getPublicProfile(slug).then((res) => setUser(res)));
 
     const resolvedUser = () => user() as TPublicUserRecord;
     const pageTitle = () =>

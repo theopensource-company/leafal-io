@@ -1,3 +1,4 @@
+import { SurrealQuery } from '~/library/Surreal';
 import { TProductRecord } from '~/library/Types/Product.types';
 
 export function mockupProduct(slug: string): TProductRecord {
@@ -19,12 +20,14 @@ export function mockupProduct(slug: string): TProductRecord {
         created: new Date(),
         updated: new Date(),
         platforms: ['Windows', 'Mac OSX', 'Linux'],
-        maker: {
-            id: 'maker:test',
-            slug: 'leafal-io',
-            name: 'leafal.io',
-            logo: '/images/icons/icon_512x512.png',
-        },
+        makers: [
+            {
+                id: 'maker:test',
+                slug: 'leafal-io',
+                name: 'leafal.io',
+                logo: '/images/icons/icon_512x512.png',
+            },
+        ],
         showcase: [
             {
                 type: 'image',
@@ -40,4 +43,14 @@ export function mockupProduct(slug: string): TProductRecord {
             },
         ],
     };
+}
+
+export async function getProduct(
+    slug: string
+): Promise<TProductRecord | null> {
+    const result = await SurrealQuery<TProductRecord>(
+        `SELECT * FROM product WHERE slug=$slug`,
+        { slug }
+    );
+    return result[0].result ? result[0].result[0] || null : null;
 }

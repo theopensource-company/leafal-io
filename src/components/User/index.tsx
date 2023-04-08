@@ -32,7 +32,7 @@ export function toPublic(user: TUserRecord): TPublicUserRecord {
     };
 }
 
-export async function PublicProfile(
+export async function getPublicProfile(
     username: string
 ): Promise<TPublicUserRecord | null> {
     const result = await SurrealQuery<TPublicUserRecord>(
