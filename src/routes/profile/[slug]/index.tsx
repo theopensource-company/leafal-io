@@ -47,13 +47,14 @@ export const Profile = clientOnly(async () => {
 
             if (props.user()) {
                 const resolved = props.user() as TPublicUserRecord;
-                const name = () => resolved.profile.displayname || resolved.username;
+                const name = () =>
+                    resolved.profile.displayname || resolved.username;
                 const pageTitle = `${name()} - leafal.io`;
-    
+
                 return (
                     <>
                         <Title>{pageTitle}</Title>
-    
+
                         <PageBackdrop
                             src={`https://raw.githubusercontent.com/leafal-io/celesteia/production/img/background.jpg`}
                         >
