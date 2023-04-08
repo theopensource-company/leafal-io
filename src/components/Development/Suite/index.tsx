@@ -5,11 +5,11 @@ import Modal, { createModalState } from '../../Layout/Modal';
 import { Environment } from './Environment';
 import { Introduction } from './Introduction';
 import { MigrateDatabase } from './MigrateDatabase';
-import { Query } from './Query';
+import { Query, QueryTab } from './Query';
 
 export default function DevelopmentSuite() {
     const keyword = 'taswell';
-    const { open, onClose, onOpen } = createModalState({ defaultOpen: true });
+    const { open, onClose, onOpen } = createModalState();
 
     createEffect(() => {
         let hot = false;
@@ -50,14 +50,14 @@ export default function DevelopmentSuite() {
             <Tab.Group direction="horizontal">
                 <Tab.List>
                     <Introduction.Tab />
-                    <Query.Tab />
                     <Environment.Tab />
                     <MigrateDatabase.Tab />
+                    <QueryTab />
                 </Tab.List>
                 <Introduction />
-                <Query />
                 <Environment />
                 <MigrateDatabase />
+                <Query />
             </Tab.Group>
             <button class={styles.closeButton} onClick={onClose}>
                 Close

@@ -1,3 +1,4 @@
+import { SurrealQuery } from '~/library/Surreal';
 import { TPublicUserRecord, TUserRecord } from '~/library/Types/User.types';
 
 export function mockupUser(username: string): TUserRecord {
@@ -29,4 +30,14 @@ export function toPublic(user: TUserRecord): TPublicUserRecord {
         profile: user.profile,
         created: user.created,
     };
+}
+
+export async function PublicProfile(
+    username: string
+): Promise<TPublicUserRecord | null> {
+    const result = await SurrealQuery<TPublicUserRecord>(
+        `SELECT * FROM pubuser WHERE username=$username`,
+        { username }
+    );
+    return result[0].result ? result[0].result[0] || null : null;
 }

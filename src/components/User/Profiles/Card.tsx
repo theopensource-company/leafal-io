@@ -51,6 +51,7 @@ export function ProfileCard(
     const user = () => props.user;
     const profile = () => props.user.profile;
     const name = () => `${profile().displayname || user().username}`;
+    const picture = () => `${user().picture || `/images/default.svg`}`;
 
     return (
         <a
@@ -62,7 +63,7 @@ export function ProfileCard(
             {...rest}
         >
             <div class={style.avatarContainer} title={name()}>
-                <img src={user().picture} />
+                <img src={picture()} />
             </div>
 
             <div class={style.infoContainer}>

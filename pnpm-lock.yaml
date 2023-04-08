@@ -27,6 +27,9 @@ dependencies:
   solid-start:
     specifier: ^0.2.23
     version: 0.2.23(@solidjs/meta@0.28.2)(@solidjs/router@0.7.1)(solid-js@1.6.13)(solid-start-cloudflare-pages@0.2.23)(solid-start-deno@0.2.24)(solid-start-node@0.2.23)(vite@4.1.4)
+  surrealdb.js:
+    specifier: ^0.5.0
+    version: 0.5.0
   undici:
     specifier: ^5.15.1
     version: 5.20.0
@@ -4188,7 +4191,6 @@ packages:
       ws: '*'
     dependencies:
       ws: 8.13.0
-    dev: true
 
   /joi@17.8.3:
     resolution: {integrity: sha512-q5Fn6Tj/jR8PfrLrx4fpGH4v9qM6o+vDUfD4/3vxxyg34OmKcNqYZ1qn2mpLza96S8tL0p0rIw2gOZX+/cTg9w==}
@@ -5057,7 +5059,6 @@ packages:
       - solid-start-vercel
       - supports-color
     dev: true
-
   /solid-js@1.6.13:
     resolution: {integrity: sha512-/zcyeect3QnmcD58754IpOU/SzX3s9N19RlRVoKRz3tNpzvel7QKO4FX/PpIFQH6n/pxWq6rSh6b9fwe20XUvw==}
     dependencies:
@@ -5333,7 +5334,6 @@ packages:
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
-    dev: true
 
   /terser@5.16.6:
     resolution: {integrity: sha512-IBZ+ZQIA9sMaXmRZCUMDjNH0D5AQQfdn4WUjHL0+1lF4TP1IHRJbrhb6fNaXWikrYQTSkb7SLxkeXAiy1p7mbg==}
