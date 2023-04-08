@@ -12,7 +12,7 @@ export const SurrealInstance = new AwaitedSurreal({
     endpoint: SurrealEndpoint,
     namespace: SurrealNamespace,
     database: SurrealDatabase,
-    token: async () => localStorage.getItem('lusrsess'),
+    token: async () => !!localStorage && localStorage.getItem('lusrsess'),
 });
 
 export const SurrealQuery = async <T = unknown>(
