@@ -1,4 +1,5 @@
 import AwaitedSurreal from '@theopensource-company/awaited-surrealdb';
+import { Result } from 'surrealdb.js';
 
 export const SurrealEndpoint =
     process.env.NEXT_PUBLIC_SURREAL_ENDPOINT ?? 'http://localhost:14001';
@@ -13,3 +14,8 @@ export const SurrealInstance = new AwaitedSurreal({
     database: SurrealDatabase,
     token: async () => localStorage.getItem('lusrsess'),
 });
+
+export const SurrealQuery = async <T = unknown>(
+    query: string,
+    vars?: Record<string, unknown>
+): Promise<Result<T[]>[]> => SurrealInstance.query<Result<T[]>[]>(query, vars);
