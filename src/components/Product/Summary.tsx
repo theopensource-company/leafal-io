@@ -36,8 +36,12 @@ export function ProductSummary(_props: SummaryProps) {
                         <p class={style.description}>{props.product.tagline}</p>
                         <span class={style.specifications}>
                             <span class={style.pricing}>{price()}</span>
-                            {' • '}
-                            {props.product.platforms.join(', ')}
+                            {props.product.platforms && (
+                                <>
+                                    {' • '}
+                                    {props.product.platforms.join(', ')}
+                                </>
+                            )}
                         </span>
                     </div>
                 </A>

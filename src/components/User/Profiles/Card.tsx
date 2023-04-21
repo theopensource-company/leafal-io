@@ -33,6 +33,7 @@ export const statusStyle = cva([style.status], {
 
 export type ProfileSize = VariantPropOptions<typeof cardStyle, 'size'>;
 export type ProfileCardProps = {
+    isLink?: boolean;
     user: TPublicUserRecord;
     size?: ProfileSize;
     status?: 'offline' | 'online' | 'ingame'; // TODO: proper localization for statuses.
@@ -42,6 +43,7 @@ export function ProfileCard(
     _props: JSX.HTMLElementTags['a'] & ProfileCardProps
 ) {
     const [props, rest] = splitProps(_props, [
+        'isLink',
         'user',
         'size',
         'status',
@@ -52,10 +54,11 @@ export function ProfileCard(
     const profile = () => props.user.profile;
     const name = () => `${profile().displayname || user().username}`;
     const picture = () => `${user().picture || `/images/default.svg`}`;
+    const isLink = () => !!props.isLink && props.isLink;
 
     return (
         <a
-            href={`/profile/${user().username}`}
+            href={isLink() ? `/profile/${user().username}` : undefined}
             class={cardStyle({
                 size: props.size,
                 class: props.class,
