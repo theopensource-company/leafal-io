@@ -23,14 +23,14 @@ export const SurrealQuery = async <T = unknown>(
 export const SurrealSignin = async (
     identifier: string,
     password: string
-): Promise<string> => SurrealInstance.signin({
-    NS: SurrealNamespace,
-    DB: SurrealDatabase,
-    SC: 'user',
-    identifier: identifier,
-    password: password
-});
+): Promise<string> =>
+    SurrealInstance.signin({
+        NS: SurrealNamespace,
+        DB: SurrealDatabase,
+        SC: 'user',
+        identifier: identifier,
+        password: password,
+    });
 
-export const SurrealAuthenticate = async (
-    token: string
-): Promise<void> => SurrealInstance.authenticate(token);
+export const SurrealAuthenticate = async (token: string): Promise<void> =>
+    SurrealInstance.authenticate(token);
