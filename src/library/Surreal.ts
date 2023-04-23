@@ -19,3 +19,18 @@ export const SurrealQuery = async <T = unknown>(
     query: string,
     vars?: Record<string, unknown>
 ): Promise<Result<T[]>[]> => SurrealInstance.query<Result<T[]>[]>(query, vars);
+
+export const SurrealSignin = async (
+    identifier: string,
+    password: string
+): Promise<string> => SurrealInstance.signin({
+    NS: SurrealNamespace,
+    DB: SurrealDatabase,
+    SC: 'user',
+    identifier: identifier,
+    password: password
+});
+
+export const SurrealAuthenticate = async (
+    token: string
+): Promise<void> => SurrealInstance.authenticate(token);

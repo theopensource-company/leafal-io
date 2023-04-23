@@ -43,8 +43,7 @@
     .overview {
         display: flex;
         flex-direction: column;
-
-        background-color: #{color.$dark2};
+        gap: 1em;
 
         width: 100%;
         border-radius: 2em;
@@ -60,18 +59,14 @@
             gap: 1em;
 
             flex: 1;
-
-            padding: 1em;
         }
 
         .thumbnail {
             width: 100%;
-            max-height: 200px;
             aspect-ratio: 16 / 9;
             overflow: hidden;
 
-            border-top-left-radius: 2em;
-            border-top-right-radius: 2em;
+            border-radius: 2em;
     
             img {
                 width: 100%;
@@ -93,11 +88,8 @@
             min-height: 1em;
 
             .reception {
-                position: absolute;
+                position: static;
 
-                top: -.75em;
-                left: 1em;
-                right: 1em;
                 border-radius: .5em;
                 overflow: hidden;
                 background-color: #{color.$dark3};
