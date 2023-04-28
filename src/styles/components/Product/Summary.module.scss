@@ -62,13 +62,13 @@
         flex-basis: 50%;
 
         transition: transform .3s ease;
-        color: #ccc;
+        color: #{color.$light2};
 
         .title {
             font-size: 4em;
             line-height: 1em;
             font-weight: bold;
-            color: #fff;
+            color: #{color.$light1};
         }
 
         .description {

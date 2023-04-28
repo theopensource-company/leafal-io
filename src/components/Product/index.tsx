@@ -8,3 +8,8 @@ export async function getProduct(slug: string): Promise<TProductRecord | null> {
     );
     return result[0].result ? result[0].result[0] || null : null;
 }
+
+export async function getProducts(): Promise<TProductRecord[] | null> {
+    const result = await SurrealQuery<TProductRecord>(`SELECT * FROM product;`);
+    return result[0].result ?? null;
+}
