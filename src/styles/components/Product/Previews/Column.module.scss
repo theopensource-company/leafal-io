@@ -21,8 +21,8 @@
     display: grid;
     justify-content: center;
     justify-items: center;
-    align-items: center;
     grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    grid-auto-rows: max-content;
     gap: 2rem;
     margin: 2rem 0;
 }
@@ -50,6 +50,7 @@
 }
 
 .thumbnail {
+    width: 100%;
     aspect-ratio: 16 / 9;
     z-index: 1;
     filter: brightness(80%);

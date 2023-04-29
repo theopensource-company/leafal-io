@@ -15,7 +15,7 @@ export type TProductRecord = {
     thumbnail?: string;
     background?: string;
 
-    pricing: number;
+    pricing: string;
 
     published: boolean;
     discoverable: boolean;
