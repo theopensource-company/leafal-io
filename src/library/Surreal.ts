@@ -1,5 +1,10 @@
 import AwaitedSurreal from '@theopensource-company/awaited-surrealdb';
 import { Result } from 'surrealdb.js';
+import {
+    getUserToken,
+    refetchAuthenticatedUser,
+    setUserToken,
+} from './Session';
 
 export const SurrealEndpoint =
     import.meta.env.VITE_SURREAL_ENDPOINT ?? 'http://localhost:14001';
@@ -12,7 +17,7 @@ export const SurrealInstance = new AwaitedSurreal({
     endpoint: SurrealEndpoint,
     namespace: SurrealNamespace,
     database: SurrealDatabase,
-    token: async () => !!localStorage && localStorage.getItem('lusrsess'),
+    token: getUserToken()(),
 });
 
 export const SurrealQuery = async <T = unknown>(
@@ -20,11 +25,8 @@ export const SurrealQuery = async <T = unknown>(
     vars?: Record<string, unknown>
 ): Promise<Result<T[]>[]> => SurrealInstance.query<Result<T[]>[]>(query, vars);
 
-export const SurrealSignin = async (
-    identifier: string,
-    password: string
-): Promise<string> =>
-    SurrealInstance.signin({
+export const SurrealSignin = async (identifier: string, password: string) => {
+    const token = await SurrealInstance.signin({
         NS: SurrealNamespace,
         DB: SurrealDatabase,
         SC: 'user',
@@ -32,5 +34,7 @@ export const SurrealSignin = async (
         password: password,
     });
 
-export const SurrealAuthenticate = async (token: string): Promise<void> =>
-    SurrealInstance.authenticate(token);
+    setUserToken(token);
+};
+
+SurrealInstance.waitForConnection().then(() => refetchAuthenticatedUser());

@@ -33,12 +33,17 @@ export const featureFlagSchema = {
         readonly: true,
         options: [false, true] as const,
     },
+    secureSessionCookie: {
+        readonly: true,
+        options: [true, false] as const,
+    },
 } satisfies FeatureFlagSchema;
 
 export const featureFlagDefaults = {
     prod: {},
     dev: {
         allowDatabaseMigration: true,
+        secureSessionCookie: false,
     },
     preview: {
         allowDatabaseMigration: false,
@@ -63,7 +68,7 @@ const featureFlagFromEnv = (flag: FeatureFlag): FeatureFlagValue | void => {
 const featureFlagDefault = (flag: FeatureFlag) => {
     const envFlags = featureFlagDefaults[Preview ? 'preview' : Environment];
     return flag in envFlags
-        ? envFlags[flag]
+        ? envFlags[flag as keyof typeof envFlags]
         : featureFlagSchema[flag].options[0];
 };
 
