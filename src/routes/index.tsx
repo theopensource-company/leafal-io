@@ -1,11 +1,11 @@
 import { For, Show, createEffect, createSignal } from 'solid-js';
 import { Title } from 'solid-start';
 import { getProducts, getProductsWithTaglines } from '~/components/Product';
+import { ProductBannerPreview } from '~/components/Product/Previews/Banner';
 import {
     ProductColumnPreview,
     ProductColumnPreviewCarousel,
 } from '~/components/Product/Previews/Column';
-import { ProductSummary } from '~/components/Product/Summary';
 import { TProductRecord } from '~/library/Types/Product.types';
 
 export default function Home() {
@@ -31,7 +31,7 @@ export default function Home() {
         <>
             <Title>{standardTitle}</Title>
             <Show when={showcasedProduct()}>
-                <ProductSummary product={resolvedProduct()} />
+                <ProductBannerPreview product={resolvedProduct()} />
             </Show>
 
             <ProductColumnPreviewCarousel>

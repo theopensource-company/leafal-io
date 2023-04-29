@@ -5,12 +5,12 @@ import { ColumnBar } from '~/components/Layout/Groups/Columns/ColumnBar';
 import { MainWrapper } from '~/components/Layout/MainWrapper';
 import { getProduct } from '~/components/Product';
 import { MakerProfile } from '~/components/Product/Maker/Profile';
-import { ProductOverview } from '~/components/Product/Overview';
 import { ProductPageContent } from '~/components/Product/Page/Content';
 import {
     ProductPageSection,
     ProductPageSectionHeading,
 } from '~/components/Product/Page/Section';
+import { ProductTop } from '~/components/Product/Page/Top';
 import { TProductRecord } from '~/library/Types/Product.types';
 
 export type StoreItemProps = {
@@ -43,7 +43,7 @@ export default function StoreItemPage(_props: StoreItemProps) {
                 <Title>{pageTitle()}</Title>
 
                 <ProductPageContent>
-                    <ProductOverview product={resolvedProduct()} />
+                    <ProductTop product={resolvedProduct()} />
                     <MainWrapper>
                         <ColumnBar>
                             <Column variant="twothird">

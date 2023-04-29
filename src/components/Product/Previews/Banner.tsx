@@ -1,16 +1,16 @@
 import { A } from '@solidjs/router';
 import { JSX, splitProps } from 'solid-js';
 import { TProductRecord } from '~/library/Types/Product.types';
-import style from '~/styles/components/Product/Summary.module.scss';
-import { MainWrapper } from '../Layout/MainWrapper';
-import { ProductBanner } from './Banner';
+import style from '~/styles/components/Product/Previews/Banner.module.scss';
+import { MainWrapper } from '../../Layout/MainWrapper';
+import { ProductBackground } from '../Background';
 
-export type SummaryProps = {
+export type ProductBannerPreviewProps = {
     product: TProductRecord;
 };
 
-export function ProductSummary(
-    _props: SummaryProps & JSX.HTMLElementTags['div']
+export function ProductBannerPreview(
+    _props: ProductBannerPreviewProps & JSX.HTMLElementTags['div']
 ) {
     const [props, rest] = splitProps(_props, ['product']);
 
@@ -19,7 +19,7 @@ export function ProductSummary(
 
     return (
         <>
-            <ProductBanner
+            <ProductBackground
                 interactive={true}
                 product={props.product}
                 {...rest}

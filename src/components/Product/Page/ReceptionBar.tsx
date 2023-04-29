@@ -1,6 +1,6 @@
 import { cva } from 'cva';
 import { splitProps } from 'solid-js';
-import style from '~/styles/components/Product/ReceptionBar.module.scss';
+import style from '~/styles/components/Product/Page/ReceptionBar.module.scss';
 
 export const barStyle = cva([style.bar], {
     variants: {
