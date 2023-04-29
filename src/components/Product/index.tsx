@@ -24,3 +24,12 @@ export async function getProductsWithTaglines(): Promise<
     );
     return result[0].result ?? null;
 }
+
+export async function getRecentlyUpdatedProducts(): Promise<
+    TProductRecord[] | null
+> {
+    const result = await SurrealQuery<TProductRecord>(
+        `SELECT *, array::distinct(platforms.*.name) AS platformNames FROM product WHERE tagline != NONE ORDER BY updated DESC FETCH platforms.*;`
+    );
+    return result[0].result ?? null;
+}

@@ -1,6 +1,9 @@
-import { For, Show, createEffect, createSignal } from 'solid-js';
+import { For, createEffect, createSignal } from 'solid-js';
 import { Title } from 'solid-start';
-import { getProducts, getProductsWithTaglines } from '~/components/Product';
+import {
+    getProductsWithTaglines,
+    getRecentlyUpdatedProducts,
+} from '~/components/Product';
 import { ProductBannerPreview } from '~/components/Product/Previews/Banner';
 import {
     ProductColumnPreview,
@@ -11,41 +14,34 @@ import { TProductRecord } from '~/library/Types/Product.types';
 export default function Home() {
     const standardTitle = 'leafal.io';
 
-    const [showcasedProduct, setShowcasedProduct] = createSignal<
-        TProductRecord | undefined | null
-    >(undefined);
-    const [allProducts, setAllProducts] = createSignal<
-        TProductRecord[] | undefined | null
-    >(undefined);
+    const [showcased, setShowcased] = createSignal<TProductRecord>();
+    const [recent, setRecent] = createSignal<TProductRecord[]>();
 
-    createEffect(() =>
-        getProductsWithTaglines().then(
-            (res) => !!res && setShowcasedProduct(res[0])
-        )
-    );
-    createEffect(() => getProducts().then((res) => setAllProducts(res)));
+    createEffect(() => {
+        getProductsWithTaglines().then((products) => {
+            console.log(products);
 
-    const resolvedProduct = () => showcasedProduct() as TProductRecord;
+            setShowcased(products ? products[0] : undefined);
+        });
+
+        getRecentlyUpdatedProducts().then((r) => !!r && setRecent(r));
+    });
 
     return (
         <>
             <Title>{standardTitle}</Title>
-            <Show when={showcasedProduct()}>
-                <ProductBannerPreview product={resolvedProduct()} />
-            </Show>
 
-            <ProductColumnPreviewCarousel>
-                <For each={allProducts()}>
-                    {(product) => (
-                        <>
-                            <ProductColumnPreview
-                                product={product}
-                                size="normal"
-                            />
-                        </>
-                    )}
-                </For>
-            </ProductColumnPreviewCarousel>
+            <ProductBannerPreview product={showcased()} />
+
+            {!!recent() && (
+                <ProductColumnPreviewCarousel heading={'Recently Updated'}>
+                    <For each={recent()}>
+                        {(p) => (
+                            <ProductColumnPreview product={p} size="normal" />
+                        )}
+                    </For>
+                </ProductColumnPreviewCarousel>
+            )}
         </>
     );
 }

@@ -1,15 +1,30 @@
 @use '../../../color';
 
 .carousel {
+    display: flex;
+    flex-direction: column;
+    max-width: 100rem;
+    width: 90vw;
+    margin: 0 auto;
+
+    h1 {
+        display: inline-block;
+        width: fit-content;
+        font-size: 1.5em;
+        line-height: 3em;
+        text-transform: uppercase;
+        border-bottom: 1px solid #{color.$light2};
+    }
+}
+
+.carouselGrid {
     display: grid;
     justify-content: center;
     justify-items: center;
     align-items: center;
     grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
     gap: 2rem;
-    max-width: 100rem;
-    width: 90vw;
-    margin: 2rem auto;
+    margin: 2rem 0;
 }
 
 .default {
