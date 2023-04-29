@@ -1,5 +1,5 @@
 import { A } from '@solidjs/router';
-import { splitProps } from 'solid-js';
+import { JSX, splitProps } from 'solid-js';
 import { TProductRecord } from '~/library/Types/Product.types';
 import style from '~/styles/components/Product/Summary.module.scss';
 import { MainWrapper } from '../Layout/MainWrapper';
@@ -9,7 +9,9 @@ export type SummaryProps = {
     product: TProductRecord;
 };
 
-export function ProductSummary(_props: SummaryProps) {
+export function ProductSummary(
+    _props: SummaryProps & JSX.HTMLElementTags['div']
+) {
     const [props, rest] = splitProps(_props, ['product']);
 
     const price = () =>
@@ -36,10 +38,10 @@ export function ProductSummary(_props: SummaryProps) {
                         <p class={style.description}>{props.product.tagline}</p>
                         <span class={style.specifications}>
                             <span class={style.pricing}>{price()}</span>
-                            {props.product.platforms && (
+                            {props.product.platformNames && (
                                 <>
                                     {' • '}
-                                    {props.product.platforms.join(', ')}
+                                    {props.product.platformNames.join(', ')}
                                 </>
                             )}
                         </span>

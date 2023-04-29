@@ -1,8 +1,10 @@
 import { For, Show, createEffect, createSignal } from 'solid-js';
 import { Title } from 'solid-start';
-import { getProduct, getProducts } from '~/components/Product';
-import { ProductCard } from '~/components/Product/Card';
-import { ProductCarousel } from '~/components/Product/Carousel';
+import { getProducts, getProductsWithTaglines } from '~/components/Product';
+import {
+    ProductColumnPreview,
+    ProductColumnPreviewCarousel,
+} from '~/components/Product/Previews/Column';
 import { ProductSummary } from '~/components/Product/Summary';
 import { TProductRecord } from '~/library/Types/Product.types';
 
@@ -17,7 +19,9 @@ export default function Home() {
     >(undefined);
 
     createEffect(() =>
-        getProduct('celesteia').then((res) => setShowcasedProduct(res))
+        getProductsWithTaglines().then(
+            (res) => !!res && setShowcasedProduct(res[0])
+        )
     );
     createEffect(() => getProducts().then((res) => setAllProducts(res)));
 
@@ -30,15 +34,18 @@ export default function Home() {
                 <ProductSummary product={resolvedProduct()} />
             </Show>
 
-            <ProductCarousel>
+            <ProductColumnPreviewCarousel>
                 <For each={allProducts()}>
                     {(product) => (
                         <>
-                            <ProductCard product={product} size="normal" />
+                            <ProductColumnPreview
+                                product={product}
+                                size="normal"
+                            />
                         </>
                     )}
                 </For>
-            </ProductCarousel>
+            </ProductColumnPreviewCarousel>
         </>
     );
 }

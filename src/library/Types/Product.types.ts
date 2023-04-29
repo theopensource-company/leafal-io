@@ -23,10 +23,18 @@ export type TProductRecord = {
     created: Date;
     updated: Date;
 
-    platforms: string[];
+    platforms: TProductPlatform[];
+    platformNames: string[];
 
     makers: TMakerRecord[];
     showcase?: TProductShowcase;
+};
+
+export type TProductPlatformID = TRecordID<'platform'>;
+export type TProductPlatform = {
+    id: TProductPlatformID;
+    name: string;
+    arch: string;
 };
 
 export type TProductShowcase = {

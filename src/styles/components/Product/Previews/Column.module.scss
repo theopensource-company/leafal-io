@@ -1,0 +1,84 @@
+@use '../../../color';
+
+.carousel {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    gap: 2rem;
+    max-width: 100rem;
+    width: 90vw;
+    margin: 2rem auto;
+}
+
+.default {
+    display: flex;
+    flex-direction: column;
+    color: #{color.$light1};
+    text-decoration: none;
+    outline: none;
+
+    user-select: none;
+}
+
+.default.small {
+    max-width: 20rem;
+}
+
+.default.normal {
+    max-width: 30rem;
+}
+
+.default.large {
+    max-width: 40rem;
+}
+
+.thumbnail {
+    aspect-ratio: 16 / 9;
+    z-index: 1;
+    filter: brightness(80%);
+    transition: transform .2s ease, filter .2s ease, outline-color .2s ease;
+    outline: 2px solid transparent;
+    border-radius: 2rem;
+
+    .default:hover &, .default:focus-visible & {
+        filter: none;
+        transform: scale(1.02);
+    }
+
+    .default:focus-visible & {
+        outline-color: #{color.$light1};
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 2rem;
+    }
+}
+
+.text {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    gap: .5em;
+
+    .title {
+        display: flex;
+        flex-direction: column;
+        font-size: 2em;
+        font-weight: 400;
+
+        .specifications {
+            font-size: .5em;
+            font-weight: normal;
+            color: #{color.$light2};
+    
+            .pricing { color: #{color.$price}; }
+        }
+    }
+}

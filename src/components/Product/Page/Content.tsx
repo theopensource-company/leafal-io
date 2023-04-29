@@ -1,6 +1,6 @@
 import { JSX } from 'solid-js';
 
-export function PageContent(_props: JSX.HTMLElementTags['div']) {
+export function ProductPageContent(_props: JSX.HTMLElementTags['div']) {
     return (
         <div
             style={{

@@ -6,8 +6,11 @@ import { MainWrapper } from '~/components/Layout/MainWrapper';
 import { getProduct } from '~/components/Product';
 import { MakerProfile } from '~/components/Product/Maker/Profile';
 import { ProductOverview } from '~/components/Product/Overview';
-import { PageContent } from '~/components/Product/PageContent';
-import { PageSection, SectionHeading } from '~/components/Product/PageSection';
+import { ProductPageContent } from '~/components/Product/Page/Content';
+import {
+    ProductPageSection,
+    ProductPageSectionHeading,
+} from '~/components/Product/Page/Section';
 import { TProductRecord } from '~/library/Types/Product.types';
 
 export type StoreItemProps = {
@@ -39,21 +42,21 @@ export default function StoreItemPage(_props: StoreItemProps) {
             <Show when={product()}>
                 <Title>{pageTitle()}</Title>
 
-                <PageContent>
+                <ProductPageContent>
                     <ProductOverview product={resolvedProduct()} />
                     <MainWrapper>
                         <ColumnBar>
                             <Column variant="twothird">
                                 {resolvedProduct().description && (
                                     <>
-                                        <SectionHeading>
+                                        <ProductPageSectionHeading>
                                             About this game
-                                        </SectionHeading>
-                                        <PageSection wrapped={false}>
+                                        </ProductPageSectionHeading>
+                                        <ProductPageSection wrapped={false}>
                                             <p>
                                                 {resolvedProduct().description}
                                             </p>
-                                        </PageSection>
+                                        </ProductPageSection>
                                     </>
                                 )}
                             </Column>
@@ -64,12 +67,14 @@ export default function StoreItemPage(_props: StoreItemProps) {
                                             .makers /* && other stuff */
                                     }
                                 >
-                                    <SectionHeading>Details</SectionHeading>
+                                    <ProductPageSectionHeading>
+                                        Details
+                                    </ProductPageSectionHeading>
                                     {resolvedProduct().makers && (
-                                        <PageSection wrapped={true}>
-                                            <SectionHeading>
+                                        <ProductPageSection wrapped={true}>
+                                            <ProductPageSectionHeading>
                                                 Made by
-                                            </SectionHeading>
+                                            </ProductPageSectionHeading>
 
                                             <For
                                                 each={resolvedProduct().makers}
@@ -80,13 +85,13 @@ export default function StoreItemPage(_props: StoreItemProps) {
                                                     />
                                                 )}
                                             </For>
-                                        </PageSection>
+                                        </ProductPageSection>
                                     )}
                                 </Show>
                             </Column>
                         </ColumnBar>
                     </MainWrapper>
-                </PageContent>
+                </ProductPageContent>
             </Show>
         </>
     );
