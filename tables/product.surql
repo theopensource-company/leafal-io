@@ -33,6 +33,9 @@ DEFINE FIELD published      ON TABLE product TYPE bool ASSERT $value != NONE;
 
 DEFINE FIELD discoverable   ON TABLE product TYPE bool ASSERT $value != NONE;
 
+DEFINE FIELD links ON product TYPE array;
+DEFINE FIELD links.* ON product TYPE string;
+
 DEFINE FIELD platforms ON product TYPE array;
 DEFINE FIELD platforms.* ON product TYPE platform;
 

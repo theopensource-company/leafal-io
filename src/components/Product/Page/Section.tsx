@@ -14,12 +14,12 @@ const sectionStyle = cva([style.section], {
     },
 });
 
-export type SectionProps = {
+export type ProductPageSectionProps = {
     wrapped: boolean;
 };
 
 export function ProductPageSection(
-    _props: JSX.HTMLElementTags['div'] & SectionProps
+    _props: JSX.HTMLElementTags['div'] & ProductPageSectionProps
 ) {
     const [props, rest] = splitProps(_props, ['wrapped']);
     return (
@@ -32,4 +32,21 @@ export function ProductPageSection(
 
 export function ProductPageSectionHeading(_props: JSX.HTMLElementTags['span']) {
     return <span class={style.heading} {..._props} />;
+}
+
+export type ProductPageSectionLinkProps = {
+    icon?: JSX.Element;
+};
+
+export function ProductPageSectionLink(
+    _props: ProductPageSectionLinkProps & JSX.HTMLElementTags['a']
+) {
+    const [props, rest] = splitProps(_props, ['icon', 'children']);
+
+    return (
+        <a class={style.link} {...rest}>
+            {props.icon && <div class={style.iconContainer}>{props.icon}</div>}
+            {props.children}
+        </a>
+    );
 }

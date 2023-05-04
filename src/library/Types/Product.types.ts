@@ -26,6 +26,8 @@ export type TProductRecord = {
     platforms: TProductPlatform[];
     platformNames: string[];
 
+    links: string[];
+
     makers: TMakerRecord[];
     showcase?: TProductShowcase;
 };

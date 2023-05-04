@@ -31,3 +31,26 @@
     border-bottom: 1px solid #ccc;
     margin-bottom: 1em;
 }
+
+.link {
+    color: #{color.$light1};
+    background-color: #{color.$dark2};
+
+    transition: background-color .2s ease;
+
+    &:hover, &:focus-visible {
+        background-color: #{color.$dark3};
+    }
+
+    display: flex;
+    gap: 2em;
+    text-decoration: none;
+
+    padding: 1rem;
+    border-radius: .5rem;
+
+    .iconContainer {
+        width: 1em;
+        height: 1em;
+    }
+}

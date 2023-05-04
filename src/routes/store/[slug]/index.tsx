@@ -1,5 +1,6 @@
 import { For, Show, createEffect, createSignal } from 'solid-js';
 import { Title, useParams } from 'solid-start';
+import { ExternalLink } from '~/components/Icons/ExternalLink';
 import { Column } from '~/components/Layout/Groups/Columns/Column';
 import { ColumnBar } from '~/components/Layout/Groups/Columns/ColumnBar';
 import { MainWrapper } from '~/components/Layout/MainWrapper';
@@ -9,6 +10,7 @@ import { ProductPageContent } from '~/components/Product/Page/Content';
 import {
     ProductPageSection,
     ProductPageSectionHeading,
+    ProductPageSectionLink,
 } from '~/components/Product/Page/Section';
 import { ProductTop } from '~/components/Product/Page/Top';
 import { TProductRecord } from '~/library/Types/Product.types';
@@ -24,7 +26,12 @@ export default function StoreItemPage(_props: StoreItemProps) {
         TProductRecord | undefined | null
     >(undefined);
 
-    createEffect(() => getProduct(slug).then((res) => setProduct(res)));
+    createEffect(() =>
+        getProduct(slug).then((res) => {
+            setProduct(res);
+            console.log(res);
+        })
+    );
 
     const resolvedProduct = () => product() as TProductRecord;
     const pageTitle = () => `${resolvedProduct().title} - leafal.io`;
@@ -61,33 +68,39 @@ export default function StoreItemPage(_props: StoreItemProps) {
                                 )}
                             </Column>
                             <Column variant="onethird">
-                                <Show
-                                    when={
-                                        resolvedProduct()
-                                            .makers /* && other stuff */
-                                    }
-                                >
-                                    <ProductPageSectionHeading>
-                                        Details
-                                    </ProductPageSectionHeading>
-                                    {resolvedProduct().makers && (
-                                        <ProductPageSection wrapped={true}>
-                                            <ProductPageSectionHeading>
-                                                Made by
-                                            </ProductPageSectionHeading>
+                                <ProductPageSectionHeading>
+                                    Details
+                                </ProductPageSectionHeading>
 
-                                            <For
-                                                each={resolvedProduct().makers}
-                                            >
-                                                {(maker) => (
-                                                    <MakerProfile
-                                                        maker={maker}
-                                                    />
-                                                )}
-                                            </For>
-                                        </ProductPageSection>
-                                    )}
-                                </Show>
+                                {resolvedProduct().makers && (
+                                    <ProductPageSection wrapped={true}>
+                                        <ProductPageSectionHeading>
+                                            Made by
+                                        </ProductPageSectionHeading>
+
+                                        <For each={resolvedProduct().makers}>
+                                            {(maker) => (
+                                                <MakerProfile maker={maker} />
+                                            )}
+                                        </For>
+                                    </ProductPageSection>
+                                )}
+
+                                {resolvedProduct().links && (
+                                    <ProductPageSection wrapped={false}>
+                                        <For each={resolvedProduct().links}>
+                                            {(link) => (
+                                                <ProductPageSectionLink
+                                                    href={link}
+                                                    icon={<ExternalLink />}
+                                                    target="_blank"
+                                                >
+                                                    Visit official website
+                                                </ProductPageSectionLink>
+                                            )}
+                                        </For>
+                                    </ProductPageSection>
+                                )}
                             </Column>
                         </ColumnBar>
                     </MainWrapper>
