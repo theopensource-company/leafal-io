@@ -1,18 +1,18 @@
 import { createEffect, createSignal, splitProps } from 'solid-js';
 import { TProductRecord } from '~/library/Types/Product.types';
-import style from '~/styles/components/Product/Overview.module.scss';
-import { Column } from '../Layout/Groups/Columns/Column';
-import { ColumnBar } from '../Layout/Groups/Columns/ColumnBar';
-import { MainWrapper } from '../Layout/MainWrapper';
-import { Slideshow, SlideshowSlide } from '../Slideshow';
-import { ProductBanner } from './Banner';
+import style from '~/styles/components/Product/Page/Top.module.scss';
+import { Column } from '../../Layout/Groups/Columns/Column';
+import { ColumnBar } from '../../Layout/Groups/Columns/ColumnBar';
+import { MainWrapper } from '../../Layout/MainWrapper';
+import { Slideshow, SlideshowSlide } from '../../Slideshow';
+import { ProductBackground } from '../Background';
 import { ReceptionBar } from './ReceptionBar';
 
-export type SummaryProps = {
+export type ProductTopProps = {
     product: TProductRecord;
 };
 
-export function ProductOverview(_props: SummaryProps) {
+export function ProductTop(_props: ProductTopProps) {
     const [props, rest] = splitProps(_props, ['product']);
     const [slides, setSlides] = createSignal<SlideshowSlide[]>([]);
 
@@ -31,7 +31,7 @@ export function ProductOverview(_props: SummaryProps) {
 
     return (
         <>
-            <ProductBanner
+            <ProductBackground
                 product={props.product}
                 interactive={false}
                 {...rest}

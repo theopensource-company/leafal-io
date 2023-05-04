@@ -1,4 +1,4 @@
-@use '../../color';
+@use '../../../color';
 
 .details {
     display: flex;
@@ -7,9 +7,12 @@
     align-items: center;
     gap: 3em;
     font-size: 16px;
+    outline: none;
     
     margin: 10em 0;
     position: relative;
+
+    user-select: none;
 
     z-index: 8;
 
@@ -24,7 +27,7 @@
     &:hover, &:focus-visible {
         .thumbnail {
             transform: scale(1.02);
-            border-color: #{color.$light2};
+            outline-color: #{color.$light1};
             transition: .5s ease;
         }
 
@@ -34,17 +37,25 @@
         }
     }
 
+    &:focus-visible {
+        .thumbnail {
+            transform: scale(1.02);
+            outline-color: #{color.$light1};
+            transition: .5s ease;
+        }
+    }
+
     .thumbnail {
         width: 100%;
         aspect-ratio: 16 / 9;
-        border: 2px solid transparent;
+        outline: 2px solid transparent;
         border-radius: 2em;
         overflow: hidden;
         
         flex-basis: 50%;
         flex-grow: 1;
 
-        transition: transform .3s ease;
+        transition: transform .2s ease, outline-color .2s ease;
 
         img {
             width: 100%;
@@ -62,13 +73,13 @@
         flex-basis: 50%;
 
         transition: transform .3s ease;
-        color: #ccc;
+        color: #{color.$light2};
 
         .title {
             font-size: 4em;
             line-height: 1em;
             font-weight: bold;
-            color: #fff;
+            color: #{color.$light1};
         }
 
         .description {

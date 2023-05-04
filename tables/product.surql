@@ -34,7 +34,7 @@ DEFINE FIELD published      ON TABLE product TYPE bool ASSERT $value != NONE;
 DEFINE FIELD discoverable   ON TABLE product TYPE bool ASSERT $value != NONE;
 
 DEFINE FIELD platforms ON product TYPE array;
-DEFINE FIELD platforms.* ON product TYPE string ASSERT $value != NONE;
+DEFINE FIELD platforms.* ON product TYPE platform;
 
 -- TODO: Relate maker profiles.
 

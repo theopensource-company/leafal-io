@@ -30,7 +30,11 @@ export function ProfileContainer(
                     <Column variant="onefourth">
                         <div class={styles.side}>
                             <ProfileBanner>
-                                <ProfileCard isLink={false} user={user()} size={`large`} />
+                                <ProfileCard
+                                    isLink={false}
+                                    user={user()}
+                                    size={`large`}
+                                />
                             </ProfileBanner>
                             <Tab.List class={styles.list}>
                                 <Overview.Tab />
