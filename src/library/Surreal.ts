@@ -1,5 +1,4 @@
-import AwaitedSurreal from '@theopensource-company/awaited-surrealdb';
-import { Result } from 'surrealdb.js';
+import Surreal from 'surrealdb.js';
 
 export const SurrealEndpoint =
     import.meta.env.VITE_SURREAL_ENDPOINT ?? 'http://localhost:14001';
@@ -8,14 +7,12 @@ export const SurrealNamespace =
 export const SurrealDatabase =
     import.meta.env.VITE_SURREAL_DATABASE ?? 'leafal-deployment_local';
 
-export const SurrealInstance = new AwaitedSurreal({
-    endpoint: SurrealEndpoint,
-    namespace: SurrealNamespace,
-    database: SurrealDatabase,
-    token: async () => !!localStorage && localStorage.getItem('lusrsess'),
+export const SurrealInstance = new Surreal(SurrealEndpoint, {
+    prepare: async (surreal) => {
+        await surreal.use(SurrealNamespace, SurrealDatabase);
+        if (typeof window !== 'undefined') {
+            const token = localStorage.getItem('lusrsess');
+            if (token) await surreal.authenticate(token);
+        }
+    },
 });
-
-export const SurrealQuery = async <T = unknown>(
-    query: string,
-    vars?: Record<string, unknown>
-): Promise<Result<T[]>[]> => SurrealInstance.query<Result<T[]>[]>(query, vars);

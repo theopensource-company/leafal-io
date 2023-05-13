@@ -28,8 +28,8 @@ dependencies:
     specifier: ^0.2.23
     version: 0.2.23(@solidjs/meta@0.28.2)(@solidjs/router@0.7.1)(solid-js@1.6.13)(solid-start-cloudflare-pages@0.2.23)(solid-start-deno@0.2.24)(solid-start-node@0.2.23)(vite@4.1.4)
   surrealdb.js:
-    specifier: ^0.5.0
-    version: 0.5.0
+    specifier: ^0.7.1
+    version: 0.7.1(ws@8.13.0)
   undici:
     specifier: ^5.15.1
     version: 5.20.0
@@ -38,9 +38,6 @@ devDependencies:
   '@cloudflare/workers-types':
     specifier: ^4.20230321.0
     version: 4.20230321.0
-  '@theopensource-company/awaited-surrealdb':
-    specifier: ^0.5.1
-    version: 0.5.1
   '@theopensource-company/surrealdb-cloudflare':
     specifier: ^1.0.4
     version: 1.0.4
@@ -2198,15 +2195,6 @@ packages:
     dependencies:
       solid-js: 1.6.13
 
-  /@theopensource-company/awaited-surrealdb@0.5.1:
-    resolution: {integrity: sha512-zpO9DI2vc3PbKTZH9kRDYimehB1anMBWhwY85C1UBH5HnH+RYhph75a6xGuCdIgJS3yyMopJ86MS6Bukt5Q1PQ==}
-    dependencies:
-      surrealdb.js: 0.5.0
-    transitivePeerDependencies:
-      - bufferutil
-      - utf-8-validate
-    dev: true
-
   /@theopensource-company/surrealdb-cloudflare@1.0.4:
     resolution: {integrity: sha512-iHIurXlugjVn/LGrvaXJfvJheJPlUsIE4m/DNlzw133eXInzgL7QrbUdGjFWhdPW7g1SA4GUT71mTawp8Cc1xw==}
     dev: true
@@ -4191,6 +4179,7 @@ packages:
       ws: '*'
     dependencies:
       ws: 8.13.0
+    dev: false
 
   /joi@17.8.3:
     resolution: {integrity: sha512-q5Fn6Tj/jR8PfrLrx4fpGH4v9qM6o+vDUfD4/3vxxyg34OmKcNqYZ1qn2mpLza96S8tL0p0rIw2gOZX+/cTg9w==}
@@ -5059,6 +5048,7 @@ packages:
       - solid-start-vercel
       - supports-color
     dev: true
+
   /solid-js@1.6.13:
     resolution: {integrity: sha512-/zcyeect3QnmcD58754IpOU/SzX3s9N19RlRVoKRz3tNpzvel7QKO4FX/PpIFQH6n/pxWq6rSh6b9fwe20XUvw==}
     dependencies:
@@ -5326,14 +5316,13 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  /surrealdb.js@0.5.0:
-    resolution: {integrity: sha512-CpDfCwVnG3ahr2/kUf3i9RgDtLuEzQeU5Zxuhtud5Ijq9abXzkAhS/gcvtSQ9qyZiqSQcp4u7IK3yjnd1OkqKQ==}
+  /surrealdb.js@0.7.1(ws@8.13.0):
+    resolution: {integrity: sha512-N9X1rDRqmwY+iRlDbPrNmth6Mi6m0lx3Dc+EsV3bBqTeRVJgIzoKm2TuiR61OFViANUPLxpzI2lNwAzNjn2FAg==}
     dependencies:
       isomorphic-ws: 5.0.0(ws@8.13.0)
-      ws: 8.13.0
     transitivePeerDependencies:
-      - bufferutil
-      - utf-8-validate
+      - ws
+    dev: false
 
   /terser@5.16.6:
     resolution: {integrity: sha512-IBZ+ZQIA9sMaXmRZCUMDjNH0D5AQQfdn4WUjHL0+1lF4TP1IHRJbrhb6fNaXWikrYQTSkb7SLxkeXAiy1p7mbg==}

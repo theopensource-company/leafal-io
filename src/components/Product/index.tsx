@@ -1,4 +1,4 @@
-import { SurrealQuery } from '~/library/Surreal';
+import { SurrealInstance } from '~/library/Surreal';
 import { TProductRecord } from '~/library/Types/Product.types';
 
 export const getHumanPrice = (product: TProductRecord) => {
@@ -9,7 +9,7 @@ export const getHumanPrice = (product: TProductRecord) => {
 };
 
 export async function getProduct(slug: string): Promise<TProductRecord | null> {
-    const result = await SurrealQuery<TProductRecord>(
+    const result = await SurrealInstance.query<[TProductRecord[]]>(
         `SELECT *, array::distinct(platforms.*.name) AS platformNames FROM product WHERE slug=$slug FETCH platforms.*;`,
         { slug }
     );
@@ -17,7 +17,7 @@ export async function getProduct(slug: string): Promise<TProductRecord | null> {
 }
 
 export async function getProducts(): Promise<TProductRecord[] | null> {
-    const result = await SurrealQuery<TProductRecord>(
+    const result = await SurrealInstance.query<[TProductRecord[]]>(
         `SELECT *, array::distinct(platforms.*.name) AS platformNames FROM product FETCH platforms.*;`
     );
     return result[0].result ?? null;
@@ -26,7 +26,7 @@ export async function getProducts(): Promise<TProductRecord[] | null> {
 export async function getProductsWithTaglines(): Promise<
     TProductRecord[] | null
 > {
-    const result = await SurrealQuery<TProductRecord>(
+    const result = await SurrealInstance.query<[TProductRecord[]]>(
         `SELECT *, array::distinct(platforms.*.name) AS platformNames FROM product WHERE tagline != "" ORDER BY RANDOM FETCH platforms.*;`
     );
     return result[0].result ?? null;
@@ -35,7 +35,7 @@ export async function getProductsWithTaglines(): Promise<
 export async function getRecentlyUpdatedProducts(): Promise<
     TProductRecord[] | null
 > {
-    const result = await SurrealQuery<TProductRecord>(
+    const result = await SurrealInstance.query<[TProductRecord[]]>(
         `SELECT *, array::distinct(platforms.*.name) AS platformNames FROM product ORDER BY updated DESC FETCH platforms.*;`
     );
     return result[0].result ?? null;

@@ -10,11 +10,7 @@ DEFINE FIELD username ON TABLE user TYPE string ASSERT $value = /^[a-z0-9](?:[a-
 DEFINE FIELD email ON TABLE user TYPE string ASSERT is::email($value);
 
 DEFINE FIELD emailverified ON TABLE user TYPE bool 
-    VALUE
-        IF $value != NONE THEN $value
-        ELSE IF $before != NONE THEN $before
-        ELSE false
-        END
+    VALUE $value ?? $before ?? false
     PERMISSIONS
         FOR update NONE;
 

@@ -15,7 +15,7 @@ export const Query = unstable_clientOnly(async () => {
 
             const submit = () => {
                 if (input().length > 0) {
-                    SurrealInstance.opiniatedQuery(input()).then((res) => {
+                    SurrealInstance.query(input()).then((res) => {
                         setOutput(JSON.stringify(res, null, 2));
                     });
                 } else {

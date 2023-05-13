@@ -1,4 +1,4 @@
-import { SurrealQuery } from '~/library/Surreal';
+import { SurrealInstance } from '~/library/Surreal';
 import { TPublicUserRecord, TUserRecord } from '~/library/Types/User.types';
 
 export function toPublic(user: TUserRecord): TPublicUserRecord {
@@ -14,7 +14,7 @@ export function toPublic(user: TUserRecord): TPublicUserRecord {
 export async function getPublicProfile(
     username: string
 ): Promise<TPublicUserRecord | null> {
-    const result = await SurrealQuery<TPublicUserRecord>(
+    const result = await SurrealInstance.query<[TPublicUserRecord[]]>(
         `SELECT * FROM pubuser WHERE username=$username`,
         { username }
     );

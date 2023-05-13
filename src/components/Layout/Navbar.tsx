@@ -8,6 +8,7 @@ import {
     splitProps,
 } from 'solid-js';
 import { A } from 'solid-start';
+import { authenticatedUser } from '~/library/Auth';
 import style from '~/styles/components/Layout/Navbar.module.scss';
 import { TextLogo } from '../Brand/Logo';
 import { Button } from '../Button';
@@ -61,9 +62,16 @@ export function Navbar(props: JSX.HTMLElementTags['div'] & NavbarProps) {
                     </NavItem>
                     <div class={style.links} />
                     <div class={style.account}>
-                        <Button size="normal" onClick={onOpen}>
-                            Log in
-                        </Button>
+                        {authenticatedUser() ? (
+                            <>
+                                {authenticatedUser()?.profile.displayname ||
+                                    authenticatedUser()?.username}
+                            </>
+                        ) : (
+                            <Button size="normal" onClick={onOpen}>
+                                Log in
+                            </Button>
+                        )}
                     </div>
                 </div>
             </div>
