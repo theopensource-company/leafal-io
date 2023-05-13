@@ -37,7 +37,7 @@ DEFINE FIELD links ON product TYPE option<array>;
 DEFINE FIELD links.* ON product TYPE string;
 
 DEFINE FIELD platforms ON product TYPE option<array>;
-DEFINE FIELD platforms.* ON product TYPE platform;
+DEFINE FIELD platforms.* ON product TYPE record<platform>;
 
 -- TODO: Relate maker profiles.
 
