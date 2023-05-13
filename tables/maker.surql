@@ -7,9 +7,9 @@ DEFINE TABLE maker SCHEMAFULL
         FOR update, delete, create WHERE $scope = 'admin'
 ;
 
-DEFINE FIELD slug   ON TABLE maker TYPE string ASSERT $value != NONE;
-DEFINE FIELD name   ON TABLE maker TYPE string ASSERT $value != NONE;
-DEFINE FIELD logo   ON TABLE maker TYPE string;
+DEFINE FIELD slug   ON TABLE maker TYPE string;
+DEFINE FIELD name   ON TABLE maker TYPE string;
+DEFINE FIELD logo   ON TABLE maker TYPE option<string>;
 
 DEFINE EVENT maker_updated ON TABLE maker WHEN $event = "UPDATE" THEN {
     IF ($before.name != $after.name) THEN

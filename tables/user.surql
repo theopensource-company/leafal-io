@@ -14,17 +14,17 @@ DEFINE FIELD emailverified ON TABLE user TYPE bool
     PERMISSIONS
         FOR update NONE;
 
-DEFINE FIELD firstname ON TABLE user TYPE string ASSERT $value != NONE;
-DEFINE FIELD lastname ON TABLE user TYPE string ASSERT $value != NONE;
-DEFINE FIELD password ON TABLE user TYPE string ASSERT $value != NONE
+DEFINE FIELD firstname ON TABLE user TYPE string;
+DEFINE FIELD lastname ON TABLE user TYPE string;
+DEFINE FIELD password ON TABLE user TYPE string
     PERMISSIONS
         FOR select NONE;
 
 // Still waiting to be fully implemented, change in the future.
-DEFINE FIELD picture ON TABLE user TYPE string;
+DEFINE FIELD picture ON TABLE user TYPE option<string>;
 
 DEFINE FIELD profile ON TABLE user TYPE object VALUE $value OR $before OR {};
-DEFINE FIELD profile.displayname ON TABLE user TYPE string;
+DEFINE FIELD profile.displayname ON TABLE user TYPE option<string>;
 
 DEFINE FIELD created ON TABLE user VALUE $before OR time::now();
 DEFINE FIELD updated ON TABLE user VALUE time::now();
