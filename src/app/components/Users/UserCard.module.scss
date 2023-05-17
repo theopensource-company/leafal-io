@@ -1,0 +1,25 @@
+.default {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+}
+
+.avatar {
+    width: 3rem;
+    height: 3rem;
+    
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    border-radius: 50%;
+
+    img {
+        border-radius: 50%;
+        object-fit: cover;
+    }
+}
+
+.username {
+    font-size: 1.5rem;
+}
