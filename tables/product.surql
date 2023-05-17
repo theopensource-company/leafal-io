@@ -16,7 +16,7 @@ DEFINE FIELD slug           ON TABLE product TYPE string;
 
 -- Product branding
 DEFINE FIELD title          ON TABLE product TYPE string;
-DEFINE FIELD tagline        ON TABLE product TYPE string;
+DEFINE FIELD tagline        ON TABLE product TYPE option<string>;
 DEFINE FIELD overview       ON TABLE product TYPE string;
 DEFINE FIELD description    ON TABLE product TYPE string;
 

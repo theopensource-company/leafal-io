@@ -1,0 +1,50 @@
+@use '@/app/color';
+
+.dropdown {
+    position: relative;
+    height: 140px;
+    display: flex;
+    align-items: center;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.menu {
+    position: absolute;
+    top: 85%;
+    color: color.$light1;
+    right: 0;
+
+    background-color: #{color.$dark2};
+    border-radius: .5em;
+    overflow: hidden;
+    min-width: 250px;
+
+    transform: scaleY(1);
+    opacity: 1;
+    transform-origin: top center;
+
+    display: flex;
+    flex-direction: column;
+
+    transition: .1s ease;
+    transition-property: transform, opacity;
+}
+
+.menuItem {
+    cursor: pointer;
+    background-color: transparent;
+    transition: background-color .1s ease;
+
+    &:hover {
+        background-color: rgba(255,255,255,0.03);
+    }
+}
+
+.hideMenu {
+    pointer-events: none;
+    transform: scaleY(0);
+    opacity: 0;
+}

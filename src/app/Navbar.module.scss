@@ -50,48 +50,30 @@
             justify-content: center;
             opacity: 0;
             background-color: rgba(0,0,0,0.6);
-            transition: opacity .2s ease;
+            transition: opacity .2s ease, transform .1s ease;
+            transform: rotate(0deg);
             user-select: none;
         }
 
-        &:hover .overlay {
+        .overlay.turned {
+            transform: rotate(180deg);
+        }
+
+        .overlay.turned, &:hover .overlay {
             opacity: 1;
         }
     }
+}
 
-    .menu {
-        position: absolute;
-        top: 4rem;
-        right: 0;
+.menuItem {
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #{color.$light1};
+    text-decoration: none;
+}
 
-        background-color: #{color.$dark2};
-        border-radius: .5em;
-        overflow: hidden;
-        max-height: 0;
-        width: max-content;
-
-        display: flex;
-        flex-direction: column;
-
-        transition: max-height .2s ease;
-
-        .menuItem {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            min-height: 2em;
-            padding: .5em 1em;
-            cursor: pointer;
-            color: #{color.$light1};
-            text-decoration: none;
-        }
-
-        .sep {
-            border-bottom: 1px solid #{color.$dark3};
-        }
-    }
-
-    .menu.expanded {
-        max-height: fit-content;
-    }
+.sep {
+    border-bottom: 1px solid #{color.$dark3};
 }

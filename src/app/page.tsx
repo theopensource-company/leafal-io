@@ -1,15 +1,15 @@
-'use client';
-import { useEffect } from 'react';
-import { useAuthenticatedUser, useSignIn, useSignOut, useSignUp } from './hooks/Queries/Auth';
-import SignInForm from './components/Forms/SignInForm';
-import SignUpForm from './components/Forms/SignUpForm';
+"use client";
+
+import * as React from "react";
+
+import SignInForm from "./components/Forms/SignInForm";
+import SignUpForm from "./components/Forms/SignUpForm";
 
 export default function Home() {
-
   return (
-    <main>      
+    <main>
       <SignInForm />
       <SignUpForm />
     </main>
-  )
+  );
 }
