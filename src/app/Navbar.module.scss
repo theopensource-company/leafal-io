@@ -1,0 +1,15 @@
+.default {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    padding: 1rem;
+    height: 3rem;
+}
+
+.items {
+    flex-grow: 1;
+}
+
+.account {
+    display: flex;
+}

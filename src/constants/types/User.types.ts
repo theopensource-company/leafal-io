@@ -27,7 +27,15 @@ export type TPublicUserRecord = {
     id: TPublicUserRecordID;
 } & Pick<TUserRecord, 'username' | 'picture' | 'profile' | 'created'>;
 
-export type TAuthenticateUser = {
+export type TActionAuthenticateUser = {
     identifier: TUserRecord['email'] | TUserRecord['username'];
+    password: string;
+};
+
+export type TActionCreateUser = {
+    username: TUserRecord['username'];
+    email: TUserRecord['email'];
+    firstname: TUserRecord['firstname'];
+    lastname: TUserRecord['lastname'];
     password: string;
 };

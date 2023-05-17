@@ -1,31 +1,33 @@
-import '@/styles/globals.scss';
+import './globals.scss';
 
 import { Open_Sans } from 'next/font/google';
 import { Metadata } from 'next';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import ClientProvider from './hooks/Queries/ClientProvider';
+import Navbar from './Navbar';
 
 const openSans = Open_Sans({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  icons: [
-    "/favicon.ico",
-    "/logo.svg"
-  ],
-  title: 'leafal.io',
+    icons: [
+        "/favicon.ico",
+        "/logo.svg"
+    ],
+    title: 'leafal.io',
 }
 
 export default function RootLayout({
-  children,
+    children,
 }: {
-  children: React.ReactNode
+    children: React.ReactNode
 }) {
-  return (
-    <html lang="en">
-      <body className={openSans.className}>
-        <QueryClientProvider client={new QueryClient()}>
-            {children}
-        </QueryClientProvider>
-      </body>
-    </html>
-  )
+    return (
+      <html lang="en">
+        <body className={openSans.className}>
+            <ClientProvider>
+              <Navbar />
+              {children}
+          </ClientProvider>
+        </body>
+      </html>
+    )
 }

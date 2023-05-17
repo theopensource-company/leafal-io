@@ -10,7 +10,7 @@ export const SurrealInstance = new Surreal(SurrealEndpoint, {
     prepare: async (surreal) => {
         await surreal.use(SurrealNamespace, SurrealDatabase);
         if (typeof window !== 'undefined') {
-            const token = localStorage.getItem('lusrsess');
+            const token = localStorage.getItem('lusrsess');            
             if (token) await surreal.authenticate(token);
         }
     }
