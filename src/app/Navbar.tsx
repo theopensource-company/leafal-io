@@ -3,13 +3,17 @@ import { TPublicUserRecord, TUserRecord } from '@/constants/types/User.types';
 import styles from './Navbar.module.scss';
 import { useAuthenticatedUser, useSignIn, useSignOut, useSignUp } from './hooks/Queries/Auth';
 import UserCard from './components/Users/UserCard';
-import { useEffect } from 'react';
+import Link from 'next/link';
+import { Url } from 'next/dist/shared/lib/router/router';
 
-export function NavbarItem({ children }: {
-    children: React.ReactNode;
+export function NavbarItem({ children, href }: {
+    children?: React.ReactNode;
+    href?: Url;
 }) {
     return <div className={styles.navItem}>
-        {children}
+        <Link href={href ?? ""}>
+            {children}
+        </Link>
     </div>
 }
 
@@ -24,7 +28,8 @@ export default function Navbar({}) {
 
     return <div className={styles.default}>
         <div className={styles.items}>
-            <NavbarItem>Hello</NavbarItem>
+            <NavbarItem href="/">Home</NavbarItem>
+            <NavbarItem href="/profile">Profile</NavbarItem>
         </div>
 
         {!!authenticatedUser && <NavbarAccount user={authenticatedUser} />}
