@@ -1,8 +1,8 @@
 import '@/styles/globals.scss';
 
-import { AuthProvider } from '@/app/hooks/Auth';
 import { Open_Sans } from 'next/font/google';
 import { Metadata } from 'next';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const openSans = Open_Sans({ subsets: ['latin'] })
 
@@ -22,9 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={openSans.className}>
-        <AuthProvider>
-          {children}
-        </AuthProvider>
+        <QueryClientProvider client={new QueryClient()}>
+            {children}
+        </QueryClientProvider>
       </body>
     </html>
   )

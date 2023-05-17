@@ -7,5 +7,11 @@ export const SurrealNamespace = "leafal-io";
 export const SurrealDatabase = "leafal-deployment_local";
 
 export const SurrealInstance = new Surreal(SurrealEndpoint, {
-    prepare: async (surreal) => { await surreal.use(SurrealNamespace, SurrealDatabase); }
+    prepare: async (surreal) => {
+        await surreal.use(SurrealNamespace, SurrealDatabase);
+        if (typeof window !== 'undefined') {
+            const token = localStorage.getItem('lusrsess');
+            if (token) await surreal.authenticate(token);
+        }
+    }
 });
