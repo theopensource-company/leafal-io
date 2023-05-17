@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { useAuth } from './hooks/Auth';
-import { SurrealDatabase, SurrealInstance, SurrealNamespace } from '@/lib/Surreal';
+import { SurrealDatabase, SurrealInstance, SurrealNamespace } from '@/app/lib/Surreal';
 
 export default function Home() {
   const { data, setData } = useAuth();

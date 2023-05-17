@@ -30,5 +30,13 @@
     "surrealdb.js": "^0.7.2",
     "ts-node": "^10.9.1",
     "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "bufferutil": "^4.0.7",
+    "utf-8-validate": "^6.0.3"
+  },
+  "peerDependencies": {
+    "bufferutil": "^4.0.7",
+    "utf-8-validate": "^6.0.3"
   }
 }
