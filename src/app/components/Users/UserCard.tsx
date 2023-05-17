@@ -5,10 +5,11 @@ import { TPublicUserRecord, TUserRecord } from "@/constants/types/User.types";
 
 export type UserCardProps = {
     user: TUserRecord | TPublicUserRecord;
+    showName?: boolean;
 }
 
 export default function UserCard({
-    user
+    user, showName = true
 }: UserCardProps) {
     const processName = () => user.profile.displayname ?? user.username;
 
@@ -17,6 +18,6 @@ export default function UserCard({
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={user.picture} alt={processName()} />
         </div>
-        <span className={styles.username}>{processName()}</span>
+        {showName && <span className={styles.username}>{processName()}</span>}
     </div>
 }

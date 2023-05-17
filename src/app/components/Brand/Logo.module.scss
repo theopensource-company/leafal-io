@@ -1,0 +1,45 @@
+@use "@/app/color";
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+
+    user-select: none;
+
+    color: #{color.$light1};
+
+    &:hover .graphic {
+        filter: brightness(120%);
+        transform: scale(1.05);
+
+        animation: graphic-animation .2s ease;
+    }
+}
+
+@keyframes graphic-animation {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(-5deg) scale(1.025);
+    }
+    100% {
+        transform: rotate(0deg) scale((1.05));
+    }
+  }
+  
+
+.graphic {
+    width: 3em;
+    height: 3em;
+
+    transition: .3s ease;
+    transition-property: filter, transform;
+}
+
+.text {
+    font-size: 2em;
+    font-weight: 700;
+}

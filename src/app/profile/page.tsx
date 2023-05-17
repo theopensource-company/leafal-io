@@ -22,8 +22,6 @@ export default function ProfileIndex() {
   }, [authenticatedUser]);
 
   return <>
-    {
-      authenticatedUser ? user && <ProfilePage user={user} /> : "Sign in to view your own profile."
-    }
+    {authenticatedUser ? user && <ProfilePage user={user} /> : "Sign in to view your own profile."}
   </>
 }

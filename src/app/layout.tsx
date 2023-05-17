@@ -23,10 +23,12 @@ export default function RootLayout({
     return (
       <html lang="en">
         <body className={openSans.className}>
+          <div id="app">
             <ClientProvider>
               <Navbar />
               {children}
-          </ClientProvider>
+            </ClientProvider>
+          </div>
         </body>
       </html>
     )

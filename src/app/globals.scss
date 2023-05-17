@@ -1,5 +1,36 @@
-body {
-    margin: 0;
-    background-color: #000;
-    color: #fff;
+@use 'color';
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  background-color: #{color.$dark1};
+  color: #{color.$light1};
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+main {
+  padding: 1rem;
+}
+
+.main-wrapper {
+  width: 90vw;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.inline-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin: 0 .25em;
 }

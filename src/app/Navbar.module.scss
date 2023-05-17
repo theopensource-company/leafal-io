@@ -1,15 +1,97 @@
+@use "@/app/color";
+
 .default {
+    height: 5rem;
+
     display: flex;
-    flex-direction: row;
+    justify-content: stretch;
     align-items: stretch;
-    padding: 1rem;
-    height: 3rem;
+}
+
+.content {
+    margin: .5em 5vw;
+    width: 100%;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 18px;
 }
 
 .items {
+    display: flex;
+    align-items: center;
     flex-grow: 1;
+    gap: 3em;
+}
+
+.navItem {
+    display: flex;
+    width: auto;
+    text-decoration: none;
+    color: #fff;
 }
 
 .account {
+    position: relative;
     display: flex;
+
+    .clickToExpand {
+        position: relative;
+        border-radius: 50%;
+        overflow: hidden;
+        cursor: pointer;
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            background-color: rgba(0,0,0,0.6);
+            transition: opacity .2s ease;
+            user-select: none;
+        }
+
+        &:hover .overlay {
+            opacity: 1;
+        }
+    }
+
+    .menu {
+        position: absolute;
+        top: 4rem;
+        right: 0;
+
+        background-color: #{color.$dark2};
+        border-radius: .5em;
+        overflow: hidden;
+        max-height: 0;
+        width: max-content;
+
+        display: flex;
+        flex-direction: column;
+
+        transition: max-height .2s ease;
+
+        .menuItem {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            min-height: 2em;
+            padding: .5em 1em;
+            cursor: pointer;
+            color: #{color.$light1};
+            text-decoration: none;
+        }
+
+        .sep {
+            border-bottom: 1px solid #{color.$dark3};
+        }
+    }
+
+    .menu.expanded {
+        max-height: fit-content;
+    }
 }
