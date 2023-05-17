@@ -1,7 +1,7 @@
 import { useAuthenticatedUser, useSignUp } from "@/app/hooks/Queries/Auth";
 import { FormEvent, useEffect, useRef } from "react";
 
-export default function SignInForm() {
+export default function SignUpForm() {
     const username = useRef<HTMLInputElement>(null);
     const firstname = useRef<HTMLInputElement>(null);
     const lastname = useRef<HTMLInputElement>(null);
