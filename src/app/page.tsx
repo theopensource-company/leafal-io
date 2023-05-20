@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import * as React from "react";
+import * as React from 'react';
 
-import SignInForm from "./components/Forms/SignInForm";
-import SignUpForm from "./components/Forms/SignUpForm";
+import SignInForm from './components/Forms/SignInForm';
+import SignUpForm from './components/Forms/SignUpForm';
 
 export default function Home() {
-  return (
-    <main>
-      <SignInForm />
-      <SignUpForm />
-    </main>
-  );
+    return (
+        <main>
+            <SignInForm />
+            <SignUpForm />
+        </main>
+    );
 }

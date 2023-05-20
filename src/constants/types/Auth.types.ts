@@ -1,6 +1,6 @@
-import { TUserRecord } from "./User.types";
+import { TUserRecord } from './User.types';
 
 export type AuthState<T = TUserRecord> = {
-  authenticated: boolean;
-  details?: T | null;
+    authenticated: boolean;
+    details?: T | null;
 };

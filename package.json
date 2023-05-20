@@ -4,13 +4,16 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev-migrate": "ts-node ./scripts/migratedefaults.ts",
-    "dev": "concurrently --names \"leafal,surrl\" \"pnpm run dev-run-next\" \"pnpm run dev-run-surreal\"",
-    "dev-run-next": "next dev --port 14000",
+    "dev": "concurrently --names \"leafal,surrl\" --hide 1 \"pnpm run dev-run-next\" \"pnpm run dev-run-surreal\"",
+    "debug": "concurrently --names \"leafal,surrl\" \"pnpm run dev-run-next\" \"pnpm run dev-run-surreal\"",
+    "dbonly": "concurrently --names \"leafal,surrl\" --hide 0 \"pnpm run dev-run-next\" \"pnpm run dev-run-surreal\"",
+    "dev-run-next": "cross-env NODE_ENV=\"development\" next dev --port 14000",
     "dev-run-surreal": "surreal start --log debug --user root --pass root --bind 0.0.0.0:14001 file:dev.db",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev-migrate": "ts-node ./scripts/migratedefaults.ts",
+    "ts": "tsc --watch",
+    "lint": "eslint . --ext ts --ext tsx --max-warnings 0",
+    "deploy": "export NODE_ENV=\"production\" SURREAL_DATABASE=leafal-deployment_$VERCEL_GIT_COMMIT_REF && export NEXT_PUBLIC_SURREAL_DATABASE=$SURREAL_DATABASE && ts-node ./scripts/predeploy.ts && pnpm build",
+    "build": "next build"
   },
   "dependencies": {
     "@tanstack/react-query": "^4.29.7",
@@ -30,7 +33,6 @@
     "react-feather": "^2.0.10",
     "sass": "^1.62.1",
     "surrealdb.js": "^0.7.2",
-    "ts-node": "^10.9.1",
     "typescript": "5.0.4",
     "uuid": "^9.0.0"
   },
@@ -39,6 +41,8 @@
     "@typescript-eslint/eslint-plugin": "^5.59.6",
     "@typescript-eslint/parser": "^5.59.6",
     "bufferutil": "^4.0.7",
+    "cross-env": "^7.0.3",
+    "eslint-config-next": "13.4.1",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-json": "^3.1.0",
     "eslint-plugin-only-error": "^1.0.2",
@@ -49,6 +53,7 @@
     "eslint-plugin-unused-imports": "^2.0.0",
     "prettier": "^2.8.8",
     "prettier-plugin-organize-imports": "^3.2.2",
+    "ts-node": "^10.9.1",
     "utf-8-validate": "^6.0.3"
   },
   "peerDependencies": {

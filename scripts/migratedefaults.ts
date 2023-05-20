@@ -1,4 +1,4 @@
-import { migrateDatabase } from "./_migratetool.ts";
+import { migrateDatabase } from './_migratetool.ts';
 
 // Make sure that SurrealDB is running before you do this so it doesn't wait for a connection for an eternity.
 const migrate = async () => {
@@ -19,6 +19,6 @@ const migrate = async () => {
         true,
         process.cwd()
     );
-}
+};
 
 migrate();

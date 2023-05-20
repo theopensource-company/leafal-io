@@ -1,31 +1,31 @@
-"use client";
-import * as React from "react";
+'use client';
+import * as React from 'react';
 
-import ProfilePage from "../components/ProfilePage";
-import { SurrealInstance } from "@/app/lib/Surreal";
-import { TPublicUserRecord } from "@/constants/types/User.types";
-import { useEffect, useState } from "react";
+import { SurrealInstance } from '@/app/lib/Surreal';
+import { TPublicUserRecord } from '@/constants/types/User.types';
+import { useEffect, useState } from 'react';
+import ProfilePage from '../components/ProfilePage';
 
 async function getProfile(slug: string): Promise<TPublicUserRecord | null> {
-  const result = await SurrealInstance.query<[TPublicUserRecord[]]>(
-    "SELECT * FROM pubuser WHERE username=$slug",
-    { slug }
-  );
+    const result = await SurrealInstance.query<[TPublicUserRecord[]]>(
+        'SELECT * FROM pubuser WHERE username=$slug',
+        { slug }
+    );
 
-  if (!result?.[0]?.result?.[0]) return null;
-  return result[0].result[0];
+    if (!result?.[0]?.result?.[0]) return null;
+    return result[0].result[0];
 }
 
 export default function ProfileWithSlug({
-  params,
+    params,
 }: {
-  params: { slug: string };
+    params: { slug: string };
 }) {
-  const [user, setUser] = useState<TPublicUserRecord | null>();
+    const [user, setUser] = useState<TPublicUserRecord | null>();
 
-  useEffect(() => {
-    getProfile(params.slug).then((u) => setUser(u));
-  }, [params]);
+    useEffect(() => {
+        getProfile(params.slug).then((u) => setUser(u));
+    }, [params]);
 
-  return <>{user && <ProfilePage user={user} />}</>;
+    return <>{user && <ProfilePage user={user} />}</>;
 }

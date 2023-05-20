@@ -1,7 +1,7 @@
 import { Surreal } from '@theopensource-company/surrealdb-cloudflare';
 import fs from 'fs';
-import path from 'path';
 import fetch from 'node-fetch';
+import path from 'path';
 
 export type EnvironmentKey = `LEAFAL_ENV_${string}`;
 export type MigrationEnvironment = {

@@ -33,6 +33,7 @@
     "**/*.ts",
     "**/*.tsx",
     "scripts/_migratetool.ts",
+    "scripts/migratedefaults.ts",
     "scripts/predeploy.ts",
     ".next/types/**/*.ts"
   ],
