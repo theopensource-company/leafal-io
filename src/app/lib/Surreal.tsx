@@ -2,9 +2,13 @@
 import { Surreal } from 'surrealdb.js';
 
 // TODO: Base off provided environment variables.
-export const SurrealEndpoint = 'http://localhost:14001';
-export const SurrealNamespace = 'leafal-io';
-export const SurrealDatabase = 'leafal-deployment_local';
+export const SurrealEndpoint = `${
+    process.env.NEXT_PUBLIC_SURREAL_ENDPOINT ?? 'https://euc1-1-db.kards.social'
+}/rpc`;
+export const SurrealNamespace =
+    process.env.NEXT_PUBLIC_SURREAL_NAMESPACE ?? 'leafal-io';
+export const SurrealDatabase =
+    process.env.NEXT_PUBLIC_SURREAL_DATABASE ?? 'leafal-deployment_unknown';
 
 export const SurrealInstance = new Surreal(SurrealEndpoint, {
     prepare: async (surreal) => {
