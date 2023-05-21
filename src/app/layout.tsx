@@ -14,6 +14,10 @@ export const metadata: Metadata = {
     title: 'leafal.io',
 };
 
+export function MainWrapper({ children }: { children: React.ReactNode }) {
+  return <div className="main-wrapper">{children}</div>;
+}
+
 export default function RootLayout({
     children,
 }: {
