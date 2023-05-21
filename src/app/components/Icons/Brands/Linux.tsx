@@ -3,7 +3,7 @@
 
 import * as React from 'react';
 
-export function Linux(): React.ReactNode {
+export function Linux() {
     return (
         <>
             <i className="inline-icon">

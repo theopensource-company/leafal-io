@@ -3,7 +3,7 @@
 
 import * as React from 'react';
 
-export function Windows11(): React.ReactNode {
+export function Windows11() {
     return (
         <>
             <i className="inline-icon">

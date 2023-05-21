@@ -3,7 +3,7 @@
 
 import * as React from 'react';
 
-export function Apple(): React.ReactNode {
+export function Apple() {
     return (
         <>
             <i className="inline-icon">
