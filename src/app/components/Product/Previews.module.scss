@@ -1,0 +1,15 @@
+.banner {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    gap: 3em;
+    outline: none;
+
+    margin: 10em 0;
+    position: relative;
+    user-select: none;
+
+    z-index: 8;
+}
