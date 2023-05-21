@@ -16,6 +16,8 @@ export type TUserRecord = {
 
     created: Date;
     updated: Date;
+
+    preferredName: string;
 };
 
 export type TUserProfile = {
@@ -25,7 +27,10 @@ export type TUserProfile = {
 export type TPublicUserRecordID = TRecordID<'pubuser'>;
 export type TPublicUserRecord = {
     id: TPublicUserRecordID;
-} & Pick<TUserRecord, 'username' | 'picture' | 'profile' | 'created'>;
+} & Pick<
+    TUserRecord,
+    'preferredName' | 'username' | 'picture' | 'profile' | 'created'
+>;
 
 export type TActionAuthenticateUser = {
     identifier: TUserRecord['email'] | TUserRecord['username'];

@@ -7,7 +7,7 @@
     gap: 3em;
     outline: none;
 
-    margin: 10em 0;
+    margin: 5em 0;
     user-select: none;
     text-decoration: none;
 
@@ -17,8 +17,6 @@
     @media screen and (orientation: portrait) {
         flex-direction: column;
     }
-
-    
 }
 
 .thumbnail {

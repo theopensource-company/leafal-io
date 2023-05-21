@@ -1,0 +1,65 @@
+@use '@/app/color';
+
+.container {
+    width: 80vw;
+    max-width: 1600px;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.backdrop {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    background-image: url("/images/fx/background.svg");
+    background-size: 8px 8px;
+}
+
+.profile {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+        "card content"
+        "ingame content";
+    grid-template-columns: 1fr 3fr;
+    gap: 1em;
+
+    @media screen and (orientation: portrait) {
+        grid-template-areas:
+            "card"
+            "content";
+        grid-template-columns: 1fr;
+    }
+}
+
+.card {
+    grid-area: card;
+    background-color: #{color.$dark1};
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.content {
+    grid-area: content;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.ingame {
+    grid-area: "ingame";
+    background-color: #{color.$dark1};
+    padding: 1rem;
+    border-radius: 1rem;
+
+    display: flex;
+    flex-direction: column;
+
+    .statusText { font-size: .75em; text-transform: uppercase; color: #{color.$light2}; }
+    .gameName { font-size: 1.5em; }
+}

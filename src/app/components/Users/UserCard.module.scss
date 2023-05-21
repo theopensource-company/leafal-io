@@ -1,18 +1,24 @@
+@use '@/app/color';
+
 .default {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 1em;
+    color: inherit;
+    text-decoration: none;
 }
 
 .avatar {
-    width: 2.5em;
-    height: 2.5em;
+    .small & { width: 3em; }
+    .normal & { width: 4em; }
+    .large & { width: 5em; }
+
+    aspect-ratio: 1;
     
     display: flex;
     justify-content: stretch;
     align-items: stretch;
-    border-radius: 50%;
 
     img {
         border-radius: 50%;
@@ -20,6 +26,17 @@
     }
 }
 
+.text {
+    display: flex;
+    flex-direction: column;
+}
+
 .username {
-    font-size: 1em;
+    font-size: 1.5em;
+}
+
+.status {
+    &.offline { color: #{color.$offline}; }
+    &.online { color: #{color.$online}; }
+    &.ingame { color: #{color.$ingame}; }
 }

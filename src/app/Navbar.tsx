@@ -45,7 +45,13 @@ export function NavbarAccount({ user }: { user: TUserRecord }) {
                         className={styles.clickToExpand}
                         onClick={() => setExpanded(!expanded)}
                     >
-                        <UserCard user={user} showName={false} />
+                        <UserCard
+                            user={user}
+                            size="small"
+                            showName={false}
+                            showStatus={false}
+                            isLink={false}
+                        />
                         <span
                             className={`${styles.overlay}${
                                 expanded ? ` ${styles.turned}` : ''
@@ -63,7 +69,7 @@ export function NavbarAccount({ user }: { user: TUserRecord }) {
                     onClick={() => setExpanded(false)}
                     className={styles.menuItem}
                 >
-                    <UserCard user={user} />
+                    <UserCard user={user} size="normal" isLink={false} />
                 </Link>
                 <div className={styles.sep}></div>
                 <div onClick={() => signOut()} className={styles.menuItem}>

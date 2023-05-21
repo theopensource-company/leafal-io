@@ -10,6 +10,7 @@ import {
     TUserRecord,
 } from '@/constants/types/User.types';
 import { useMutation, useQuery } from '@tanstack/react-query';
+import { processUserRecord } from './User';
 
 export const useSignIn = () =>
     useMutation({
@@ -62,7 +63,7 @@ export function useAuthenticatedUser() {
             );
 
             if (!result?.[0]?.result?.[0]) return null;
-            return result[0].result[0];
+            return processUserRecord(result[0].result[0]);
         },
     });
 }
