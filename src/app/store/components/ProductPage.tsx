@@ -70,7 +70,7 @@ export function ProductPageSectionLink({
     icon?: React.ReactNode;
 }) {
     return (
-        <Link href={href} className={styles.link}>
+        <Link href={href} className={styles.link} target="_blank">
             {icon && (
                 <div className={styles.icon}>
                     {React.isValidElement(icon) && icon}
