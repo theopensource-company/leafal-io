@@ -1,18 +1,18 @@
-import * as React from "react";
+import * as React from 'react';
 
-import { BrandIcons } from "../Icons/Brands";
+import { BrandIcons } from '../Icons/Brands';
 
 export function ProductPlatforms({
-  platformNames,
+    platformNames,
 }: {
-  platformNames: string[];
+    platformNames: string[];
 }) {
-  return (
-    <div style={{ display: "inline-block", verticalAlign: "middle" }}>
-      {platformNames.map((name) => {
-        const p = name as "windows" | "macosx" | "linux";
-        return <>{BrandIcons[p]}</>;
-      })}
-    </div>
-  );
+    return (
+        <div style={{ display: 'inline-block', verticalAlign: 'middle' }}>
+            {platformNames.map((name) => {
+                const p = name as 'windows' | 'macosx' | 'linux';
+                return <>{BrandIcons[p]}</>;
+            })}
+        </div>
+    );
 }
