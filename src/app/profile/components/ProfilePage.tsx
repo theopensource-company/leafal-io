@@ -15,7 +15,7 @@ export function ProfileShell({ username }: { username: string }) {
 
 export default function ProfilePage({ user }: { user: TPublicUserRecord }) {
     return (
-        <div className={styles.container}>
+        <div className={[styles.container, 'main-wrapper'].join(' ')}>
             <div className={styles.backdrop} />
 
             <div className={styles.profile}>

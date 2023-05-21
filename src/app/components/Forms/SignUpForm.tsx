@@ -1,3 +1,4 @@
+'use client';
 import * as React from 'react';
 
 import { useAuthenticatedUser, useSignUp } from '@/app/hooks/Queries/Auth';

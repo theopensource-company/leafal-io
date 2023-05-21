@@ -1,5 +1,4 @@
 'use client';
-
 import { SurrealInstance as surreal } from '@/app/lib/Surreal';
 import { TProductRecord } from '@/constants/types/Product.types';
 import { useQuery } from '@tanstack/react-query';
@@ -11,16 +10,24 @@ export function processProductRecord({ pricing, ...rest }: TProductRecord) {
     };
 }
 
-export const useStoreProduct = (slug?: TProductRecord['slug']) =>
+export const getProduct = async (slug: string) => {
+    const result = await surreal.query<[TProductRecord[]]>(
+        /* surrealql */ `
+            SELECT *, 
+                array::distinct(platforms.*.name) AS platformNames
+            FROM product
+            WHERE slug=$slug
+            FETCH platforms.*;
+        `,
+        { slug }
+    );
+
+    if (!result?.[0]?.result?.[0]) return null;
+    return processProductRecord(result[0].result[0]);
+};
+
+export const useStoreProduct = (slug: TProductRecord['slug']) =>
     useQuery({
         queryKey: ['products', slug],
-        queryFn: async () => {
-            const result = await surreal.query<[TProductRecord[]]>(
-                `SELECT *, array::distinct(platforms.*.name) AS platformNames FROM product WHERE slug=$slug FETCH platforms.*;`,
-                { slug }
-            );
-
-            if (!result?.[0]?.result?.[0]) return null;
-            return processProductRecord(result[0].result[0]);
-        },
+        queryFn: () => getProduct(slug),
     });

@@ -1,0 +1,135 @@
+@use '@/app/color';
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.slides {
+    position: relative;
+    display: flex;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 1rem;
+    background-color: #000;
+    overflow: hidden;
+}
+
+.selectors {
+    z-index: 8;
+
+    margin: 0 2em;
+    height: .5em;
+
+    display: flex;
+    gap: 1em;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: stretch;
+    height: 2.5em;
+
+    .selector {
+        flex: 1;
+
+        position: relative;
+        padding: 1em 0;
+
+        cursor: pointer;
+
+        &::before {
+            content: "";
+            display: block;
+
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            z-index: 1;
+            margin: 1em .5em;
+
+            width: calc(100% - 1em);
+            height: .5em;
+
+            border-radius: .25em;
+
+            background-color: #{color.$light1};
+            opacity: .5;
+
+            z-index: 4;
+        }
+
+        &::after {
+            content: "";
+            display: block;
+
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            z-index: 2;
+            margin: 1em .5em;
+
+            width: calc(100% - 1em);
+            max-width: 0;
+
+            border-radius: .25em;
+
+            height: .5em;
+            background-color: #{color.$light1};
+        }
+
+        &.active::after {
+            animation: selector 5s linear 0s forwards;
+        }
+
+        &.viewed::after {
+            max-width: 100%;
+        }
+    }
+}
+
+@keyframes selector {
+    0% {
+        max-width: 0;
+    }
+
+    100% {
+        max-width: 100%;
+    }
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+
+    .caption {
+        display: block;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition: opacity .3s ease, visibility 0s linear .3s;
+
+    &.active {
+        visibility: visible;
+        opacity: 1;
+
+        transition: opacity .3s ease, visibility 0s linear 0s;
+    }
+
+    img, video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

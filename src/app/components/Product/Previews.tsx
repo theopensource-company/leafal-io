@@ -25,8 +25,12 @@ export function ProductPreviewBanner({ product }: ProductPreviewProps) {
                     </div>
 
                     <div className={styles.text}>
-                        <span className={styles.title}>{product.title}</span>
-                        <p className={styles.tagline}>{product.tagline}</p>
+                        <div>
+                            <span className={styles.title}>
+                                {product.title}
+                            </span>
+                            <p className={styles.tagline}>{product.tagline}</p>
+                        </div>
 
                         <span className={styles.specifications}>
                             <span className={styles.pricing}>

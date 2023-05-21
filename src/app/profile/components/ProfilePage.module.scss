@@ -1,11 +1,9 @@
 @use '@/app/color';
 
 .container {
-    width: 80vw;
-    max-width: 1600px;
     display: flex;
     flex-direction: row;
-    margin: 0 auto;
+    margin: 5rem auto 0;
     align-items: center;
 }
 

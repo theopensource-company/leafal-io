@@ -1,0 +1,53 @@
+@use '@/app/color';
+
+.details {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2em;
+    gap: 2rem;
+}
+
+.main {
+    flex-basis: 66.67%;
+    flex-grow: 1;
+}
+
+.side {
+    flex-basis: 33.33%;
+    flex-grow: 1;
+}
+
+.heading {
+    display: block;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    height: 2em;
+    color: #{color.$light2};
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1em;
+}
+
+.link {
+    color: #{color.$light1};
+    background-color: #{color.$dark2};
+
+    display: flex;
+    gap: 2em;
+    text-decoration: none;
+
+    padding: 1rem;
+    border-radius: .5rem;
+
+    .icon {
+        width: 1em;
+        height: 1em;
+    }
+
+    transition: .1s ease;
+    transition-property: background-color;
+
+    &:hover, &:focus-visible {
+        background-color: #{color.$dark3};
+    }
+}

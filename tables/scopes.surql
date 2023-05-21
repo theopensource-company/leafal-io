@@ -1,4 +1,4 @@
-DEFINE SCOPE user
+DEFINE SCOPE user SESSION 30d
     SIGNIN (
         SELECT * FROM user WHERE (username = $identifier OR email = $identifier) AND crypto::argon2::compare(password, $password)
     )

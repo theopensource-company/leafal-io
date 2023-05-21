@@ -18,16 +18,18 @@ export function processPublicUserRecord(user: TPublicUserRecord) {
     };
 }
 
+export async function getPublicUser(username?: TPublicUserRecord['username']) {
+    const result = await surreal.query<[TPublicUserRecord[]]>(
+        `SELECT * FROM pubuser WHERE username=$username`,
+        { username }
+    );
+
+    if (!result?.[0]?.result?.[0]) return null;
+    return processPublicUserRecord(result[0].result[0]);
+}
+
 export const usePublicUser = (username?: TPublicUserRecord['username']) =>
     useQuery({
         queryKey: ['users', username],
-        queryFn: async () => {
-            const result = await surreal.query<[TPublicUserRecord[]]>(
-                `SELECT * FROM pubuser WHERE username=$username`,
-                { username }
-            );
-
-            if (!result?.[0]?.result?.[0]) return null;
-            return processPublicUserRecord(result[0].result[0]);
-        },
+        queryFn: async () => getPublicUser(username),
     });
