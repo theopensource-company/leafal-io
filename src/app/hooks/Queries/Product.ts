@@ -1,3 +1,5 @@
+'use client';
+
 import { SurrealInstance as surreal } from '@/app/lib/Surreal';
 import { TProductRecord } from '@/constants/types/Product.types';
 import { useQuery } from '@tanstack/react-query';

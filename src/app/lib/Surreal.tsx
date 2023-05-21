@@ -1,4 +1,3 @@
-'use client';
 import { Surreal } from 'surrealdb.js';
 
 // TODO: Base off provided environment variables.

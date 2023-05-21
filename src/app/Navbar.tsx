@@ -29,7 +29,8 @@ export function NavbarItem({
 export function NavbarAccount({ user }: { user: TUserRecord }) {
     const [expanded, setExpanded] = useState(false);
 
-    const { refetch: refetchAuthenticatedUser } = useAuthenticatedUser();
+    const { data: authenticatedUser, refetch: refetchAuthenticatedUser } =
+        useAuthenticatedUser();
     const { mutate: signOut, data: signOutSuccess } = useSignOut();
 
     // Effect to refetch on sign out.
@@ -65,7 +66,7 @@ export function NavbarAccount({ user }: { user: TUserRecord }) {
                 setOpen={setExpanded}
             >
                 <Link
-                    href="/profile"
+                    href={`/profile/${authenticatedUser?.username}`}
                     onClick={() => setExpanded(false)}
                     className={styles.menuItem}
                 >
@@ -91,7 +92,6 @@ export default function Navbar() {
                         <Logo text="leafal.io" />
                     </NavbarItem>
                     <NavbarItem href="/">Home</NavbarItem>
-                    <NavbarItem href="/profile">Profile</NavbarItem>
                 </div>
 
                 {!!authenticatedUser && (

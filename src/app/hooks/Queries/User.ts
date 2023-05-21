@@ -1,3 +1,5 @@
+'use client';
+
 import { SurrealInstance as surreal } from '@/app/lib/Surreal';
 import { TPublicUserRecord, TUserRecord } from '@/constants/types/User.types';
 import { useQuery } from '@tanstack/react-query';
