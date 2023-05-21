@@ -1,11 +1,16 @@
 @use "@/app/color";
 
 .default {
-    height: 5rem;
+    height: 4rem;
 
     display: flex;
     justify-content: stretch;
     align-items: stretch;
+
+    position: fixed;
+    top: 0;
+
+    z-index: 1001;
 }
 
 .content {
@@ -15,7 +20,7 @@
     gap: 1em;
     align-items: center;
     justify-content: flex-start;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .items {

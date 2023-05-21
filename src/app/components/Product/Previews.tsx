@@ -4,6 +4,7 @@ import styles from './Previews.module.scss';
 
 import { TProductRecord } from '@/constants/types/Product.types';
 import Link from 'next/link';
+import { ProductBackground } from './Background';
 import { ProductPlatforms } from './Platforms';
 
 export type ProductPreviewProps = {
@@ -13,6 +14,7 @@ export type ProductPreviewProps = {
 export function ProductPreviewBanner({ product }: ProductPreviewProps) {
     return (
         <>
+            <ProductBackground product={product} />
             <div className="main-wrapper">
                 <Link href={`/store/${product.slug}`} className={styles.banner}>
                     <div className={styles.thumbnail}>
@@ -32,9 +34,12 @@ export function ProductPreviewBanner({ product }: ProductPreviewProps) {
                             </span>
 
                             {product.platformNames && (
-                                <ProductPlatforms
-                                    platformNames={product.platformNames}
-                                />
+                                <>
+                                    {' • '}
+                                    <ProductPlatforms
+                                        platformNames={product.platformNames}
+                                    />
+                                </>
                             )}
                         </span>
                     </div>

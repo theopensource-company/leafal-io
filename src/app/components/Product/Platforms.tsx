@@ -21,12 +21,12 @@ export function ProductPlatforms({
     );
 
     return (
-        <div style={{ display: 'inline-block', verticalAlign: 'middle' }}>
+        <>
             {platformNames.map((name, i) => {
                 const p = name as 'windows' | 'macosx' | 'linux';
                 const Icon = BrandIcons[p] || <></>;
                 return <Icon key={randIds[i] ?? '' + i} />;
             })}
-        </div>
+        </>
     );
 }
