@@ -20,7 +20,8 @@
     background-color: #{color.$dark2};
     border-radius: .5em;
     overflow: hidden;
-    min-width: 250px;
+    width: 90vw;
+    max-width: 300px;
 
     transform: scaleY(1);
     opacity: 1;

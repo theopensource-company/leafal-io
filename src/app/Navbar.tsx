@@ -5,7 +5,7 @@ import { TUserRecord } from '@/constants/types/User.types';
 import { Url } from 'next/dist/shared/lib/router/router';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { ChevronDown } from 'react-feather';
+import { Bell, Box, ChevronDown, LogOut, Settings } from 'react-feather';
 import styles from './Navbar.module.scss';
 import Logo from './components/Brand/Logo';
 import DropdownRenderer from './components/Common/DropdownRenderer';
@@ -24,6 +24,34 @@ export function NavbarItem({
             {children}
         </Link>
     );
+}
+
+export function NavbarAccountOption({
+    children,
+    href,
+    icon,
+    onClick
+}: {
+    children: React.ReactNode;
+    href?: Url;
+    icon?: React.ReactNode;
+    onClick?: React.MouseEventHandler;
+}) {
+    return !!href ? (
+        <Link className={styles.menuItem} href={href} onClick={onClick}>
+            {React.isValidElement(icon) && <div className={styles.icon}>{icon}</div>}
+            {children}
+        </Link>
+    ) : (
+        <div className={styles.menuItem} onClick={onClick}>
+            {React.isValidElement(icon) && <div className={styles.icon}>{icon}</div>}
+            {children}
+        </div>
+    )
+}
+
+export function NavbarAccountSeparator() {
+    return <div className={styles.sep} />
 }
 
 export function NavbarAccount({ user }: { user: TUserRecord }) {
@@ -54,9 +82,10 @@ export function NavbarAccount({ user }: { user: TUserRecord }) {
                             isLink={false}
                         />
                         <span
-                            className={`${styles.overlay}${
-                                expanded ? ` ${styles.turned}` : ''
-                            }`}
+                            className={[
+                                styles.overlay,
+                                expanded ? styles.turned : '',
+                            ].join(' ')}
                         >
                             <ChevronDown />
                         </span>
@@ -65,17 +94,29 @@ export function NavbarAccount({ user }: { user: TUserRecord }) {
                 open={expanded}
                 setOpen={setExpanded}
             >
-                <Link
-                    href={`/profile/${authenticatedUser?.username}`}
-                    onClick={() => setExpanded(false)}
-                    className={styles.menuItem}
-                >
+                <NavbarAccountOption href={`/profile/${authenticatedUser?.username}`}>
                     <UserCard user={user} size="normal" isLink={false} />
-                </Link>
-                <div className={styles.sep}></div>
-                <div onClick={() => signOut()} className={styles.menuItem}>
-                    Sign out
-                </div>
+                </NavbarAccountOption>
+
+                <NavbarAccountSeparator />
+
+                <NavbarAccountOption href={`/#todo`} icon={<Box />}>
+                    <span>Library</span>
+                </NavbarAccountOption>
+
+                <NavbarAccountOption href={`/#todo`} icon={<Bell />}>
+                    <span>Notifications</span>
+                </NavbarAccountOption>
+
+                <NavbarAccountSeparator />
+
+                <NavbarAccountOption href={`/#todo`} icon={<Settings />}>
+                    <span>Settings</span>
+                </NavbarAccountOption>
+
+                <NavbarAccountOption onClick={() => signOut()} icon={<LogOut />}>
+                    <span>Sign out</span>
+                </NavbarAccountOption>
             </DropdownRenderer>
         </div>
     );
