@@ -17,7 +17,7 @@ export async function generateMetadata({
     const slug = params.slug;
 
     const result = await SurrealInstance.query<[TProductRecord[]]>(
-        'SELECT * FROM products WHERE slug=$slug',
+        'SELECT * FROM product WHERE slug=$slug',
         { slug }
     );
 
