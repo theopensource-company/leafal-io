@@ -12,7 +12,7 @@
     inset: 0;
     z-index: 4;
     background-image: url("/images/fx/background.svg");
-    background-size: 8px 8px;
+    background-size: 16px 16px;
 }
 
 .profile {
@@ -23,7 +23,7 @@
     grid-template-areas:
         "card content"
         "ingame content";
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 3fr;
     gap: 1em;
 
     @media screen and (orientation: portrait) {
