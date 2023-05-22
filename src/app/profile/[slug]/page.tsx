@@ -23,7 +23,7 @@ export async function generateMetadata({
         title = `${
             result[0].result[0].profile.displayname ??
             result[0].result[0].username
-        }'s profile - leafal.io`;
+        } - leafal.io`;
 
     return { title };
 }
