@@ -30,28 +30,32 @@ export function NavbarAccountOption({
     children,
     href,
     icon,
-    onClick
+    onClick,
 }: {
     children: React.ReactNode;
     href?: Url;
     icon?: React.ReactNode;
     onClick?: React.MouseEventHandler;
 }) {
-    return !!href ? (
+    return href ? (
         <Link className={styles.menuItem} href={href} onClick={onClick}>
-            {React.isValidElement(icon) && <div className={styles.icon}>{icon}</div>}
+            {React.isValidElement(icon) && (
+                <div className={styles.icon}>{icon}</div>
+            )}
             {children}
         </Link>
     ) : (
         <div className={styles.menuItem} onClick={onClick}>
-            {React.isValidElement(icon) && <div className={styles.icon}>{icon}</div>}
+            {React.isValidElement(icon) && (
+                <div className={styles.icon}>{icon}</div>
+            )}
             {children}
         </div>
-    )
+    );
 }
 
 export function NavbarAccountSeparator() {
-    return <div className={styles.sep} />
+    return <div className={styles.sep} />;
 }
 
 export function NavbarAccount({ user }: { user: TUserRecord }) {
@@ -94,7 +98,9 @@ export function NavbarAccount({ user }: { user: TUserRecord }) {
                 open={expanded}
                 setOpen={setExpanded}
             >
-                <NavbarAccountOption href={`/profile/${authenticatedUser?.username}`}>
+                <NavbarAccountOption
+                    href={`/profile/${authenticatedUser?.username}`}
+                >
                     <UserCard user={user} size="normal" isLink={false} />
                 </NavbarAccountOption>
 
@@ -114,7 +120,10 @@ export function NavbarAccount({ user }: { user: TUserRecord }) {
                     <span>Settings</span>
                 </NavbarAccountOption>
 
-                <NavbarAccountOption onClick={() => signOut()} icon={<LogOut />}>
+                <NavbarAccountOption
+                    onClick={() => signOut()}
+                    icon={<LogOut />}
+                >
                     <span>Sign out</span>
                 </NavbarAccountOption>
             </DropdownRenderer>
