@@ -74,9 +74,9 @@ function Card({
                             {user.preferredName}
                         </span>
                     )}
-                    {showStatus && (
-                        <span className={statusStyle({ status: 'offline' })}>
-                            Status here.
+                    {(showStatus && !!user.status) && (
+                        <span className={statusStyle({ status: user.status })}>
+                            {user.status}
                         </span>
                     )}
                 </div>

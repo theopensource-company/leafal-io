@@ -18,6 +18,7 @@ export type TUserRecord = {
     updated: Date;
 
     preferredName: string;
+    status?: "offline" | "online" | "ingame";
 };
 
 export type TUserProfile = {
@@ -29,7 +30,7 @@ export type TPublicUserRecord = {
     id: TPublicUserRecordID;
 } & Pick<
     TUserRecord,
-    'preferredName' | 'username' | 'picture' | 'profile' | 'created'
+    'preferredName' | 'username' | 'picture' | 'profile' | 'created' | 'status'
 >;
 
 export type TActionAuthenticateUser = {

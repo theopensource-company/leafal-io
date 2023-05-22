@@ -36,6 +36,8 @@
 }
 
 .status {
+    text-transform: capitalize;
+    
     &.offline { color: #{color.$offline}; }
     &.online { color: #{color.$online}; }
     &.ingame { color: #{color.$ingame}; }
