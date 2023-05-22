@@ -38,23 +38,18 @@ const sectionStyle = cva([styles.section], {
     },
 });
 
-export function ProductPageSectionHeading({
-    children,
-}: {
-    children: React.ReactNode;
-}) {
-    return <span className={styles.heading}>{children}</span>;
-}
-
 export function ProductPageSection({
     children,
     background = false,
+    heading,
 }: {
     children: React.ReactNode;
     background: boolean;
+    heading?: string;
 }) {
     return (
         <div className={sectionStyle({ background: background })}>
+            {heading && <span className={styles.heading}>{heading}</span>}
             {children}
         </div>
     );
@@ -93,29 +88,31 @@ export default function ProductPage({ product }: { product: TProductRecord }) {
                     <div className={styles.main}>
                         {product.description && (
                             <>
-                                <ProductPageSectionHeading>
-                                    About this game
-                                </ProductPageSectionHeading>
-                                <ProductPageSection background={false}>
+                                <ProductPageSection
+                                    heading={'About this game'}
+                                    background={false}
+                                >
                                     {product.description}
                                 </ProductPageSection>
                             </>
                         )}
                     </div>
                     <div className={styles.side}>
-                        <ProductPageSectionHeading>
-                            Details
-                        </ProductPageSectionHeading>
-                        {product.links &&
-                            product.links.map((link) => (
-                                <ProductPageSectionLink
-                                    href={link as unknown as Url}
-                                    key={link}
-                                    icon={<ExternalLink />}
-                                >
-                                    Visit official website
-                                </ProductPageSectionLink>
-                            ))}
+                        <ProductPageSection
+                            heading={'Details'}
+                            background={false}
+                        >
+                            {product.links &&
+                                product.links.map((link) => (
+                                    <ProductPageSectionLink
+                                        href={link as unknown as Url}
+                                        key={link}
+                                        icon={<ExternalLink />}
+                                    >
+                                        Visit official website
+                                    </ProductPageSectionLink>
+                                ))}
+                        </ProductPageSection>
                     </div>
                 </div>
             </div>

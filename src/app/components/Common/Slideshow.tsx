@@ -36,7 +36,7 @@ export function Slideshow({ slides }: { slides: SlideshowSlide[] }) {
         timeoutRef.current = setTimeout(
             () =>
                 setActiveSlide((prev) =>
-                    prev === slides.length - 1 ? 0 : prev + 1
+                    prev + 1 >= slides.length ? 0 : prev + 1
                 ),
             5000
         );
@@ -65,18 +65,20 @@ export function Slideshow({ slides }: { slides: SlideshowSlide[] }) {
                 ))}
             </div>
 
-            <div className={styles.selectors}>
-                {slides.map((_, i) => (
-                    <div
-                        key={`${randIds[i] ?? '' + i}:selector`}
-                        className={[
-                            styles.selector,
-                            activeSlide == i ? styles.active : '',
-                        ].join(' ')}
-                        onClick={() => setActiveSlide(i)}
-                    />
-                ))}
-            </div>
+            {slides.length > 1 && (
+                <div className={styles.selectors}>
+                    {slides.map((_, i) => (
+                        <div
+                            key={`${randIds[i] ?? '' + i}:selector`}
+                            className={[
+                                styles.selector,
+                                activeSlide == i ? styles.active : '',
+                            ].join(' ')}
+                            onClick={() => setActiveSlide(i)}
+                        />
+                    ))}
+                </div>
+            )}
         </div>
     );
 }
