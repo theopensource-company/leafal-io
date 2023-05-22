@@ -18,7 +18,7 @@ export type TUserRecord = {
     updated: Date;
 
     preferredName: string;
-    status?: "offline" | "online" | "ingame";
+    status?: 'offline' | 'online' | 'ingame';
 };
 
 export type TUserProfile = {

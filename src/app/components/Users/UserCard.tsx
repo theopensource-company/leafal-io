@@ -74,7 +74,7 @@ function Card({
                             {user.preferredName}
                         </span>
                     )}
-                    {(showStatus && !!user.status) && (
+                    {showStatus && !!user.status && (
                         <span className={statusStyle({ status: user.status })}>
                             {user.status}
                         </span>
