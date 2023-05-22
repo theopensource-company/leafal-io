@@ -33,7 +33,7 @@
     "react-dom": "18.2.0",
     "react-feather": "^2.0.10",
     "sass": "^1.62.1",
-    "surrealdb.js": "^0.7.2",
+    "surrealdb.js": "^0.7.3",
     "typescript": "5.0.4",
     "uuid": "^9.0.0"
   },
