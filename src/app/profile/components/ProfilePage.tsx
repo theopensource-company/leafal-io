@@ -22,10 +22,10 @@ export default function ProfilePage({ user }: { user: TPublicUserRecord }) {
                 <div className={styles.card}>
                     <UserCard user={user} size="large" isLink={false} />
                 </div>
-                <div className={styles.ingame}>
+                {/*<div className={styles.ingame}>
                     <span className={styles.statusText}>Currently playing</span>
                     <span className={styles.gameName}>Celesteia</span>
-                </div>
+                </div>*/}
                 <div className={styles.content}></div>
             </div>
         </div>
