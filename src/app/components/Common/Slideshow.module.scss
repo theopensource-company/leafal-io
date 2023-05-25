@@ -82,6 +82,10 @@
             animation: selector 5s linear 0s forwards;
         }
 
+        &.done::after {
+            max-width: 100%;
+        }
+
         &.viewed::after {
             max-width: 100%;
         }

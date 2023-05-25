@@ -73,6 +73,7 @@ export function Slideshow({ slides }: { slides: SlideshowSlide[] }) {
                             className={[
                                 styles.selector,
                                 activeSlide == i ? styles.active : '',
+                                activeSlide > i ? styles.done : '',
                             ].join(' ')}
                             onClick={() => setActiveSlide(i)}
                         />
