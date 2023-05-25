@@ -4,7 +4,7 @@ import * as React from 'react';
 import styles from './ProductPage.module.scss';
 
 import { ProductBackground } from '@/app/components/Product/Background';
-import { ProductUnlockDialogue } from '@/app/components/Product/Dialogues/UnlockDialogue';
+import { ProductUnlockDialog } from '@/app/components/Product/Dialogs/UnlockDialog';
 import { useLicense } from '@/app/hooks/Queries/License';
 import { useStoreProduct } from '@/app/hooks/Queries/Product';
 import { TProductRecord } from '@/constants/types/Product.types';
@@ -94,7 +94,7 @@ export default function ProductPage({ product }: { product: TProductRecord }) {
                     <div className={styles.main}>
                         {!license && !licenseLoading && product.published && (
                             <div className={styles.dialogueBox}>
-                                <ProductUnlockDialogue product={product} />
+                                <ProductUnlockDialog product={product} />
                             </div>
                         )}
                         {product.description && (

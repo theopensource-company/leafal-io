@@ -4,13 +4,10 @@ import { TProductRecord } from '@/constants/types/Product.types';
 
 import { useCreateLicense } from '@/app/hooks/Queries/License';
 import { Button } from '../../Common/Input/Button';
-import styles from './Dialogues.module.scss';
 
-export function ProductUnlockDialogue({
-    product,
-}: {
-    product: TProductRecord;
-}) {
+import styles from './Dialogs.module.scss';
+
+export function ProductUnlockDialog({ product }: { product: TProductRecord }) {
     const { mutate: createLicense, data: license } = useCreateLicense();
 
     return !license ? (
