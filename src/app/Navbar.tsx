@@ -139,10 +139,9 @@ export default function Navbar() {
         <div className={styles.default}>
             <div className={styles.content}>
                 <div className={styles.items}>
-                    <NavbarItem href="/">
+                    <Link href="/">
                         <Logo text="leafal.io" />
-                    </NavbarItem>
-                    <NavbarItem href="/">Home</NavbarItem>
+                    </Link>
                 </div>
 
                 {!!authenticatedUser && (
