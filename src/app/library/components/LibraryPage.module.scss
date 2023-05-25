@@ -36,3 +36,10 @@
         font-size: 2em;
     }
 }
+
+.nogames {
+    padding: 1rem;
+    text-align: center;
+
+    a { color: #{color.$accent1}; }
+}
