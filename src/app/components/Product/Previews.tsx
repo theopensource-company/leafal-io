@@ -34,7 +34,7 @@ export function ProductPreviewBanner({ product }: ProductPreviewProps) {
 
                         <span className={styles.specifications}>
                             <span className={styles.pricing}>
-                                {product.pricing}
+                                {product.pricingText}
                             </span>
 
                             {product.platformNames && (

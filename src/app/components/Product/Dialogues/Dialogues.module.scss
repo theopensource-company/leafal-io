@@ -1,0 +1,24 @@
+@use '@/app/color';
+
+.unlock {
+    font-size: 1.5em;
+    padding: 1.5rem;
+    background-image: url('/images/fx/banner-gradient.svg'), var(--background);
+    background-size: cover;
+    background-position: top center;
+
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    align-items: center;
+}
+
+.text {
+    flex-grow: 1;
+}
+
+.action {
+    font-size: 1.2rem;
+}
+
+.pricing { color: #{color.$price}; }

@@ -7,15 +7,14 @@
     gap: 2rem;
 }
 
-.main {
-    flex-basis: 66.67%;
+.main, .side {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
     flex-grow: 1;
 }
-
-.side {
-    flex-basis: 33.33%;
-    flex-grow: 1;
-}
+.main { flex-basis: 66.67%; }
+.side { flex-basis: 33.33%; }
 
 .heading {
     display: block;
@@ -30,7 +29,7 @@
 
 .link {
     color: #{color.$light1};
-    background-color: #{color.$dark2};
+    background-color: #{color.$dark3};
 
     display: flex;
     gap: 2em;
@@ -48,6 +47,11 @@
     transition-property: background-color;
 
     &:hover, &:focus-visible {
-        background-color: #{color.$dark3};
+        background-color: #{color.$dark4};
     }
+}
+
+.dialogueBox {
+    border-radius: 1rem;
+    overflow: hidden;
 }

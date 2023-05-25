@@ -3,9 +3,14 @@ import { SurrealInstance as surreal } from '@/app/lib/Surreal';
 import { TProductRecord } from '@/constants/types/Product.types';
 import { useQuery } from '@tanstack/react-query';
 
-export function processProductRecord({ pricing, ...rest }: TProductRecord) {
+export function processProductRecord({
+    pricingText: _,
+    pricing,
+    ...rest
+}: TProductRecord) {
     return {
-        pricing: +pricing == 0 ? 'Free' : `${(+pricing).toFixed(2)}`,
+        pricingText: +pricing == 0 ? 'Free' : `${(+pricing).toFixed(2)}`,
+        pricing,
         ...rest,
     };
 }

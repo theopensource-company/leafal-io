@@ -106,7 +106,7 @@ export function NavbarAccount({ user }: { user: TUserRecord }) {
 
                 <NavbarAccountSeparator />
 
-                <NavbarAccountOption href={`/#todo`} icon={<Box />}>
+                <NavbarAccountOption href={`/library`} icon={<Box />}>
                     <span>Library</span>
                 </NavbarAccountOption>
 

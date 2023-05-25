@@ -1,0 +1,22 @@
+@use '@/app/color';
+
+.button {
+    display: block;
+
+    border: none;
+    border-radius: .3em;
+    padding: .5em .7em;
+
+    cursor: pointer;
+
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    color: #{color.$light1};
+    background-color: #{color.$accent2};
+
+    &:hover, &:focus-visible {
+        background-color: #{color.$accent1};
+    }
+}

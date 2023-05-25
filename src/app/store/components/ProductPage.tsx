@@ -4,6 +4,8 @@ import * as React from 'react';
 import styles from './ProductPage.module.scss';
 
 import { ProductBackground } from '@/app/components/Product/Background';
+import { ProductUnlockDialogue } from '@/app/components/Product/Dialogues/UnlockDialogue';
+import { useLicense } from '@/app/hooks/Queries/License';
 import { useStoreProduct } from '@/app/hooks/Queries/Product';
 import { TProductRecord } from '@/constants/types/Product.types';
 import { cva } from 'class-variance-authority';
@@ -77,6 +79,8 @@ export function ProductPageSectionLink({
 }
 
 export default function ProductPage({ product }: { product: TProductRecord }) {
+    const { data: license } = useLicense(product.slug);
+
     return (
         <>
             <ProductBackground product={product} />
@@ -86,6 +90,11 @@ export default function ProductPage({ product }: { product: TProductRecord }) {
 
                 <div className={styles.details}>
                     <div className={styles.main}>
+                        {!license && product.published && (
+                            <div className={styles.dialogueBox}>
+                                <ProductUnlockDialogue product={product} />
+                            </div>
+                        )}
                         {product.description && (
                             <>
                                 <ProductPageSection
