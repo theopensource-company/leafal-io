@@ -79,7 +79,9 @@ export function ProductPageSectionLink({
 }
 
 export default function ProductPage({ product }: { product: TProductRecord }) {
-    const { data: license } = useLicense(product.slug);
+    const { data: license, isLoading: licenseLoading } = useLicense(
+        product.slug
+    );
 
     return (
         <>
@@ -90,7 +92,7 @@ export default function ProductPage({ product }: { product: TProductRecord }) {
 
                 <div className={styles.details}>
                     <div className={styles.main}>
-                        {!license && product.published && (
+                        {!license && !licenseLoading && product.published && (
                             <div className={styles.dialogueBox}>
                                 <ProductUnlockDialogue product={product} />
                             </div>
