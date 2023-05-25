@@ -95,6 +95,7 @@ export function NavbarAccount({ user }: { user: TUserRecord }) {
                         </span>
                     </div>
                 }
+                className={styles.menu}
                 open={expanded}
                 setOpen={setExpanded}
             >

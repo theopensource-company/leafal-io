@@ -14,11 +14,13 @@ import { v4 as uuidv4 } from 'uuid';
 
 export default function DropdownRenderer({
     clickable,
+    className,
     children,
     open,
     setOpen,
 }: {
     clickable: React.ReactNode;
+    className?: string;
     children: React.ReactNode;
     open: boolean;
     setOpen: Dispatch<SetStateAction<boolean>>;
@@ -60,9 +62,11 @@ export default function DropdownRenderer({
                 {clickable}
             </div>
             <div
-                className={[styles.menu, !open ? styles.hideMenu : ''].join(
-                    ' '
-                )}
+                className={[
+                    styles.menu,
+                    !open ? styles.hideMenu : '',
+                    className,
+                ].join(' ')}
             >
                 {items.map((item, i) => (
                     <div
