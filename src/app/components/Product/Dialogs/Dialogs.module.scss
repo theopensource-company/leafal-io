@@ -11,6 +11,11 @@
     flex-direction: row;
     gap: 1em;
     align-items: center;
+
+    position: relative;
+
+    border-radius: 1rem;
+    margin-bottom: 2rem;
 }
 
 .text {
@@ -18,7 +23,20 @@
 }
 
 .action {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
     font-size: 1.2rem;
+    padding-left: 1em;
+    border-radius: .5rem;
+    background-color: #{color.$dark3};
+
+    height: 2.5em;
+
+    position: absolute;
+    right: 1.5rem;
+    bottom: -1.25em;
 }
 
 .pricing { color: #{color.$price}; }

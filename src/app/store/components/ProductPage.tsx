@@ -11,6 +11,7 @@ import { TProductRecord } from '@/constants/types/Product.types';
 import { cva } from 'class-variance-authority';
 import Link from 'next/link';
 import { ExternalLink } from 'react-feather';
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 import { Url } from 'url';
 import ProductTop from './ProductTop';
 
@@ -93,19 +94,17 @@ export default function ProductPage({ product }: { product: TProductRecord }) {
                 <div className={styles.details}>
                     <div className={styles.main}>
                         {!license && !licenseLoading && product.published && (
-                            <div className={styles.dialogueBox}>
-                                <ProductUnlockDialog product={product} />
-                            </div>
+                            <ProductUnlockDialog product={product} />
                         )}
                         {product.description && (
-                            <>
-                                <ProductPageSection
-                                    heading={'About this game'}
-                                    background={false}
-                                >
+                            <ProductPageSection
+                                heading={'About this game'}
+                                background={false}
+                            >
+                                <ReactMarkdown>
                                     {product.description}
-                                </ProductPageSection>
-                            </>
+                                </ReactMarkdown>
+                            </ProductPageSection>
                         )}
                     </div>
                     <div className={styles.side}>
