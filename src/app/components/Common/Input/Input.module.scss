@@ -1,5 +1,10 @@
 @use '@/app/color';
 
+.buttonLink {
+    color: inherit;
+    text-decoration: none;
+}
+
 .button {
     display: block;
 

@@ -3,6 +3,7 @@ import * as React from 'react';
 
 import styles from './LibraryPage.module.scss';
 
+import { Button } from '@/app/components/Common/Input/Button';
 import { useAuthenticatedUser } from '@/app/hooks/Queries/Auth';
 import { useAllLicenses } from '@/app/hooks/Queries/License';
 import Link from 'next/link';
@@ -24,8 +25,20 @@ export function LibraryPage() {
                                 alt={license.licensed.title}
                             />
                         </div>
-                        <div className={styles.title}>
-                            {license.licensed.title}
+                        <div className={styles.text}>
+                            <span className={styles.title}>
+                                {license.licensed.title}
+                            </span>
+                            <span className={styles.links}>
+                                <Link href={`/store/${license.licensed.slug}`}>
+                                    Store Page
+                                </Link>
+                                {` • `}
+                                <Link href={`/#todo`}>Community</Link>
+                            </span>
+                        </div>
+                        <div className={styles.action}>
+                            <Button href={`/#todo`}>Install</Button>
                         </div>
                     </div>
                 ))}
