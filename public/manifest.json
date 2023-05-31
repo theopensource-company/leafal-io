@@ -1,0 +1,28 @@
+{
+    "name": "leafal.io",
+    "short_name": "leafal.io",
+    "icons": [
+        {
+            "src": "/images/icons/transparent_512x512.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "any"
+        },
+        {
+            "src": "/images/icons/icon_512x512.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "any maskable"
+        }
+    ],
+    "start_url": "/",
+    "display": "standalone",
+    "id": "/",
+    "theme_color": "#3DAD2C",
+    "background_color": "#FFFFFF",
+    "scope": "/",
+    "dir": "auto",
+    "orientation": "natural",
+    "description": "",
+    "categories": ["gaming", "events", "shopping", "social"]
+}
