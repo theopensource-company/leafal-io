@@ -5,16 +5,18 @@
     text-decoration: none;
 }
 
+.button, .textInput {
+    font-size: 1em;
+    border-radius: .3em;
+    padding: .5em .7em;
+    border: none;
+}
+
 .button {
     display: block;
 
-    border: none;
-    border-radius: .3em;
-    padding: .5em .7em;
-
     cursor: pointer;
 
-    font-size: 1em;
     font-weight: bold;
     text-transform: uppercase;
 

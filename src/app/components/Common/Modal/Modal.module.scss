@@ -1,0 +1,29 @@
+@use '@/app/color';
+
+.dialogBox {
+    border: none;
+    background-color: transparent;
+    
+    &::backdrop {
+        background-color: rgba(0,0,0,0.8);
+    }
+}
+
+.modal {
+    background-color: #{color.$dark2};
+    border-radius: .5rem;
+    padding: 1rem;
+    box-shadow: 0 0 5px rgba(0,0,0,0.6);
+}
+
+.top {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.close {
+    background-color: transparent;
+    border: none;
+
+    cursor: pointer;
+}

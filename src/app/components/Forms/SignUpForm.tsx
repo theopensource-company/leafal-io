@@ -3,6 +3,8 @@ import * as React from 'react';
 
 import { useAuthenticatedUser, useSignUp } from '@/app/hooks/Queries/Auth';
 import { FormEvent, useEffect, useRef } from 'react';
+import { Button } from '../Common/Input/Button';
+import { TextInput } from '../Common/Input/TextInput';
 
 export default function SignUpForm() {
     const username = useRef<HTMLInputElement>(null);
@@ -32,13 +34,28 @@ export default function SignUpForm() {
 
     return (
         <form onSubmit={submit}>
-            <h1>Sign Up</h1>
-            <input ref={username} type="text" placeholder="Username..." />
-            <input ref={firstname} type="text" placeholder="First name..." />
-            <input ref={lastname} type="text" placeholder="Last name..." />
-            <input ref={email} type="text" placeholder="Email..." />
-            <input ref={password} type="password" placeholder="Password..." />
-            <button type="submit">Sign up</button>
+            <TextInput
+                reference={username}
+                type="text"
+                placeholder="Username..."
+            />
+            <TextInput
+                reference={firstname}
+                type="text"
+                placeholder="First name..."
+            />
+            <TextInput
+                reference={lastname}
+                type="text"
+                placeholder="Last name..."
+            />
+            <TextInput reference={email} type="text" placeholder="Email..." />
+            <TextInput
+                reference={password}
+                type="password"
+                placeholder="Password..."
+            />
+            <Button type="submit">Sign up</Button>
         </form>
     );
 }

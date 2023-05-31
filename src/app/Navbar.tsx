@@ -9,6 +9,8 @@ import { Bell, Box, ChevronDown, LogOut, Settings } from 'react-feather';
 import styles from './Navbar.module.scss';
 import Logo from './components/Brand/Logo';
 import DropdownRenderer from './components/Common/DropdownRenderer';
+import { Button } from './components/Common/Input/Button';
+import { AuthModal } from './components/Common/Modal/Variants/AuthModal';
 import UserCard from './components/Users/UserCard';
 import { useAuthenticatedUser, useSignOut } from './hooks/Queries/Auth';
 
@@ -134,6 +136,11 @@ export function NavbarAccount({ user }: { user: TUserRecord }) {
 
 export default function Navbar() {
     const { data: authenticatedUser } = useAuthenticatedUser();
+    const [authModalOpen, setAuthModalOpen] = useState<boolean>(false);
+
+    useEffect(() => {
+        if (authenticatedUser) setAuthModalOpen(false);
+    }, [authenticatedUser]);
 
     return (
         <div className={styles.default}>
@@ -144,8 +151,17 @@ export default function Navbar() {
                     </Link>
                 </div>
 
-                {!!authenticatedUser && (
+                <AuthModal
+                    open={authModalOpen}
+                    setOpen={setAuthModalOpen}
+                ></AuthModal>
+
+                {authenticatedUser ? (
                     <NavbarAccount user={authenticatedUser} />
+                ) : (
+                    <Button onClick={() => setAuthModalOpen(true)}>
+                        Sign in
+                    </Button>
                 )}
             </div>
         </div>

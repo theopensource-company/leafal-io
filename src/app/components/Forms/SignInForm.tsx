@@ -3,6 +3,8 @@ import * as React from 'react';
 
 import { useAuthenticatedUser, useSignIn } from '@/app/hooks/Queries/Auth';
 import { FormEvent, useEffect, useRef } from 'react';
+import { Button } from '../Common/Input/Button';
+import { TextInput } from '../Common/Input/TextInput';
 
 export default function SignInForm() {
     const identifier = useRef<HTMLInputElement>(null);
@@ -26,12 +28,13 @@ export default function SignInForm() {
 
     return (
         <form onSubmit={submit}>
-            <h1>Sign In</h1>
-            <input ref={identifier} type="text" placeholder="Identifier..." />
-            <input ref={password} type="password" placeholder="Password..." />
-            <button type="submit" onClick={submit}>
-                Sign in
-            </button>
+            <TextInput reference={identifier} placeholder="Identifier..." />
+            <TextInput
+                reference={password}
+                type={'password'}
+                placeholder="Password..."
+            />
+            <Button type="submit">Sign in</Button>
         </form>
     );
 }
