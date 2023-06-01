@@ -8,7 +8,7 @@ import { useAuthenticatedUser } from '@/app/hooks/Queries/Auth';
 import { useEffect, useState } from 'react';
 import { Modal, ModalProps } from '../Modal';
 
-export function AuthModal(props: ModalProps) {
+export function AuthModal(props: Omit<ModalProps, 'title'>) {
     const [showingSignUp, setShowingSignUp] = useState<boolean>(false);
     const { data: authenticatedUser } = useAuthenticatedUser();
 
@@ -19,7 +19,12 @@ export function AuthModal(props: ModalProps) {
     useEffect(() => setShowingSignUp(false), [setShowingSignUp, props.open]);
 
     return (
-        <Modal {...props}>
+        <Modal
+            {...props}
+            title={`${
+                showingSignUp ? 'Create' : 'Sign in to'
+            } leafal.io account`}
+        >
             <div className={styles.authModal}>
                 {showingSignUp ? <SignUpForm /> : <SignInForm />}
                 <a

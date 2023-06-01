@@ -23,7 +23,7 @@
     text-transform: uppercase;
     height: 2em;
     color: #{color.$light2};
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #{color.$light2};
     margin-bottom: 1em;
 }
 
@@ -49,7 +49,4 @@
     &:hover, &:focus-visible {
         background-color: #{color.$dark4};
     }
-}
-
-.dialogueBox {
 }

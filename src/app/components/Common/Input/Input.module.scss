@@ -27,3 +27,12 @@
         background-color: #{color.$accent1};
     }
 }
+
+.textInput {
+    background-color: #{color.$dark3};
+
+    &:-webkit-autofill {
+        -webkit-box-shadow: none;
+    }
+    
+}

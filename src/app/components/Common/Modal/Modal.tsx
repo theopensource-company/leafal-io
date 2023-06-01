@@ -9,37 +9,41 @@ export type ModalProps = {
     children?: React.ReactNode;
     open: boolean;
     setOpen: Dispatch<SetStateAction<boolean>>;
+    title: string;
 };
 
-export function Modal({ children, open, setOpen }: ModalProps) {
-    const dialogRef = useRef<HTMLDialogElement>(null);
+export function Modal({ children, open, setOpen, title }: ModalProps) {
+    const modalRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        if (open) dialogRef.current?.showModal();
-        else dialogRef.current?.close();
-    }, [dialogRef, open]);
+        function handleClickOutside(e: MouseEvent) {
+            if (
+                open &&
+                e.target &&
+                modalRef.current &&
+                !modalRef.current.contains(e.target as Node)
+            )
+                setOpen(false);
+        }
 
-    const onclick = (e: React.MouseEvent) => {
-        if (!dialogRef.current) return;
+        function handleEscapeKey(e: KeyboardEvent) {
+            if (open && e.key == 'Escape') setOpen(false);
+        }
 
-        const rect = dialogRef.current.getBoundingClientRect();
-        const isInDialog =
-            rect.top <= e.clientY &&
-            e.clientY <= rect.top + rect.height &&
-            rect.left <= e.clientX &&
-            e.clientX <= rect.left + rect.width;
+        document.addEventListener('mousedown', handleClickOutside);
+        document.addEventListener('keyup', handleEscapeKey);
 
-        if (!isInDialog) setOpen(false);
-    };
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+            document.removeEventListener('keyup', handleEscapeKey);
+        };
+    }, [modalRef, setOpen, open]);
 
     return (
-        <dialog
-            ref={dialogRef}
-            className={styles.dialogBox}
-            onMouseDown={onclick}
-        >
-            <div className={styles.modal}>
+        <div className={[styles.dialogBox, open && styles.open].join(' ')}>
+            <div className={styles.modal} ref={modalRef}>
                 <div className={styles.top}>
+                    <span className={styles.title}>{title}</span>
                     <button
                         className={styles.close}
                         onClick={() => setOpen(false)}
@@ -49,6 +53,6 @@ export function Modal({ children, open, setOpen }: ModalProps) {
                 </div>
                 <div className={styles.content}>{children}</div>
             </div>
-        </dialog>
+        </div>
     );
 }
