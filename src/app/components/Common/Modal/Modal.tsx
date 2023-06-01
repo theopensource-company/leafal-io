@@ -33,7 +33,11 @@ export function Modal({ children, open, setOpen }: ModalProps) {
     };
 
     return (
-        <dialog ref={dialogRef} className={styles.dialogBox} onClick={onclick}>
+        <dialog
+            ref={dialogRef}
+            className={styles.dialogBox}
+            onMouseDown={onclick}
+        >
             <div className={styles.modal}>
                 <div className={styles.top}>
                     <button

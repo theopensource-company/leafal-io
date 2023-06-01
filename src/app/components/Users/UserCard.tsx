@@ -5,6 +5,7 @@ import { cva } from 'class-variance-authority';
 import { Url } from 'next/dist/shared/lib/router/router';
 import Link from 'next/link';
 import React from 'react';
+import DefaultProfilePicture from '../Brand/DefaultProfilePicture';
 
 const cardStyle = cva([styles.default], {
     variants: {
@@ -64,8 +65,12 @@ function Card({
     return (
         <>
             <div className={styles.avatar}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={user.picture} alt={user.preferredName} />
+                {user.picture ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={user.picture} alt={user.preferredName} />
+                ) : (
+                    <DefaultProfilePicture className={styles.defaultAvatar} />
+                )}
             </div>
             {(showName || showStatus) && (
                 <div className={styles.text}>

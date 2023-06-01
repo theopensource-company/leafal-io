@@ -6,8 +6,8 @@ import {
     SurrealNamespace,
 } from '@/app/lib/Surreal';
 import {
-    TActionAuthenticateUser,
-    TActionCreateUser,
+    TActionSignInUser,
+    TActionSignUpUser,
     TUserRecord,
 } from '@/constants/types/User.types';
 import { useMutation, useQuery } from '@tanstack/react-query';
@@ -16,7 +16,7 @@ import { processUserRecord } from './User';
 export const useSignIn = () =>
     useMutation({
         mutationKey: ['auth', 'mutate', 'signin'],
-        mutationFn: async (auth: TActionAuthenticateUser) => {
+        mutationFn: async (auth: TActionSignInUser) => {
             const token = await SurrealInstance.signin({
                 NS: SurrealNamespace,
                 DB: SurrealDatabase,
@@ -32,7 +32,7 @@ export const useSignIn = () =>
 export const useSignUp = () =>
     useMutation({
         mutationKey: ['auth', 'mutate', 'signup'],
-        mutationFn: async (create: TActionCreateUser) => {
+        mutationFn: async (create: TActionSignUpUser) => {
             const token = await SurrealInstance.signup({
                 NS: SurrealNamespace,
                 DB: SurrealDatabase,

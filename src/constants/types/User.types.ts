@@ -33,12 +33,12 @@ export type TPublicUserRecord = {
     'preferredName' | 'username' | 'picture' | 'profile' | 'created' | 'status'
 >;
 
-export type TActionAuthenticateUser = {
+export type TActionSignInUser = {
     identifier: TUserRecord['email'] | TUserRecord['username'];
     password: string;
 };
 
-export type TActionCreateUser = {
+export type TActionSignUpUser = {
     username: TUserRecord['username'];
     email: TUserRecord['email'];
     firstname: TUserRecord['firstname'];

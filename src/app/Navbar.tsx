@@ -138,10 +138,6 @@ export default function Navbar() {
     const { data: authenticatedUser } = useAuthenticatedUser();
     const [authModalOpen, setAuthModalOpen] = useState<boolean>(false);
 
-    useEffect(() => {
-        if (authenticatedUser) setAuthModalOpen(false);
-    }, [authenticatedUser]);
-
     return (
         <div className={styles.default}>
             <div className={styles.content}>

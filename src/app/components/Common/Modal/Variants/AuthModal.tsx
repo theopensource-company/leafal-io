@@ -4,11 +4,17 @@ import styles from './AuthModal.module.scss';
 
 import SignInForm from '@/app/components/Forms/SignInForm';
 import SignUpForm from '@/app/components/Forms/SignUpForm';
+import { useAuthenticatedUser } from '@/app/hooks/Queries/Auth';
 import { useEffect, useState } from 'react';
 import { Modal, ModalProps } from '../Modal';
 
 export function AuthModal(props: ModalProps) {
     const [showingSignUp, setShowingSignUp] = useState<boolean>(false);
+    const { data: authenticatedUser } = useAuthenticatedUser();
+
+    useEffect(() => {
+        if (authenticatedUser) props.setOpen(false);
+    }, [authenticatedUser, props]);
 
     useEffect(() => setShowingSignUp(false), [setShowingSignUp, props.open]);
 
