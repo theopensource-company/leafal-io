@@ -36,3 +36,13 @@ main {
   top: .125em;
   margin: 0 .25em;
 }
+
+a {
+  color: #{color.$light2};
+  transition: color .1s ease;
+
+  &:hover, &:focus-visible {
+    color: #{color.$light1};
+    transition-duration: .2s;
+  }
+}

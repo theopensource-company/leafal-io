@@ -41,7 +41,7 @@
     .banner:hover &, .banner:focus-visible & {
         transform: scale(1.02);
         outline-color: #{color.$light1};
-        transition-duration: .3s;
+        transition-duration: .2s;
     }
 }
 
@@ -62,7 +62,7 @@
 
     .banner:hover &, .banner:focus-visible & {
         transform: translateX(4px);
-        transition-duration: .3s;
+        transition-duration: .2s;
     }
 
     .title {

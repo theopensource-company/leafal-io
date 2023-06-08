@@ -122,13 +122,13 @@
     visibility: hidden;
     opacity: 0;
 
-    transition: opacity .3s ease, visibility 0s linear .3s;
+    transition: opacity .2s ease, visibility 0s linear .2s;
 
     &.active {
         visibility: visible;
         opacity: 1;
 
-        transition: opacity .3s ease, visibility 0s linear 0s;
+        transition: opacity .2s ease, visibility 0s linear 0s;
     }
 
     img, video {

@@ -30,8 +30,7 @@
     
     transform: translateY(10px);
     opacity: 0;
-    transition: .2s ease;
-    transition-property: transform, opacity;
+    transition: transform .2s ease, opacity .2s ease;
 
     .dialogBox.open & {
         transform: translateY(0);

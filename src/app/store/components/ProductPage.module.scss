@@ -43,10 +43,10 @@
         height: 1em;
     }
 
-    transition: .1s ease;
-    transition-property: background-color;
+    transition: background-color .1s ease;
 
     &:hover, &:focus-visible {
         background-color: #{color.$dark4};
+        transition-duration: .2s;
     }
 }

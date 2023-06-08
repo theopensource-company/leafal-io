@@ -11,21 +11,20 @@
     color: #{color.$light1};
 
     &:hover .graphic {
-        filter: brightness(120%);
-        transform: scale(1.05);
-
-        animation: graphic-animation .2s ease;
+        animation: graphic-animation .2s ease 1 forwards;
     }
 }
 
 @keyframes graphic-animation {
     0% {
+        filter: brightness(100%);
         transform: rotate(0deg) scale(1);
     }
     50% {
         transform: rotate(-5deg) scale(1.025);
     }
     100% {
+        filter: brightness(120%);
         transform: rotate(0deg) scale((1.05));
     }
   }
@@ -34,9 +33,6 @@
 .graphic {
     width: 3em;
     height: 3em;
-
-    transition: .3s ease;
-    transition-property: filter, transform;
 }
 
 .text {

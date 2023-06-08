@@ -33,9 +33,5 @@ export default function ProfileWithSlug({
 }: {
     params: { slug: string };
 }) {
-    return (
-        <main>
-            <ProfileShell username={params.slug} />
-        </main>
-    );
+    return <ProfileShell username={params.slug} />;
 }

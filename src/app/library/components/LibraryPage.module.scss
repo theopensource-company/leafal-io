@@ -45,11 +45,7 @@
 
     .links {
         color: #{color.$dark5};
-        a { color: #{color.$light1}; text-decoration: none; }
-    }
-
-    .action {
-        padding: 0 1.5rem;
+        a { text-decoration: none; }
     }
 
     &:not(:last-child) {

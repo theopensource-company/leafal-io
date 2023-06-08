@@ -10,7 +10,7 @@
 .backdrop {
     position: absolute;
     inset: 0;
-    z-index: 4;
+    z-index: 1;
     background-image: url("/images/fx/background.svg");
     background-size: 12px;
 }
@@ -19,34 +19,25 @@
     position: relative;
     z-index: 5;
     width: 100%;
+
     display: grid;
-    grid-template-areas:
-        "card content"
-        "ingame content";
+    grid-template-areas: "main side";
     grid-template-columns: 1fr 3fr;
-    gap: 1em;
+    align-items: center;
+    justify-content: center;
 
-    @media screen and (orientation: portrait) {
-        grid-template-areas:
-            "card"
-            "content";
-        grid-template-columns: 1fr;
-    }
-}
-
-.card {
-    grid-area: card;
     background-color: #{color.$dark1};
     padding: 1rem;
     border-radius: 1rem;
 }
 
-.content {
-    grid-area: content;
-    display: flex;
-    flex-grow: 1;
-    flex-direction: column;
-    gap: 1em;
+.banner {
+    grid-area: main;
+
+    .content {
+        position: relative;
+        z-index: 2;
+    }
 }
 
 .ingame {
