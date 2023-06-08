@@ -5,6 +5,7 @@ import Link from 'next/link';
 import styles from './Input.module.scss';
 
 function InnerButton({
+    className,
     children,
     onClick,
     ...props
@@ -12,8 +13,10 @@ function InnerButton({
     children: React.ReactNode;
     onClick?: React.MouseEventHandler;
 } & JSX.IntrinsicElements['button']) {
+    const classes = [styles.button, className].join(' ');
+
     return (
-        <button className={styles.button} onClick={onClick} {...props}>
+        <button className={classes} onClick={onClick} {...props}>
             {children}
         </button>
     );
@@ -30,7 +33,7 @@ export function Button({
     onClick?: React.MouseEventHandler;
 } & JSX.IntrinsicElements['button']) {
     return href ? (
-        <Link className={styles.buttonLink} href={href}>
+        <Link className={styles.buttonLink} tabIndex={-1} href={href}>
             <InnerButton onClick={onClick} {...props}>
                 {children}
             </InnerButton>

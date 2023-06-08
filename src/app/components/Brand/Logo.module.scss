@@ -10,7 +10,7 @@
 
     color: #{color.$light1};
 
-    &:hover .graphic {
+    *:hover > & > .graphic, *:focus-visible > & > .graphic {
         animation: graphic-animation .2s ease 1 forwards;
     }
 }

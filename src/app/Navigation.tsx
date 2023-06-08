@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import {
     Box,
     ChevronRight,
+    LogIn,
     LogOut,
     Settings,
     ShoppingBag,
@@ -24,9 +25,11 @@ import { useAuthenticatedUser, useSignOut } from './hooks/Queries/Auth';
 export function NavbarItem({
     children,
     href,
+    tabIndex,
 }: {
     children?: React.ReactNode;
     href?: Url;
+    tabIndex?: number;
 }) {
     const pathname = usePathname();
 
@@ -37,6 +40,7 @@ export function NavbarItem({
                 pathname == href ? styles.active : '',
             ].join(' ')}
             href={href ?? ''}
+            tabIndex={tabIndex}
         >
             {children}
         </Link>
@@ -48,21 +52,28 @@ export function NavbarAccountOption({
     href,
     icon,
     onClick,
+    tabIndex,
 }: {
     children: React.ReactNode;
     href?: Url;
     icon?: React.ReactNode;
     onClick?: React.MouseEventHandler;
+    tabIndex?: number;
 }) {
     return href ? (
-        <Link className={styles.menuItem} href={href} onClick={onClick}>
+        <Link
+            className={styles.menuItem}
+            href={href}
+            tabIndex={tabIndex}
+            onClick={onClick}
+        >
             {React.isValidElement(icon) && (
                 <div className={styles.icon}>{icon}</div>
             )}
             {children}
         </Link>
     ) : (
-        <div className={styles.menuItem} onClick={onClick}>
+        <div className={styles.menuItem} tabIndex={tabIndex} onClick={onClick}>
             {React.isValidElement(icon) && (
                 <div className={styles.icon}>{icon}</div>
             )}
@@ -82,6 +93,8 @@ export function NavbarAccount({ user }: { user: TUserRecord }) {
         useAuthenticatedUser();
     const { mutate: signOut, data: signOutSuccess } = useSignOut();
 
+    const expand = () => setExpanded(!expanded);
+
     // Effect to refetch on sign out.
     useEffect(() => {
         refetchAuthenticatedUser();
@@ -93,7 +106,11 @@ export function NavbarAccount({ user }: { user: TUserRecord }) {
                 clickable={
                     <div
                         className={styles.clickToExpand}
-                        onClick={() => setExpanded(!expanded)}
+                        onClick={expand}
+                        onKeyDown={(e) =>
+                            (e.key === 'Enter' || e.key === 'Space') && expand()
+                        }
+                        tabIndex={19}
                     >
                         <UserCard
                             user={user}
@@ -117,6 +134,7 @@ export function NavbarAccount({ user }: { user: TUserRecord }) {
                 setOpen={setExpanded}
             >
                 <NavbarAccountOption
+                    tabIndex={expanded ? 21 : -1}
                     href={`/profile/${authenticatedUser?.username}`}
                 >
                     <UserCard user={user} size="normal" isLink={false} />
@@ -124,11 +142,16 @@ export function NavbarAccount({ user }: { user: TUserRecord }) {
 
                 <NavbarSeparator />
 
-                <NavbarAccountOption href={`/#todo`} icon={<Settings />}>
+                <NavbarAccountOption
+                    tabIndex={expanded ? 22 : -1}
+                    href={`/#todo`}
+                    icon={<Settings />}
+                >
                     <span>Settings</span>
                 </NavbarAccountOption>
 
                 <NavbarAccountOption
+                    tabIndex={expanded ? 23 : -1}
                     onClick={() => signOut()}
                     icon={<LogOut />}
                 >
@@ -151,16 +174,16 @@ export default function Navbar() {
             ></AuthModal>
 
             <div className={styles.mainMenu}>
-                <Link className={styles.logo} href="/">
+                <Link autoFocus tabIndex={10} className={styles.logo} href="/">
                     <Logo />
                 </Link>
                 <NavbarSeparator />
                 <div className={styles.tabs}>
-                    <NavbarItem href="/">
+                    <NavbarItem tabIndex={11} href="/">
                         <ShoppingBag />
                     </NavbarItem>
                     {authenticatedUser && (
-                        <NavbarItem href="/library">
+                        <NavbarItem tabIndex={12} href="/library">
                             <Box />
                         </NavbarItem>
                     )}
@@ -169,8 +192,11 @@ export default function Navbar() {
                 {authenticatedUser ? (
                     <NavbarAccount user={authenticatedUser} />
                 ) : (
-                    <Button onClick={() => setAuthModalOpen(true)}>
-                        Sign in
+                    <Button
+                        className={styles.login}
+                        onClick={() => setAuthModalOpen(true)}
+                    >
+                        <LogIn />
                     </Button>
                 )}
             </div>

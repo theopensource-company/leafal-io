@@ -42,10 +42,10 @@
 .menuItem {
     cursor: pointer;
     background-color: transparent;
-    transition: background-color .1s ease;
+    transition: .2s ease;
+    outline: none;
 
-    &:hover {
-        background-color: rgba(255,255,255,0.03);
-        transition-duration: .2s;
+    &:hover, &:focus-within {
+        background-color: rgba(255,255,255,0.1);
     }
 }

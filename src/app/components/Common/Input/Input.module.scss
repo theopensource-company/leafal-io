@@ -22,6 +22,7 @@
 
     color: #{color.$light1};
     background-color: #{color.$accent2};
+    transition: background-color .2s ease;
 
     &:hover, &:focus-visible {
         background-color: #{color.$accent1};
