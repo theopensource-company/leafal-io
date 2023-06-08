@@ -1,10 +1,28 @@
 @use '@/app/color';
 
+.product {
+    margin: 2rem;
+    position: relative;
+    z-index: 5;
+}
+
 .details {
     display: flex;
     flex-direction: row;
     margin-top: 2em;
     gap: 2rem;
+
+    @media screen and (orientation: portrait) {
+        & {
+            flex-direction: column;
+            height: auto;
+            gap: 0;
+
+            .thumbnail {
+                display: none;
+            }
+        }
+    }
 }
 
 .main, .side {

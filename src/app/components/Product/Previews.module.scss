@@ -1,13 +1,12 @@
 @use '@/app/color';
 
 .banner {
+    max-width: 1200px;
+    margin: 7em auto;
     display: flex;
-    align-items: center;
     font-size: 16px;
     gap: 3em;
     outline: none;
-
-    margin: 5em 0;
     user-select: none;
     text-decoration: none;
 
@@ -29,7 +28,7 @@
     flex-basis: 50%;
     flex-grow: 1;
 
-    transition: .1s ease;
+    transition: .3s ease;
     transition-property: transform, outline-color;
 
     img {
@@ -41,7 +40,6 @@
     .banner:hover &, .banner:focus-visible & {
         transform: scale(1.02);
         outline-color: #{color.$light1};
-        transition-duration: .2s;
     }
 }
 
@@ -57,12 +55,11 @@
 
     flex-basis: 50%;
 
-    transition: .1s ease;
+    transition: .3s ease;
     transition-property: transform;
 
     .banner:hover &, .banner:focus-visible & {
         transform: translateX(4px);
-        transition-duration: .2s;
     }
 
     .title {

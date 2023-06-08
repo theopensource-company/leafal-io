@@ -1,49 +1,76 @@
 @use "@/app/color";
 
-.default {
-    height: 5rem;
+.mainMenu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    margin: 1.5rem;
+
+    background-color: #{color.$dark2};
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 1rem;
 
     display: flex;
-    justify-content: stretch;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: stretch;
 
     z-index: 1001;
+
+    .sep {
+        margin: 0 1em;
+    }
 }
 
-.content {
-    margin: .5em 5vw;
-    width: 100%;
+.topMenu {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    bottom: auto;
+
+    margin: 1.5em;
+
     display: flex;
-    gap: 1em;
-    align-items: center;
+    flex-direction: row-reverse;
     justify-content: flex-start;
+    align-items: center;
+
+    z-index: 1000;
 }
 
-.items {
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-    gap: 4em;
+.logo {
+    margin: 1em;
+    font-size: 14px;
+}
 
-    a {text-decoration: none;}
+.tabs {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+    gap: 1em;
+    margin: 1em 0;
 }
 
 .navItem {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
+
+    width: 100%;
+    height: 3em;
 
     position: relative;
 
-    font-size: 1.2em;
-    font-weight: bold;
-    text-transform: uppercase;
-
     color: #{color.$light2};
-    transition: color .1s ease;
+    transition: color .2s ease;
 
     &:hover {
         color: #{color.$light1};
-        transition-duration: .2s;
     }
 
     &::after {
@@ -51,26 +78,36 @@
         display: block;
 
         position: absolute;
-        bottom: -3px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 2px;
 
-        width: 100%;
-        height: 2px;
-
-        transform: scaleX(0);
-        transform-origin: left center;
+        transform: scaleY(0);
+        transform-origin: right;
         background-color: #{color.$light1};
 
-        transition: transform .2s ease;
+        transition: .2s ease;
     }
 
-    &:hover::after {
-        transform: scaleX(1);
+    &:hover::after, &.active::after {
+        transform: scaleY(.5);
+    }
+
+    &.active::after {
+        background-color: #{color.$accent1};
+    }
+
+    svg {
+        width: 2em;
+        height: 2em;
     }
 }
 
 .account {
     position: relative;
     display: flex;
+    margin: 1em;
 
     .clickToExpand {
         position: relative;
@@ -103,6 +140,16 @@
 
 .menu {
     box-shadow: 0 0 5px rgba(0,0,0,0.6);
+    top: auto;
+    left: 5em;
+    bottom: 0;
+    right: auto;
+    transform: scaleX(1);
+    transform-origin: left;
+
+    &[data-hidden='true'] {
+        transform: scaleX(0);
+    }
 }
 
 .menuItem {

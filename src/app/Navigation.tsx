@@ -4,9 +4,16 @@ import * as React from 'react';
 import { TUserRecord } from '@/constants/types/User.types';
 import { Url } from 'next/dist/shared/lib/router/router';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { Bell, Box, ChevronDown, LogOut, Settings } from 'react-feather';
-import styles from './Navbar.module.scss';
+import {
+    Box,
+    ChevronRight,
+    LogOut,
+    Settings,
+    ShoppingBag,
+} from 'react-feather';
+import styles from './Navigation.module.scss';
 import Logo from './components/Brand/Logo';
 import DropdownRenderer from './components/Common/DropdownRenderer';
 import { Button } from './components/Common/Input/Button';
@@ -21,8 +28,16 @@ export function NavbarItem({
     children?: React.ReactNode;
     href?: Url;
 }) {
+    const pathname = usePathname();
+
     return (
-        <Link className={styles.navItem} href={href ?? ''}>
+        <Link
+            className={[
+                styles.navItem,
+                pathname == href ? styles.active : '',
+            ].join(' ')}
+            href={href ?? ''}
+        >
             {children}
         </Link>
     );
@@ -56,7 +71,7 @@ export function NavbarAccountOption({
     );
 }
 
-export function NavbarAccountSeparator() {
+export function NavbarSeparator() {
     return <div className={styles.sep} />;
 }
 
@@ -93,7 +108,7 @@ export function NavbarAccount({ user }: { user: TUserRecord }) {
                                 expanded ? styles.turned : '',
                             ].join(' ')}
                         >
-                            <ChevronDown />
+                            <ChevronRight />
                         </span>
                     </div>
                 }
@@ -107,17 +122,7 @@ export function NavbarAccount({ user }: { user: TUserRecord }) {
                     <UserCard user={user} size="normal" isLink={false} />
                 </NavbarAccountOption>
 
-                <NavbarAccountSeparator />
-
-                <NavbarAccountOption href={`/library`} icon={<Box />}>
-                    <span>Library</span>
-                </NavbarAccountOption>
-
-                <NavbarAccountOption href={`/#todo`} icon={<Bell />}>
-                    <span>Notifications</span>
-                </NavbarAccountOption>
-
-                <NavbarAccountSeparator />
+                <NavbarSeparator />
 
                 <NavbarAccountOption href={`/#todo`} icon={<Settings />}>
                     <span>Settings</span>
@@ -139,19 +144,28 @@ export default function Navbar() {
     const [authModalOpen, setAuthModalOpen] = useState<boolean>(false);
 
     return (
-        <div className={styles.default}>
-            <div className={styles.content}>
-                <div className={styles.items}>
-                    <Link href="/">
-                        <Logo text="leafal.io" />
-                    </Link>
+        <>
+            <AuthModal
+                open={authModalOpen}
+                setOpen={setAuthModalOpen}
+            ></AuthModal>
+
+            <div className={styles.mainMenu}>
+                <Link className={styles.logo} href="/">
+                    <Logo />
+                </Link>
+                <NavbarSeparator />
+                <div className={styles.tabs}>
+                    <NavbarItem href="/">
+                        <ShoppingBag />
+                    </NavbarItem>
+                    {authenticatedUser && (
+                        <NavbarItem href="/library">
+                            <Box />
+                        </NavbarItem>
+                    )}
                 </div>
-
-                <AuthModal
-                    open={authModalOpen}
-                    setOpen={setAuthModalOpen}
-                ></AuthModal>
-
+                <NavbarSeparator />
                 {authenticatedUser ? (
                     <NavbarAccount user={authenticatedUser} />
                 ) : (
@@ -160,6 +174,6 @@ export default function Navbar() {
                     </Button>
                 )}
             </div>
-        </div>
+        </>
     );
 }

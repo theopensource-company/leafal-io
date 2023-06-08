@@ -4,7 +4,7 @@ import * as React from 'react';
 
 import { Metadata } from 'next';
 import { Open_Sans } from 'next/font/google';
-import Navbar from './Navbar';
+import Navigation from './Navigation';
 import ClientProvider from './hooks/Queries/ClientProvider';
 
 const openSans = Open_Sans({ subsets: ['latin'] });
@@ -66,7 +66,7 @@ export default function RootLayout({
             <body className={openSans.className}>
                 <div id="app">
                     <ClientProvider>
-                        <Navbar />
+                        <Navigation />
                         {children}
                     </ClientProvider>
                 </div>

@@ -2,7 +2,6 @@
 
 .dropdown {
     position: relative;
-    height: 140px;
     display: flex;
     align-items: center;
 }
@@ -13,11 +12,11 @@
 
 .menu {
     position: absolute;
-    top: 85%;
-    color: color.$light1;
+    top: 125%;
     right: 0;
 
     background-color: #{color.$dark2};
+    color: color.$light1;
     border-radius: .5rem;
     overflow: hidden;
     width: 90vw;
@@ -31,6 +30,13 @@
     flex-direction: column;
 
     transition: transform .2s ease, opacity .2s ease;
+
+    &[data-hidden='true'] {
+        pointer-events: none;
+        transform: scale(0);
+        opacity: 0;
+        transition-duration: .1s;
+    }
 }
 
 .menuItem {
@@ -42,11 +48,4 @@
         background-color: rgba(255,255,255,0.03);
         transition-duration: .2s;
     }
-}
-
-.hideMenu {
-    pointer-events: none;
-    transform: scaleY(0);
-    opacity: 0;
-    transition-duration: .1s;
 }
