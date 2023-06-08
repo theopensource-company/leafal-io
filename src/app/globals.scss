@@ -5,6 +5,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  outline: none;
 }
 
 #app {
@@ -19,13 +20,11 @@ html, body {
 }
 
 main {
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
 .main-wrapper {
-  width: 90vw;
-  max-width: 1200px;
-  margin: 0 auto;
+  margin-left: 7rem;
 }
 
 .inline-icon {

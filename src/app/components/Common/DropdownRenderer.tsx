@@ -62,11 +62,8 @@ export default function DropdownRenderer({
                 {clickable}
             </div>
             <div
-                className={[
-                    styles.menu,
-                    !open ? styles.hideMenu : '',
-                    className,
-                ].join(' ')}
+                className={[styles.menu, className].join(' ')}
+                data-hidden={!open}
             >
                 {items.map((item, i) => (
                     <div

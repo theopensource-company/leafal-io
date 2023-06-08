@@ -89,40 +89,44 @@ export default function ProductPage({ product }: { product: TProductRecord }) {
             <ProductBackground product={product} />
 
             <div className="main-wrapper">
-                <ProductTop product={product} />
+                <div className={styles.product}>
+                    <ProductTop product={product} />
 
-                <div className={styles.details}>
-                    <div className={styles.main}>
-                        {!license && !licenseLoading && product.published && (
-                            <ProductUnlockDialog product={product} />
-                        )}
-                        {product.description && (
+                    <div className={styles.details}>
+                        <div className={styles.main}>
+                            {!license &&
+                                !licenseLoading &&
+                                product.published && (
+                                    <ProductUnlockDialog product={product} />
+                                )}
+                            {product.description && (
+                                <ProductPageSection
+                                    heading={'About this game'}
+                                    background={false}
+                                >
+                                    <ReactMarkdown>
+                                        {product.description}
+                                    </ReactMarkdown>
+                                </ProductPageSection>
+                            )}
+                        </div>
+                        <div className={styles.side}>
                             <ProductPageSection
-                                heading={'About this game'}
+                                heading={'Details'}
                                 background={false}
                             >
-                                <ReactMarkdown>
-                                    {product.description}
-                                </ReactMarkdown>
+                                {product.links &&
+                                    product.links.map((link) => (
+                                        <ProductPageSectionLink
+                                            href={link as unknown as Url}
+                                            key={link}
+                                            icon={<ExternalLink />}
+                                        >
+                                            Visit official website
+                                        </ProductPageSectionLink>
+                                    ))}
                             </ProductPageSection>
-                        )}
-                    </div>
-                    <div className={styles.side}>
-                        <ProductPageSection
-                            heading={'Details'}
-                            background={false}
-                        >
-                            {product.links &&
-                                product.links.map((link) => (
-                                    <ProductPageSectionLink
-                                        href={link as unknown as Url}
-                                        key={link}
-                                        icon={<ExternalLink />}
-                                    >
-                                        Visit official website
-                                    </ProductPageSectionLink>
-                                ))}
-                        </ProductPageSection>
+                        </div>
                     </div>
                 </div>
             </div>

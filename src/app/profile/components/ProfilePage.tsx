@@ -15,7 +15,7 @@ export function ProfileShell({ username }: { username: string }) {
 
 export default function ProfilePage({ user }: { user: TPublicUserRecord }) {
     return (
-        <>
+        <main>
             <div className={styles.backdrop}></div>
             <div className="main-wrapper">
                 <div className={styles.profile}>
@@ -31,6 +31,6 @@ export default function ProfilePage({ user }: { user: TPublicUserRecord }) {
                     <div className={styles.content}></div>
                 </div>
             </div>
-        </>
+        </main>
     );
 }

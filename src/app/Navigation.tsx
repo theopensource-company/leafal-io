@@ -4,9 +4,17 @@ import * as React from 'react';
 import { TUserRecord } from '@/constants/types/User.types';
 import { Url } from 'next/dist/shared/lib/router/router';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { Bell, Box, ChevronDown, LogOut, Settings } from 'react-feather';
-import styles from './Navbar.module.scss';
+import {
+    Box,
+    ChevronRight,
+    LogIn,
+    LogOut,
+    Settings,
+    ShoppingBag,
+} from 'react-feather';
+import styles from './Navigation.module.scss';
 import Logo from './components/Brand/Logo';
 import DropdownRenderer from './components/Common/DropdownRenderer';
 import { Button } from './components/Common/Input/Button';
@@ -17,12 +25,23 @@ import { useAuthenticatedUser, useSignOut } from './hooks/Queries/Auth';
 export function NavbarItem({
     children,
     href,
+    tabIndex,
 }: {
     children?: React.ReactNode;
     href?: Url;
+    tabIndex?: number;
 }) {
+    const pathname = usePathname();
+
     return (
-        <Link className={styles.navItem} href={href ?? ''}>
+        <Link
+            className={[
+                styles.navItem,
+                pathname == href ? styles.active : '',
+            ].join(' ')}
+            href={href ?? ''}
+            tabIndex={tabIndex}
+        >
             {children}
         </Link>
     );
@@ -33,21 +52,28 @@ export function NavbarAccountOption({
     href,
     icon,
     onClick,
+    tabIndex,
 }: {
     children: React.ReactNode;
     href?: Url;
     icon?: React.ReactNode;
     onClick?: React.MouseEventHandler;
+    tabIndex?: number;
 }) {
     return href ? (
-        <Link className={styles.menuItem} href={href} onClick={onClick}>
+        <Link
+            className={styles.menuItem}
+            href={href}
+            tabIndex={tabIndex}
+            onClick={onClick}
+        >
             {React.isValidElement(icon) && (
                 <div className={styles.icon}>{icon}</div>
             )}
             {children}
         </Link>
     ) : (
-        <div className={styles.menuItem} onClick={onClick}>
+        <div className={styles.menuItem} tabIndex={tabIndex} onClick={onClick}>
             {React.isValidElement(icon) && (
                 <div className={styles.icon}>{icon}</div>
             )}
@@ -56,7 +82,7 @@ export function NavbarAccountOption({
     );
 }
 
-export function NavbarAccountSeparator() {
+export function NavbarSeparator() {
     return <div className={styles.sep} />;
 }
 
@@ -66,6 +92,8 @@ export function NavbarAccount({ user }: { user: TUserRecord }) {
     const { data: authenticatedUser, refetch: refetchAuthenticatedUser } =
         useAuthenticatedUser();
     const { mutate: signOut, data: signOutSuccess } = useSignOut();
+
+    const expand = () => setExpanded(!expanded);
 
     // Effect to refetch on sign out.
     useEffect(() => {
@@ -78,7 +106,11 @@ export function NavbarAccount({ user }: { user: TUserRecord }) {
                 clickable={
                     <div
                         className={styles.clickToExpand}
-                        onClick={() => setExpanded(!expanded)}
+                        onClick={expand}
+                        onKeyDown={(e) =>
+                            (e.key === 'Enter' || e.key === 'Space') && expand()
+                        }
+                        tabIndex={19}
                     >
                         <UserCard
                             user={user}
@@ -93,7 +125,7 @@ export function NavbarAccount({ user }: { user: TUserRecord }) {
                                 expanded ? styles.turned : '',
                             ].join(' ')}
                         >
-                            <ChevronDown />
+                            <ChevronRight />
                         </span>
                     </div>
                 }
@@ -102,28 +134,24 @@ export function NavbarAccount({ user }: { user: TUserRecord }) {
                 setOpen={setExpanded}
             >
                 <NavbarAccountOption
+                    tabIndex={expanded ? 21 : -1}
                     href={`/profile/${authenticatedUser?.username}`}
                 >
                     <UserCard user={user} size="normal" isLink={false} />
                 </NavbarAccountOption>
 
-                <NavbarAccountSeparator />
+                <NavbarSeparator />
 
-                <NavbarAccountOption href={`/library`} icon={<Box />}>
-                    <span>Library</span>
-                </NavbarAccountOption>
-
-                <NavbarAccountOption href={`/#todo`} icon={<Bell />}>
-                    <span>Notifications</span>
-                </NavbarAccountOption>
-
-                <NavbarAccountSeparator />
-
-                <NavbarAccountOption href={`/#todo`} icon={<Settings />}>
+                <NavbarAccountOption
+                    tabIndex={expanded ? 22 : -1}
+                    href={`/#todo`}
+                    icon={<Settings />}
+                >
                     <span>Settings</span>
                 </NavbarAccountOption>
 
                 <NavbarAccountOption
+                    tabIndex={expanded ? 23 : -1}
                     onClick={() => signOut()}
                     icon={<LogOut />}
                 >
@@ -139,27 +167,39 @@ export default function Navbar() {
     const [authModalOpen, setAuthModalOpen] = useState<boolean>(false);
 
     return (
-        <div className={styles.default}>
-            <div className={styles.content}>
-                <div className={styles.items}>
-                    <Link href="/">
-                        <Logo text="leafal.io" />
-                    </Link>
+        <>
+            <AuthModal
+                open={authModalOpen}
+                setOpen={setAuthModalOpen}
+            ></AuthModal>
+
+            <div className={styles.mainMenu}>
+                <Link autoFocus tabIndex={10} className={styles.logo} href="/">
+                    <Logo />
+                </Link>
+                <NavbarSeparator />
+                <div className={styles.tabs}>
+                    <NavbarItem tabIndex={11} href="/">
+                        <ShoppingBag />
+                    </NavbarItem>
+                    {authenticatedUser && (
+                        <NavbarItem tabIndex={12} href="/library">
+                            <Box />
+                        </NavbarItem>
+                    )}
                 </div>
-
-                <AuthModal
-                    open={authModalOpen}
-                    setOpen={setAuthModalOpen}
-                ></AuthModal>
-
+                <NavbarSeparator />
                 {authenticatedUser ? (
                     <NavbarAccount user={authenticatedUser} />
                 ) : (
-                    <Button onClick={() => setAuthModalOpen(true)}>
-                        Sign in
+                    <Button
+                        className={styles.login}
+                        onClick={() => setAuthModalOpen(true)}
+                    >
+                        <LogIn />
                     </Button>
                 )}
             </div>
-        </div>
+        </>
     );
 }
