@@ -1,7 +1,7 @@
 @use '@/app/color';
 
 .product {
-    margin: 2rem 2rem 0;
+    margin: 2rem;
     position: relative;
     z-index: 5;
 }
@@ -34,6 +34,16 @@
 .main { flex-basis: 66.67%; }
 .side { flex-basis: 33.33%; }
 
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    * {
+        margin: 0;
+    }
+}
+
 .heading {
     display: block;
     font-size: 1em;
@@ -42,7 +52,6 @@
     height: 2em;
     color: #{color.$light2};
     border-bottom: 1px solid #{color.$light2};
-    margin-bottom: 1em;
 }
 
 .link {
