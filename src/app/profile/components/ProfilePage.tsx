@@ -18,7 +18,7 @@ export default function ProfilePage({ user }: { user: TPublicUserRecord }) {
         <main>
             <div className={styles.backdrop}></div>
             <div className="main-wrapper">
-                <div className={styles.profile}>
+                <div className={[styles.profile, 'frosted-glass'].join(' ')}>
                     <div className={styles.banner}>
                         <div className={styles.content}>
                             <UserCard user={user} size="large" isLink={false} />

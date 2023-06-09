@@ -23,6 +23,12 @@ main {
   padding: 1.5rem;
 }
 
+.frosted-glass {
+  background-color: rgba(50, 50, 50, 0.429);
+  backdrop-filter: blur(2.5px) invert(5%);
+  border-radius: 1.5rem;
+}
+
 .main-wrapper {
   margin-left: 7rem;
   @media screen and (orientation: portrait) { margin: 0; }

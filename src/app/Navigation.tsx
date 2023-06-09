@@ -173,7 +173,7 @@ export default function Navbar() {
                 setOpen={setAuthModalOpen}
             ></AuthModal>
 
-            <div className={styles.mainMenu}>
+            <div className={[styles.mainMenu, 'frosted-glass'].join(' ')}>
                 <Link autoFocus tabIndex={10} className={styles.logo} href="/">
                     <Logo />
                 </Link>
