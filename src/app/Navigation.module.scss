@@ -21,7 +21,7 @@
 
     z-index: 1001;
 
-    .sep {
+    > .sep {
         margin: 0 .5em;
         border-color: #{color.$dark5};
     }
