@@ -34,11 +34,14 @@
         .tabs {
             flex-direction: row;
             align-items: center;
+            justify-content: space-evenly;
             margin: 0 1em;
         }
 
         .navItem {
+            width: auto;
             height: 100%;
+            width: 5em;
             &::after {
                 left: 0;
                 bottom: auto;
@@ -50,7 +53,7 @@
             }
 
             &:hover::after, &:focus-visible::after, &.active::after {
-                transform: scaleX(.25) !important;
+                transform: scaleX(.5) !important;
             }
         }
 
