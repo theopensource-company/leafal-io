@@ -25,6 +25,7 @@ main {
 
 .main-wrapper {
   margin-left: 7rem;
+  @media screen and (orientation: portrait) { margin: 0; }
 }
 
 .inline-icon {

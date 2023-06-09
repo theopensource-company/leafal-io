@@ -25,9 +25,62 @@
         margin: 0 .5em;
         border-color: #{color.$dark5};
     }
+
+    @media screen and (orientation: portrait) {
+        flex-direction: row;
+        top: auto;
+        right: 0;
+
+        .tabs {
+            flex-direction: row;
+            align-items: center;
+            margin: 0 1em;
+        }
+
+        .navItem {
+            height: 100%;
+            &::after {
+                left: 0;
+                bottom: auto;
+                width: auto;
+                height: 2px;
+
+                transform: scaleX(0);
+                transform-origin: top;
+            }
+
+            &:hover::after, &:focus-visible::after, &.active::after {
+                transform: scaleX(.25) !important;
+            }
+        }
+
+        .menu {
+            bottom: 5em;
+            left: auto;
+            right: 0;
+
+            transform: scaleY(1);
+            transform-origin: bottom;
+        
+            &[data-hidden='true'] {
+                transform: scaleY(0);
+            }
+        }
+
+        .overlay {
+            transform: rotate(-90deg) !important;
+        }
+
+        .overlay.turned {
+            transform: rotate(-270deg) !important;
+        }
+    }
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 1rem;
     font-size: 14px;
     outline: none;
