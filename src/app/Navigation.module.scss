@@ -22,13 +22,13 @@
     z-index: 1001;
 
     .sep {
-        margin: .5em;
+        margin: 0 .5em;
         border-color: #{color.$dark5};
     }
 }
 
 .logo {
-    margin: 1em;
+    margin: 1rem;
     font-size: 14px;
     outline: none;
 }
@@ -79,8 +79,11 @@
         transform: scaleY(.5);
     }
 
-    &.active::after {
-        background-color: #{color.$accent1};
+    &.active {
+        color: #{color.$light1};
+        &::after {
+            background-color: #{color.$accent1};
+        }
     }
 
     svg {
