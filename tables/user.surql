@@ -7,7 +7,7 @@ DEFINE TABLE user SCHEMAFULL
 DEFINE TABLE pubuser AS SELECT username, picture, profile, created FROM user;
 
 DEFINE FIELD username ON TABLE user TYPE string ASSERT $value = /^[a-z0-9](?:[a-z0-9._-]{1,14}[a-z0-9.])$/;
-DEFINE FIELD email ON TABLE user TYPE string ASSERT is::email($value);
+DEFINE FIELD email ON TABLE user TYPE string ASSERT string::is::email($value);
 
 DEFINE FIELD emailverified ON TABLE user TYPE bool 
     VALUE $value ?? $before ?? false
