@@ -1,0 +1,10 @@
+:root {
+    --dark: #131313;
+    --dark2: #232323;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
