@@ -15,7 +15,7 @@
     min-height: 100vh;
     min-height: 100svh;
 
-    background: radial-gradient(circle at 50%, var(--dark2), var(--dark));
+    background: radial-gradient(circle at 50%, var(--dark2), var(--dark) 150%);
   }
 
   .logo {
