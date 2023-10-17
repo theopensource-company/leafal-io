@@ -1,9 +1,12 @@
 <script setup lang="ts">
-  import Prelaunch from "@/components/Prelaunch.vue";
-
-  const prelaunch = import.meta.env.VITE_PRELAUNCH;
+  import { useRoute } from 'vue-router';
+  const route = useRoute();
 </script>
 
 <template>
-  <Prelaunch v-if="prelaunch" />
+  <metainfo>
+    <template v-slot:title="{ content }">{{ (content && `${content} - `) + `leafal.io` }}</template>
+    <template v-slot:description="{ content }">{{ content }}</template>
+  </metainfo>
+  <RouterView :key="route.fullPath" />
 </template>
