@@ -8,12 +8,12 @@
 
 <style scoped lang="scss">
   .base {
-    margin: 0 auto;
     display: grid;
     place-items: center;
-    width: 100%;
-    min-height: 100vh;
-    min-height: 100svh;
+
+    position: fixed;
+    inset: 0;
+    z-index: 2001;
 
     background: radial-gradient(circle at 50%, var(--dark2), var(--dark) 150%);
   }
