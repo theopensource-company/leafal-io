@@ -10,15 +10,15 @@
   },
   "dependencies": {
     "vue": "^3.3.4",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "url": "^0.11.3",
+    "vue-meta": "^3.0.0-alpha.7"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
     "sass": "^1.69.3",
     "typescript": "^5.0.2",
-    "url": "^0.11.3",
     "vite": "^4.4.5",
-    "vue-meta": "^3.0.0-alpha.7",
     "vue-tsc": "^1.8.5"
   }
 }
