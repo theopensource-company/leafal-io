@@ -1,5 +1,4 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
     <div class="navbar">
@@ -8,12 +7,12 @@
 </template>
 
 <style scoped lang="scss">
-    .navbar {
-        display: flex;
-        flex-direction: row;
-        gap: 3em;
-        height: 5em;
+.navbar {
+    display: flex;
+    flex-direction: row;
+    gap: 3em;
+    height: 5em;
 
-        align-items: center;
-    }
+    align-items: center;
+}
 </style>

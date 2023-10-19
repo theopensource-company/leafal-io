@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import Logo from '@/components/brand/Logo.vue';
+import Logo from '@/components/brand/Logo.vue';
 </script>
 
 <template>
@@ -9,8 +9,8 @@
 </template>
 
 <style scoped>
-    .hide-link {
-        color: inherit;
-        text-decoration: none;
-    }
+.hide-link {
+    color: inherit;
+    text-decoration: none;
+}
 </style>

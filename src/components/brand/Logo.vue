@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import LogoVector from '@/components/brand/LogoVector.vue';
+import LogoVector from '@/components/brand/LogoVector.vue';
 </script>
 
 <template>
@@ -10,22 +10,22 @@
 </template>
 
 <style scoped lang="scss">
-    .logo {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 1em;
-        color: var(--light);
-        text-decoration: none;
-    }
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+    color: var(--light);
+    text-decoration: none;
+}
 
-    .vector {
-        width: 3em;
-        height: 3em;
-    }
+.vector {
+    width: 3em;
+    height: 3em;
+}
 
-    .text {
-        font-size: 2em;
-        font-weight: 700;
-    }
+.text {
+    font-size: 2em;
+    font-weight: 700;
+}
 </style>

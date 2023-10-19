@@ -1,15 +1,15 @@
 <script setup lang="ts">
-    import Prelaunch from '@/components/Prelaunch.vue';
-    import StoreGrid from '@/components/store/StoreGrid.vue';
-    import StoreItem from '@/components/store/StoreItem.vue';
+import Prelaunch from '@/components/Prelaunch.vue';
+import StoreGrid from '@/components/store/StoreGrid.vue';
+import StoreItem from '@/components/store/StoreItem.vue';
 import { featureFlags } from '@/library/featureFlags';
-    const prelaunch = featureFlags.store.preLaunch;
+const prelaunch = featureFlags.store.preLaunch;
 
-    const demoItem = {
-        slug: 'celesteia',
-        title: 'Celesteia',
-        thumbnail: 'https://celesteia.com/images/thumbnail.jpg'
-    };
+const demoItem = {
+    slug: 'celesteia',
+    title: 'Celesteia',
+    thumbnail: 'https://celesteia.com/images/thumbnail.jpg',
+};
 </script>
 
 <template>
@@ -29,9 +29,9 @@ import { featureFlags } from '@/library/featureFlags';
 </template>
 
 <style scoped lang="scss">
-    .wrap {
-        width: 1200px;
-        max-width: 80vw;
-        margin: 2em auto;
-    }
+.wrap {
+    width: 1200px;
+    max-width: 80vw;
+    margin: 2em auto;
+}
 </style>
