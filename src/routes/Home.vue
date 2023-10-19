@@ -3,6 +3,12 @@
     import StoreGrid from '@/components/store/StoreGrid.vue';
     import StoreItem from '@/components/store/StoreItem.vue';
     const prelaunch = import.meta.env.VITE_PRELAUNCH == 'true';
+
+    const demoItem = {
+        slug: 'celesteia',
+        title: 'Celesteia',
+        thumbnail: 'https://celesteia.com/images/thumbnail.jpg'
+    };
 </script>
 
 <template>
@@ -10,7 +16,7 @@
     <div v-else>
         <div class="wrap">
             <StoreGrid>
-                <StoreItem size="big" />
+                <StoreItem size="big" :item="demoItem" />
                 <StoreItem />
                 <StoreItem />
                 <StoreItem />
