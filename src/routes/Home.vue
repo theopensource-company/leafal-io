@@ -2,7 +2,8 @@
     import Prelaunch from '@/components/Prelaunch.vue';
     import StoreGrid from '@/components/store/StoreGrid.vue';
     import StoreItem from '@/components/store/StoreItem.vue';
-    const prelaunch = import.meta.env.VITE_PRELAUNCH == 'true';
+import { featureFlags } from '@/library/featureFlags';
+    const prelaunch = featureFlags.store.preLaunch;
 
     const demoItem = {
         slug: 'celesteia',
