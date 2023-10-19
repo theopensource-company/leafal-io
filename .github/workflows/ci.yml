@@ -4,6 +4,7 @@ on: push
 
 env:
   NODE_VERSION: 18
+  PNPM_VERSION: 8
 
 jobs:
   lint:
@@ -20,7 +21,7 @@ jobs:
         uses: pnpm/action-setup@v2
         id: pnpm-install
         with:
-          version: 8
+          version: ${{ env.PNPM_VERSION }}
 
       - name: Code Checkout
         uses: actions/checkout@v2
@@ -59,7 +60,7 @@ jobs:
         uses: pnpm/action-setup@v2
         id: pnpm-install
         with:
-          version: 7
+          version: ${{ env.PNPM_VERSION }}
 
       - name: Code Checkout
         uses: actions/checkout@v2
