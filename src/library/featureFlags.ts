@@ -35,7 +35,7 @@ export const featureFlags = new FeatureFlags({
     development: {
       preLaunch: false,
     },
-    preview: {
+    staging: {
       preLaunch: false,
     },
   },
