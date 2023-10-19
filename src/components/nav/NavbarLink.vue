@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router';
+    import { RouterLink } from 'vue-router';
 
-const { path } = defineProps<{
-    path: string;
-}>();
+    const { path } = defineProps<{
+        path: string;
+    }>();
 </script>
 
 <template>
@@ -13,13 +13,13 @@ const { path } = defineProps<{
 </template>
 
 <style scoped lang="scss">
-.link {
-    color: var(--light2);
-    text-decoration: none;
-    transition: color 0.2s ease;
+    .link {
+        color: var(--light2);
+        text-decoration: none;
+        transition: color 0.2s ease;
 
-    &:hover {
-        color: var(--light);
+        &:hover {
+            color: var(--light);
+        }
     }
-}
 </style>

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-const { user } = defineProps<{
-    user?: {
-        avatar?: string;
-    };
-}>();
+    const { user } = defineProps<{
+        user?: {
+            avatar?: string;
+        };
+    }>();
 </script>
 
 <template>
@@ -13,10 +13,10 @@ const { user } = defineProps<{
 </template>
 
 <style scoped>
-.avatar {
-    border-radius: 50%;
-    display: flex;
-    align-items: stretch;
-    justify-content: stretch;
-}
+    .avatar {
+        border-radius: 50%;
+        display: flex;
+        align-items: stretch;
+        justify-content: stretch;
+    }
 </style>

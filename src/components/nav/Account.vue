@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Avatar from '@/components/user/Avatar.vue';
+    import Avatar from '@/components/user/Avatar.vue';
 </script>
 
 <template>
@@ -10,18 +10,18 @@ import Avatar from '@/components/user/Avatar.vue';
 </template>
 
 <style scoped lang="scss">
-.account {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-self: flex-end;
-    align-self: center;
+    .account {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-self: flex-end;
+        align-self: center;
 
-    align-items: center;
-    gap: 1em;
-}
+        align-items: center;
+        gap: 1em;
+    }
 
-.avatar {
-    width: 3em;
-    height: 3em;
-}
+    .avatar {
+        width: 3em;
+        height: 3em;
+    }
 </style>

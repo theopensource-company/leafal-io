@@ -7,23 +7,27 @@
 </template>
 
 <style scoped lang="scss">
-.base {
-    display: grid;
-    place-items: center;
+    .base {
+        display: grid;
+        place-items: center;
 
-    position: fixed;
-    inset: 0;
-    z-index: 2001;
+        position: fixed;
+        inset: 0;
+        z-index: 2001;
 
-    background: radial-gradient(circle at 50%, var(--dark2), var(--dark) 150%);
-}
-
-.logo {
-    max-width: 10em;
-    filter: none;
-    transition: filter 0.2s ease;
-    &:hover {
-        filter: drop-shadow(0 0 0.5em #3dad2caa);
+        background: radial-gradient(
+            circle at 50%,
+            var(--dark2),
+            var(--dark) 150%
+        );
     }
-}
+
+    .logo {
+        max-width: 10em;
+        filter: none;
+        transition: filter 0.2s ease;
+        &:hover {
+            filter: drop-shadow(0 0 0.5em #3dad2caa);
+        }
+    }
 </style>
