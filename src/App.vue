@@ -16,9 +16,8 @@
         <LogoLink />
         <Navbar>
             <NavbarLink path="/">Home</NavbarLink>
-            <NavbarLink path="/">Link 2</NavbarLink>
-            <NavbarLink path="/">Link 3</NavbarLink>
-            <NavbarLink path="/">Link 4</NavbarLink>
+            <NavbarLink path="/">Community</NavbarLink>
+            <NavbarLink path="/">Events</NavbarLink>
         </Navbar>
         <Account />
     </header>
