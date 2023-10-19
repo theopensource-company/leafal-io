@@ -1,5 +1,12 @@
 <script setup lang="ts">
-const { item, size } = defineProps(['item', 'size']);
+const { item, size } = defineProps<{
+    size?: 'small' | 'big';
+    item?: {
+        slug: string;
+        title: string;
+        thumbnail: string;
+    };
+}>();
 </script>
 
 <template>

@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
 
-const { path } = defineProps(['path']);
+const { path } = defineProps<{
+    path: string;
+}>();
 </script>
 
 <template>

@@ -1,5 +1,9 @@
 <script setup lang="ts">
-const { user } = defineProps(['user']);
+const { user } = defineProps<{
+    user?: {
+        avatar?: string;
+    };
+}>();
 </script>
 
 <template>
