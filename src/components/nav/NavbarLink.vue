@@ -1,21 +1,35 @@
 <script setup lang="ts">
     import { RouterLink } from 'vue-router';
+    import VueFeather from 'vue-feather';
 
-    const { path } = defineProps(['path']);
+    const { path, icon } = defineProps(['path', 'icon']);
 </script>
 
 <template>
-    <RouterLink :to="path" class="link">
+    <RouterLink :to="path" class="link" v-bind="$attrs">
+        <div v-if="icon" class="icon">
+            <VueFeather :type="icon" />
+        </div>
         <slot />
     </RouterLink>
 </template>
 
 <style scoped lang="scss">
     .link {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        vertical-align: middle;
+        gap: 1em;
+        max-width: max-content;
         color: var(--light2);
         text-decoration: none;
         transition: color .2s ease;
 
-        &:hover { color: var(--light); }
+        &:hover, &.router-link-exact-active {
+            color: var(--light);    
+        }
+
+        .icon { line-height: 1em; }
     }
 </style>

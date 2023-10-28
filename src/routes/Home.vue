@@ -23,8 +23,8 @@
 
 <style scoped lang="scss">
     .wrap {
-        width: 1200px;
-        max-width: 80vw;
-        margin: 2em auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
     }
 </style>

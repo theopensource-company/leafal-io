@@ -10,10 +10,9 @@
 <style scoped lang="scss">
     .navbar {
         display: flex;
-        flex-direction: row;
-        gap: 3em;
-        height: 5em;
-
-        align-items: center;
+        flex: 1;
+        flex-direction: column;
+        gap: 1em;
+        margin: 1rem;
     }
 </style>
