@@ -2,8 +2,8 @@
     import Prelaunch from '@/components/Prelaunch.vue';
     import StoreGrid from '@/components/store/StoreGrid.vue';
     import StoreItem from '@/components/store/StoreItem.vue';
-import { featureFlags } from '@/library/featureFlags';
-    const prelaunch = featureFlags.store.preLaunch;
+    import { useFeatureFlags } from '@/library/featureFlags';
+    const [flags] = useFeatureFlags()
 
     const demoItem = {
         slug: 'celesteia',
@@ -13,7 +13,7 @@ import { featureFlags } from '@/library/featureFlags';
 </script>
 
 <template>
-    <Prelaunch v-if="prelaunch" />
+    <Prelaunch v-if="flags.preLaunch" />
     <div v-else>
         <div class="wrap">
             <StoreGrid>

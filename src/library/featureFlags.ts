@@ -2,6 +2,7 @@ import {
   FeatureFlags,
   FeatureFlagSchema,
 } from "@theopensource-company/feature-flags";
+import { featureFlagsHookFactory } from "@theopensource-company/feature-flags/vue";
 import z from "zod";
 
 // Either prod, preview (staging & PRs) or dev
@@ -40,3 +41,5 @@ export const featureFlags = new FeatureFlags({
     },
   },
 });
+
+export const useFeatureFlags = featureFlagsHookFactory(featureFlags);
