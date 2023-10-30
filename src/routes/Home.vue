@@ -3,7 +3,7 @@
     import StoreGrid from '@/components/store/StoreGrid.vue';
     import StoreItem from '@/components/store/StoreItem.vue';
     import { useFeatureFlags } from '@/library/featureFlags';
-    const [flags] = useFeatureFlags()
+    const [flags] = useFeatureFlags();
 
     const demoItem = {
         slug: 'celesteia',

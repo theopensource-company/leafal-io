@@ -1,9 +1,9 @@
 import {
-  FeatureFlags,
-  FeatureFlagSchema,
-} from "@theopensource-company/feature-flags";
-import { featureFlagsHookFactory } from "@theopensource-company/feature-flags/vue";
-import z from "zod";
+    FeatureFlags,
+    FeatureFlagSchema,
+} from '@theopensource-company/feature-flags';
+import { featureFlagsHookFactory } from '@theopensource-company/feature-flags/vue';
+import z from 'zod';
 
 // Either prod, preview (staging & PRs) or dev
 // mode = production should only be true for the main branch
