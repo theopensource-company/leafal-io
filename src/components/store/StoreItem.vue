@@ -1,12 +1,22 @@
 <script setup lang="ts">
-    const { item, size } = defineProps(['item', 'size']);
+    const { item, size } = defineProps<{
+        size?: 'small' | 'big';
+        item?: {
+            slug: string;
+            title: string;
+            thumbnail: string;
+        };
+    }>();
 </script>
 
 <template>
-    <RouterLink :to="(item && `/product/${item.slug}`) ?? ''" :class="['item', size ?? 'small']">
+    <RouterLink
+        :to="(item && `/product/${item.slug}`) ?? ''"
+        :class="['item', size ?? 'small']"
+    >
         <div v-if="!!item">
             <div class="thumbnail">
-                <img :src="item.thumbnail">
+                <img :src="item.thumbnail" />
             </div>
             <div class="details">
                 <span class="title">{{ item.title }}</span>
@@ -31,7 +41,7 @@
                 object-fit: cover;
                 object-position: center;
                 transform-origin: center;
-                transition: transform .2s ease;
+                transition: transform 0.2s ease;
             }
         }
 

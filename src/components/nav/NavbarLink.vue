@@ -1,7 +1,9 @@
 <script setup lang="ts">
     import { RouterLink } from 'vue-router';
 
-    const { path } = defineProps(['path']);
+    const { path } = defineProps<{
+        path: string;
+    }>();
 </script>
 
 <template>
@@ -14,8 +16,10 @@
     .link {
         color: var(--light2);
         text-decoration: none;
-        transition: color .2s ease;
+        transition: color 0.2s ease;
 
-        &:hover { color: var(--light); }
+        &:hover {
+            color: var(--light);
+        }
     }
 </style>

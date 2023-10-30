@@ -3,12 +3,12 @@
     import StoreGrid from '@/components/store/StoreGrid.vue';
     import StoreItem from '@/components/store/StoreItem.vue';
     import { useFeatureFlags } from '@/library/featureFlags';
-    const [flags] = useFeatureFlags()
+    const [flags] = useFeatureFlags();
 
     const demoItem = {
         slug: 'celesteia',
         title: 'Celesteia',
-        thumbnail: 'https://celesteia.com/images/thumbnail.jpg'
+        thumbnail: 'https://celesteia.com/images/thumbnail.jpg',
     };
 </script>
 

@@ -9,8 +9,10 @@
 
 <template>
     <metainfo>
-        <template v-slot:title="{ content }">{{ (content && `${content} - `) + `leafal.io` }}</template>
-        <template v-slot:description="{ content }">{{ content }}</template>
+        <template #title="{ content }">{{
+            (content && `${content} - `) + `leafal.io`
+        }}</template>
+        <template #description="{ content }">{{ content }}</template>
     </metainfo>
     <header>
         <LogoLink />

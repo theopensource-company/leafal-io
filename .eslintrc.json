@@ -1,0 +1,37 @@
+{
+    "root": true,
+    "extends": [
+        "eslint:recommended",
+        "plugin:vue/vue3-recommended",
+        "prettier",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:json/recommended"
+    ],
+    "ignorePatterns": ["dist/**"],
+    "plugins": ["only-error", "prettier", "unused-imports"],
+    "rules": {
+        "prettier/prettier": [
+            "error",
+            {
+                "extends": [".prettierrc"],
+                "vueIndentScriptAndStyle": true
+            }
+        ],
+        "unused-imports/no-unused-imports": "error",
+        "unused-imports/no-unused-vars": [
+            "error",
+            {
+                "vars": "all",
+                "varsIgnorePattern": "^_",
+                "args": "after-used",
+                "argsIgnorePattern": "^_"
+            }
+        ],
+        "@typescript-eslint/no-unused-vars": "off",
+        "vue/multi-word-component-names": "off"
+    },
+    "parser": "vue-eslint-parser",
+    "parserOptions": {
+        "parser": "@typescript-eslint/parser"
+    }
+}

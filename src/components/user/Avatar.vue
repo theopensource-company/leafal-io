@@ -1,10 +1,14 @@
 <script setup lang="ts">
-    const { user } = defineProps(['user']);
+    const { user } = defineProps<{
+        user?: {
+            avatar?: string;
+        };
+    }>();
 </script>
 
 <template>
     <div class="avatar" v-bind="$attrs">
-        <img :src="(user && user.avatar) ?? '/default.svg'" class="avatar">
+        <img :src="(user && user.avatar) ?? '/default.svg'" class="avatar" />
     </div>
 </template>
 
