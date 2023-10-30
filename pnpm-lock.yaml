@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@theopensource-company/feature-flags':
-    specifier: ^0.4.2
-    version: 0.4.2
+    specifier: ^0.4.5
+    version: 0.4.5
   url:
     specifier: ^0.11.3
     version: 0.11.3
@@ -395,11 +395,13 @@ packages:
       tslib: 2.6.2
     dev: true
 
-  /@theopensource-company/feature-flags@0.4.2:
-    resolution: {integrity: sha512-iAHtlycnVU0KcuDGUumSwYED7KHoIqSVYUGAdFImWDu9Hv7ZbmfjmY/Pn60dc9ouFbdeSd74S9Y5UPAMubojUA==}
+  /@theopensource-company/feature-flags@0.4.5:
+    resolution: {integrity: sha512-IW2RoSTUEIXrOl1HDBSR2H+qWwg1WPEjEKS1ATF4/f5QEA74OnNA6OX1s+xMhdVlmNQXAbL1/4Su5CipMBTICA==}
+
     dependencies:
       '@types/react': 18.2.29
       react: 18.2.0
+      vue: 3.3.4
     dev: false
 
   /@types/json-schema@7.0.14:

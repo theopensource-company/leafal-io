@@ -7,8 +7,6 @@
         "dev": "vite",
         "build": "vue-tsc && vite build",
         "preview": "vite preview",
-        "ts": "vue-tsc --watch",
-        "lint": "eslint . --ext ts --ext vue --max-warnings 0"
     },
     "dependencies": {
         "@theopensource-company/feature-flags": "^0.4.2",
