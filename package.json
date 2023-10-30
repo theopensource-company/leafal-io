@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@theopensource-company/feature-flags": "^0.4.2",
+    "@theopensource-company/feature-flags": "^0.4.5",
     "url": "^0.11.3",
     "vue": "^3.3.4",
     "vue-meta": "^3.0.0-alpha.7",
