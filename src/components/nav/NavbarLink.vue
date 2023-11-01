@@ -2,7 +2,9 @@
     import { RouterLink } from 'vue-router';
     import VueFeather from 'vue-feather';
 
-    const { path, icon } = defineProps(['path', 'icon']);
+    const { path } = defineProps<{
+        path: string;
+    }>();
 </script>
 
 <template>
@@ -24,7 +26,7 @@
         max-width: max-content;
         color: var(--light2);
         text-decoration: none;
-        transition: color .2s ease;
+        transition: color 0.2s ease;
 
         &:hover, &.router-link-exact-active {
             color: var(--light);    

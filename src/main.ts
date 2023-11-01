@@ -1,8 +1,7 @@
 import { createApp } from 'vue';
-import './style.css';
-import App from './App.vue';
 import { createMetaManager } from 'vue-meta';
 import { createRouter, createWebHistory } from 'vue-router';
+import App from './App.vue';
 import HomeVue from './routes/Home.vue';
 import DiscoverVue from './routes/Discover.vue';
 import LibraryVue from './routes/Library.vue';
@@ -16,7 +15,4 @@ const router = createRouter({
     ]
 })
 
-createApp(App)
-    .use(router)
-    .use(createMetaManager())
-    .mount('#app');
+createApp(App).use(router).use(createMetaManager()).mount('#app');
