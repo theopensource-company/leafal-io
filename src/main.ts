@@ -5,6 +5,7 @@ import App from './App.vue';
 import HomeVue from './routes/Home.vue';
 import DiscoverVue from './routes/Discover.vue';
 import LibraryVue from './routes/Library.vue';
+import './style.css';
 
 const router = createRouter({
     history: createWebHistory(),
