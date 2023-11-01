@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <RouterLink :to="(item && item.slug) ?? ''" :class="['item', size ?? 'small']">
+    <RouterLink :to="`/product/${(item && item.slug) ?? ''}`" :class="['item', size ?? 'small']">
         <div class="thumbnail">
             <img :src="(item && item.thumbnail) ?? 'https://www.celesteia.com/images/thumbnail.jpg'" :alt="(item && item.title) ?? ''">
         </div>
