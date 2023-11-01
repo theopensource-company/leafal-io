@@ -10,9 +10,18 @@
 </script>
 
 <template>
-    <RouterLink :to="`/product/${(item && item.slug) ?? ''}`" :class="['item', size ?? 'small']">
+    <RouterLink
+        :to="`/product/${(item && item.slug) ?? ''}`"
+        :class="['item', size ?? 'small']"
+    >
         <div class="thumbnail">
-            <img :src="(item && item.thumbnail) ?? 'https://www.celesteia.com/images/thumbnail.jpg'" :alt="(item && item.title) ?? ''">
+            <img
+                :src="
+                    (item && item.thumbnail) ??
+                    'https://www.celesteia.com/images/thumbnail.jpg'
+                "
+                :alt="(item && item.title) ?? ''"
+            />
         </div>
     </RouterLink>
 </template>
@@ -27,7 +36,7 @@
         .thumbnail {
             position: absolute;
             inset: 0;
-            transition: transform .1s ease;
+            transition: transform 0.1s ease;
 
             img {
                 width: 100%;
@@ -36,7 +45,11 @@
             }
         }
 
-        &:hover .thumbnail, &:focus .thumbnail { transform: scale(1.05); transition-duration: .2s; }
+        &:hover .thumbnail,
+        &:focus .thumbnail {
+            transform: scale(1.05);
+            transition-duration: 0.2s;
+        }
     }
 
     .big {

@@ -7,5 +7,4 @@
     <Prelaunch v-if="prelaunch" />
 </template>
 
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>

@@ -12,7 +12,7 @@
 <style scoped lang="scss">
     .account {
         max-width: max-content;
-        
+
         display: flex;
         justify-self: end;
         flex-direction: row;

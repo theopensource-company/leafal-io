@@ -14,7 +14,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: .33em;
+        gap: 0.33em;
         color: var(--light);
         text-decoration: none;
     }
@@ -25,7 +25,7 @@
     }
 
     .text {
-        font-size: .75em;
+        font-size: 0.75em;
         font-weight: 700;
     }
 </style>

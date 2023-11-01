@@ -13,7 +13,9 @@
 
 <template>
     <metainfo>
-        <template #title="{ content }">{{ (content && `${content} - `) + `leafal.io` }}</template>
+        <template #title="{ content }">{{
+            (content && `${content} - `) + `leafal.io`
+        }}</template>
         <template #description="{ content }">{{ content }}</template>
     </metainfo>
     <div class="wrapper">
@@ -23,14 +25,20 @@
             </RouterLink>
             <Navbar>
                 <NavbarLink path="/" icon="home">Home</NavbarLink>
-                <NavbarLink path="/discover" icon="compass">Discover</NavbarLink>
+                <NavbarLink path="/discover" icon="compass"
+                    >Discover</NavbarLink
+                >
                 <NavbarLink path="/library" icon="archive">Library</NavbarLink>
             </Navbar>
         </aside>
         <div class="search">
-            <TextInput class="search-bar" v-model="search" placeholder="Search..." />
+            <TextInput
+                v-model="search"
+                class="search-bar"
+                placeholder="Search..."
+            />
         </div>
-        <RouterView class="view" :key="route.fullPath" />
+        <RouterView :key="route.fullPath" class="view" />
         <Account class="account" />
     </div>
 </template>
@@ -50,7 +58,7 @@
             grid-row: span 2;
             grid-template-rows: subgrid;
             display: grid;
-            
+
             font-size: 18px;
 
             position: sticky;
@@ -72,7 +80,10 @@
             align-items: stretch;
             justify-content: stretch;
 
-            .search-bar { line-height: 2em; max-width: 500px; }
+            .search-bar {
+                line-height: 2em;
+                max-width: 500px;
+            }
         }
 
         .view {
@@ -81,7 +92,7 @@
             grid-column-end: 4;
             grid-row: 2;
             grid-template-columns: subgrid;
-            margin: .5rem;
+            margin: 0.5rem;
         }
 
         .account {

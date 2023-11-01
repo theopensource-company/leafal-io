@@ -1,7 +1,15 @@
 <template>
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="80" viewBox="0 0 100 80" v-bind="$attrs">
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        width="100"
+        height="80"
+        viewBox="0 0 100 80"
+        v-bind="$attrs"
+    >
         <g>
-            <path d="
+            <path
+                d="
             M 35,0
             c 30,0 25,45 65,45
             q -10,35 -50,35

@@ -4,6 +4,7 @@
 
     const { path } = defineProps<{
         path: string;
+        icon?: string;
     }>();
 </script>
 
@@ -28,10 +29,13 @@
         text-decoration: none;
         transition: color 0.2s ease;
 
-        &:hover, &.router-link-exact-active {
-            color: var(--light);    
+        &:hover,
+        &.router-link-exact-active {
+            color: var(--light);
         }
 
-        .icon { line-height: 1em; }
+        .icon {
+            line-height: 1em;
+        }
     }
 </style>

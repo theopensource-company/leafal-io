@@ -8,7 +8,7 @@
     const demoItem = {
         slug: 'celesteia',
         title: 'Celesteia',
-        thumbnail: 'https://celesteia.com/images/thumbnail.jpg'
+        thumbnail: 'https://celesteia.com/images/thumbnail.jpg',
     };
 </script>
 
@@ -16,7 +16,7 @@
     <Prelaunch v-if="flags.preLaunch" />
     <div v-else>
         <div class="wrap">
-            <StoreGrid v-for="_ in 10">
+            <StoreGrid v-for="n in 10" :key="n">
                 <StoreItem size="big" :item="demoItem" />
                 <StoreItem />
                 <StoreItem />
