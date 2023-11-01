@@ -16,7 +16,7 @@ import { featureFlags } from '@/library/featureFlags';
     <Prelaunch v-if="prelaunch" />
     <div v-else>
         <div class="wrap">
-            <StoreGrid>
+            <StoreGrid v-for="_ in 10">
                 <StoreItem size="big" :item="demoItem" />
                 <StoreItem />
                 <StoreItem />
@@ -30,8 +30,9 @@ import { featureFlags } from '@/library/featureFlags';
 
 <style scoped lang="scss">
     .wrap {
-        display: flex;
-        flex-direction: column;
+        display: grid;
         gap: 1em;
+        grid-column: span 2;
+        grid-template-columns: subgrid;
     }
 </style>

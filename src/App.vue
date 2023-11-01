@@ -13,8 +13,8 @@
 
 <template>
     <metainfo>
-        <template v-slot:title="{ content }">{{ (content && `${content} - `) + `leafal.io` }}</template>
-        <template v-slot:description="{ content }">{{ content }}</template>
+        <template #title="{ content }">{{ (content && `${content} - `) + `leafal.io` }}</template>
+        <template #description="{ content }">{{ content }}</template>
     </metainfo>
     <div class="wrapper">
         <aside>
@@ -30,9 +30,7 @@
         <div class="search">
             <TextInput class="search-bar" v-model="search" placeholder="Search..." />
         </div>
-        <main>
-            <RouterView class="view" :key="route.fullPath" />
-        </main>
+        <RouterView class="view" :key="route.fullPath" />
         <Account class="account" />
     </div>
 </template>
@@ -40,26 +38,19 @@
 <style scoped lang="scss">
     .wrapper {
         display: grid;
-        grid-template-columns: 15% 1fr 15%;
+        grid-template-columns: 1fr 5fr 1fr;
         grid-template-rows: 3rem auto;
         align-items: start;
         gap: 3rem;
         margin: 2rem auto;
-        max-width: 1920px;
-
-        header {
-            display: grid;
-            grid-column: span 3;
-            grid-template-columns: subgrid;
-        }
+        max-width: 170vh;
 
         aside {
             grid-column: 1;
             grid-row: span 2;
-            display: flex;
-            flex-direction: column;
-
-            gap: 2rem;
+            grid-template-rows: subgrid;
+            display: grid;
+            
             font-size: 18px;
 
             position: sticky;
@@ -74,23 +65,28 @@
 
             position: sticky;
             top: 2rem;
+            z-index: 1001;
 
             display: flex;
             flex-direction: column;
             align-items: stretch;
             justify-content: stretch;
 
-            .search-bar { line-height: 2em; }
+            .search-bar { line-height: 2em; max-width: 500px; }
         }
 
-        main {
-            grid-column: 2;
+        .view {
+            display: grid;
+            grid-column-start: 2;
+            grid-column-end: 4;
             grid-row: 2;
+            grid-template-columns: subgrid;
+            margin: .5rem;
         }
 
         .account {
             grid-column: 3;
-            grid-row: span 2;
+            grid-row: 1;
 
             position: sticky;
             top: 2rem;
@@ -98,7 +94,7 @@
     }
 
     .logo-link {
-        font-size: 2.5rem;
+        font-size: 3rem;
         text-decoration: none;
     }
 </style>

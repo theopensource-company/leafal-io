@@ -15,7 +15,7 @@
         
         display: flex;
         justify-self: end;
-        flex-direction: row-reverse;
+        flex-direction: row;
 
         align-items: center;
         gap: 1em;

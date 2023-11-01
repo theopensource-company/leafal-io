@@ -21,12 +21,14 @@
     .default {
         display: block;
         font-size: 1em;
+        line-height: 1em;
         padding: .5em .75em;
         border-radius: .5em;
         transition: .2s ease;
 
-        border: 2px solid var(--dark2);
-        background-color: var(--dark2);
+        border: none;
+        background-color: var(--light-frosted);
+        backdrop-filter: blur(5px);
         color: var(--light1);
         outline: none;
 

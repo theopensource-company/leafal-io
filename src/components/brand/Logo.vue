@@ -20,12 +20,12 @@
     }
 
     .vector {
-        width: 1.5em;
-        height: 1.5em;
+        width: 1.25em;
+        height: 1em;
     }
 
     .text {
-        font-size: 1em;
+        font-size: .75em;
         font-weight: 700;
     }
 </style>

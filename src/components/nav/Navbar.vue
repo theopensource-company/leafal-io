@@ -12,7 +12,7 @@
         display: flex;
         flex: 1;
         flex-direction: column;
-        gap: 1em;
+        gap: 1.5rem;
         margin: 1rem;
     }
 </style>
