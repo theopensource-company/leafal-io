@@ -18,11 +18,11 @@
         <div class="wrap">
             <StoreGrid v-for="n in 10" :key="n">
                 <StoreItem size="big" :item="demoItem" />
-                <StoreItem />
-                <StoreItem />
-                <StoreItem />
-                <StoreItem />
-                <StoreItem />
+                <StoreItem :item="demoItem" />
+                <StoreItem :item="demoItem" />
+                <StoreItem :item="demoItem" />
+                <StoreItem :item="demoItem" />
+                <StoreItem :item="demoItem" />
             </StoreGrid>
         </div>
     </div>

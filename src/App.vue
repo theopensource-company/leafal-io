@@ -6,6 +6,8 @@
     import { RouterLink, RouterView, useRoute } from 'vue-router';
     import TextInput from './components/input/TextInput.vue';
     import { ref } from 'vue';
+    import { Home, Compass, Archive } from 'lucide-vue-next';
+
     const route = useRoute();
 
     const search = ref('');
@@ -24,11 +26,18 @@
                 <Logo />
             </RouterLink>
             <Navbar>
-                <NavbarLink path="/" icon="home">Home</NavbarLink>
-                <NavbarLink path="/discover" icon="compass"
-                    >Discover</NavbarLink
-                >
-                <NavbarLink path="/library" icon="archive">Library</NavbarLink>
+                <NavbarLink path="/">
+                    <template #icon><Home /></template>
+                    Home
+                </NavbarLink>
+                <NavbarLink path="/discover">
+                    <template #icon><Compass /></template>
+                    Discover
+                </NavbarLink>
+                <NavbarLink path="/library">
+                    <template #icon><Archive /></template>
+                    Library
+                </NavbarLink>
             </Navbar>
         </aside>
         <div class="search">
@@ -51,13 +60,15 @@
         align-items: start;
         gap: 3rem;
         margin: 2rem auto;
+        padding: 0 2rem;
         max-width: 170vh;
 
         aside {
             grid-column: 1;
             grid-row: span 2;
-            grid-template-rows: subgrid;
-            display: grid;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
 
             font-size: 18px;
 
@@ -101,11 +112,14 @@
 
             position: sticky;
             top: 2rem;
+            z-index: 1001;
         }
     }
 
     .logo-link {
+        display: flex;
         font-size: 3rem;
+        height: max-content;
         text-decoration: none;
     }
 </style>

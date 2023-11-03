@@ -16,10 +16,7 @@
     >
         <div class="thumbnail">
             <img
-                :src="
-                    (item && item.thumbnail) ??
-                    'https://www.celesteia.com/images/thumbnail.jpg'
-                "
+                :src="(item && item.thumbnail) ?? ''"
                 :alt="(item && item.title) ?? ''"
             />
         </div>

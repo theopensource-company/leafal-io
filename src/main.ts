@@ -13,6 +13,7 @@ const router = createRouter({
         { path: '/', component: HomeVue },
         { path: '/discover', component: DiscoverVue },
         { path: '/library', component: LibraryVue },
+        { path: '/product/:id', component: () => { console.log("To-do"); } },
     ],
 });
 

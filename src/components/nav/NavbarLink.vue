@@ -1,18 +1,14 @@
 <script setup lang="ts">
     import { RouterLink } from 'vue-router';
-    import VueFeather from 'vue-feather';
 
     const { path } = defineProps<{
         path: string;
-        icon?: string;
     }>();
 </script>
 
 <template>
     <RouterLink :to="path" class="link" v-bind="$attrs">
-        <div v-if="icon" class="icon">
-            <VueFeather :type="icon" />
-        </div>
+        <slot name="icon" class="icon"></slot>
         <slot />
     </RouterLink>
 </template>
