@@ -14,18 +14,18 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: 1em;
+        gap: 0.33em;
         color: var(--light);
         text-decoration: none;
     }
 
     .vector {
-        width: 3em;
-        height: 3em;
+        width: 1.25em;
+        height: 1em;
     }
 
     .text {
-        font-size: 2em;
+        font-size: 0.75em;
         font-weight: 700;
     }
 </style>

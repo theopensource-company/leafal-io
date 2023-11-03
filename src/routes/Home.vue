@@ -16,13 +16,13 @@
     <Prelaunch v-if="flags.preLaunch" />
     <div v-else>
         <div class="wrap">
-            <StoreGrid>
+            <StoreGrid v-for="n in 10" :key="n">
                 <StoreItem size="big" :item="demoItem" />
-                <StoreItem />
-                <StoreItem />
-                <StoreItem />
-                <StoreItem />
-                <StoreItem />
+                <StoreItem :item="demoItem" />
+                <StoreItem :item="demoItem" />
+                <StoreItem :item="demoItem" />
+                <StoreItem :item="demoItem" />
+                <StoreItem :item="demoItem" />
             </StoreGrid>
         </div>
     </div>
@@ -30,8 +30,9 @@
 
 <style scoped lang="scss">
     .wrap {
-        width: 1200px;
-        max-width: 80vw;
-        margin: 2em auto;
+        display: grid;
+        gap: 1em;
+        grid-column: span 2;
+        grid-template-columns: subgrid;
     }
 </style>

@@ -4,11 +4,11 @@
 
     --light: #ffffff;
     --light2: #aaa;
+    --light-frosted: #23232399;
 }
 
 html, body {
     width: 100%;
-    height: 100%;
     margin: 0;
 
     background-color: var(--dark);

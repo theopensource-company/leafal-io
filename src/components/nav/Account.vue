@@ -11,10 +11,11 @@
 
 <style scoped lang="scss">
     .account {
+        max-width: max-content;
+
         display: flex;
-        flex-direction: row-reverse;
-        justify-self: flex-end;
-        align-self: center;
+        justify-self: end;
+        flex-direction: row;
 
         align-items: center;
         gap: 1em;

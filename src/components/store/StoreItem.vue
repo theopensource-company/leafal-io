@@ -11,16 +11,14 @@
 
 <template>
     <RouterLink
-        :to="(item && `/product/${item.slug}`) ?? ''"
+        :to="`/product/${(item && item.slug) ?? ''}`"
         :class="['item', size ?? 'small']"
     >
-        <div v-if="!!item">
-            <div class="thumbnail">
-                <img :src="item.thumbnail" />
-            </div>
-            <div class="details">
-                <span class="title">{{ item.title }}</span>
-            </div>
+        <div class="thumbnail">
+            <img
+                :src="(item && item.thumbnail) ?? ''"
+                :alt="(item && item.title) ?? ''"
+            />
         </div>
     </RouterLink>
 </template>
@@ -29,24 +27,25 @@
     .item {
         border-radius: 1em;
         background-color: var(--dark2);
-        position: relative;
         overflow: hidden;
-        color: #fff;
-        text-decoration: none;
+        position: relative;
 
         .thumbnail {
+            position: absolute;
+            inset: 0;
+            transition: transform 0.1s ease;
+
             img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
-                object-position: center;
-                transform-origin: center;
-                transition: transform 0.2s ease;
             }
         }
 
-        &:hover .thumbnail img {
+        &:hover .thumbnail,
+        &:focus .thumbnail {
             transform: scale(1.05);
+            transition-duration: 0.2s;
         }
     }
 

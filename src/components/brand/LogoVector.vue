@@ -3,14 +3,14 @@
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
         width="100"
-        height="100"
-        viewBox="0 0 100 100"
+        height="80"
+        viewBox="0 0 100 80"
         v-bind="$attrs"
     >
         <g>
             <path
                 d="
-            M 35,10
+            M 35,0
             c 30,0 25,45 65,45
             q -10,35 -50,35
             c -35,0 -50,-30 -50,-45

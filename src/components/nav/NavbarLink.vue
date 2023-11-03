@@ -7,19 +7,31 @@
 </script>
 
 <template>
-    <RouterLink :to="path" class="link">
+    <RouterLink :to="path" class="link" v-bind="$attrs">
+        <slot name="icon" class="icon"></slot>
         <slot />
     </RouterLink>
 </template>
 
 <style scoped lang="scss">
     .link {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        vertical-align: middle;
+        gap: 1em;
+        max-width: max-content;
         color: var(--light2);
         text-decoration: none;
         transition: color 0.2s ease;
 
-        &:hover {
+        &:hover,
+        &.router-link-exact-active {
             color: var(--light);
+        }
+
+        .icon {
+            line-height: 1em;
         }
     }
 </style>

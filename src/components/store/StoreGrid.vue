@@ -9,8 +9,9 @@
 <style scoped lang="scss">
     .grid {
         display: grid;
-        grid-template-columns: repeat(3, 16fr);
-        grid-template-rows: repeat(3, 9fr);
+        grid-column: span 2;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
 
         aspect-ratio: 16 / 9;
         gap: 1em;
