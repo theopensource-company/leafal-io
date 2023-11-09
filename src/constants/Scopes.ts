@@ -11,3 +11,5 @@ const userScope = /* surrealql */ `
             }
         )
 `;
+
+export default userScope;

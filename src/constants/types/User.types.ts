@@ -1,5 +1,5 @@
-import { z } from "zod";
-import { record } from "./Common.types";
+import { z } from 'zod';
+import { record } from './Common.types';
 
 const user: string = /* surrealql */ `
     DEFINE TABLE user SCHEMAFULL
@@ -20,7 +20,7 @@ export const User = z.object({
     id: record('user'),
     username: z.string(),
     email: z.string().email(),
-    password: z.string()
+    password: z.string(),
 });
 
 export default user;
