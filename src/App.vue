@@ -21,10 +21,21 @@
         <template #description="{ content }">{{ content }}</template>
     </metainfo>
     <div class="wrapper">
-        <aside>
+        <header>
             <RouterLink to="/" class="logo-link">
                 <Logo />
             </RouterLink>
+
+            <div class="search">
+                <TextInput
+                    v-model="search"
+                    class="search-bar"
+                    placeholder="Search..."
+                />
+            </div>
+            <Account class="account" />
+        </header>
+        <aside>
             <Navbar>
                 <NavbarLink path="/">
                     <template #icon><Home /></template>
@@ -40,15 +51,7 @@
                 </NavbarLink>
             </Navbar>
         </aside>
-        <div class="search">
-            <TextInput
-                v-model="search"
-                class="search-bar"
-                placeholder="Search..."
-            />
-        </div>
         <RouterView :key="route.fullPath" class="view" />
-        <Account class="account" />
     </div>
 </template>
 
@@ -56,35 +59,46 @@
     .wrapper {
         display: grid;
         grid-template-columns: 1fr 5fr 1fr;
-        grid-template-rows: 3rem auto;
+        grid-template-rows: auto auto;
         align-items: start;
-        gap: 3rem;
-        margin: 2rem auto;
-        padding: 0 2rem;
-        max-width: 170vh;
+        padding: 0;
+
+        header {
+            grid-column: span 3;
+            backdrop-filter: blur(16px) brightness(30%);
+            background-color: var(--light-frosted);
+            border-bottom: 1px solid var(--dark2);
+            display: grid;
+            grid-template-columns: subgrid;
+            padding: 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 1001;
+        }
 
         aside {
             grid-column: 1;
             grid-row: span 2;
             display: flex;
             flex-direction: column;
+            padding: 1rem;
             gap: 2rem;
 
             font-size: 18px;
 
             position: sticky;
-            top: 2rem;
+            top: 6rem;
 
-            min-height: 20em;
+            height: calc(100svh - 7rem);
+
+            backdrop-filter: blur(16px) brightness(30%);
+            background-color: var(--light-frosted);
+            border-right: 1px solid var(--dark2);
         }
 
         .search {
             grid-column: 2;
             grid-row: 1;
-
-            position: sticky;
-            top: 2rem;
-            z-index: 1001;
 
             display: flex;
             flex-direction: column;
@@ -103,16 +117,12 @@
             grid-column-end: 4;
             grid-row: 2;
             grid-template-columns: subgrid;
-            margin: 0.5rem;
+            margin: 1rem;
         }
 
         .account {
             grid-column: 3;
             grid-row: 1;
-
-            position: sticky;
-            top: 2rem;
-            z-index: 1001;
         }
     }
 
