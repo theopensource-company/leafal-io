@@ -33,8 +33,7 @@
         transition: 0.2s ease;
 
         border: none;
-        background-color: var(--light-frosted);
-        backdrop-filter: blur(5px);
+        background-color: var(--dark2);
         color: var(--light1);
         outline: none;
 
