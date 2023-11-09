@@ -98,12 +98,7 @@
         }
 
         .view {
-            display: grid;
-            grid-column-start: 2;
-            grid-column-end: 4;
-            grid-row: 2;
-            grid-template-columns: subgrid;
-            margin: 0.5rem;
+            grid-column: span 2;
         }
 
         .account {

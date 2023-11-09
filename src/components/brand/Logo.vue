@@ -17,6 +17,7 @@
         gap: 0.33em;
         color: var(--light);
         text-decoration: none;
+        font-family: 'Open Sans';
     }
 
     .vector {
