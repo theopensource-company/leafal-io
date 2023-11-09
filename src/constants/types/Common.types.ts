@@ -9,10 +9,10 @@ export function record<
             ? '([A-Za-z0-9_]+|`(\\\\`|[^`])+`|⟨(\\\\⟨|\\\\⟩|[^⟨⟩])+⟩)'
             : /^[A-Za-z0-9_]+$/.test(val)
             ? val
-            : `(\`${val.replace(
-                  /(?<!\\)(`)/g,
+            : `(\`${val.replace(/(?<!\\)(`)/g, '\\\\$1')}\`|⟨${val.replace(
+                  /(?<!\\)(⟨|⟩)/g,
                   '\\\\$1'
-              )}\`|⟨${val.replace(/(?<!\\)(⟨|⟩)/g, '\\\\$1')}⟩)`;
+              )}⟩)`;
 
     const regex = (table?: Table, id?: Id) =>
         new RegExp(`^${group(table)}:${group(id)}$`);

@@ -1,9 +1,9 @@
-import { record } from './Common.types';
 import { z } from 'zod';
+import { record } from './Common.types';
 
 export const CarouselItem = z.object({
     source: z.string().url(),
-    type: z.union([z.literal('image'), z.literal('video')])
+    type: z.union([z.literal('image'), z.literal('video')]),
 });
 export type CarouselItem = z.infer<typeof CarouselItem>;
 
@@ -23,7 +23,7 @@ export const Product = z.object({
     background: z.string().url().optional(),
 
     pricing: z.number(),
-    
+
     published: z.boolean(),
     discoverable: z.boolean(),
 
@@ -31,10 +31,10 @@ export const Product = z.object({
     updated: z.date(),
 
     // platforms
-    
+
     links: z.array(z.string().url()),
 
-    carousel: z.array(CarouselItem)
+    carousel: z.array(CarouselItem),
 });
 
 export type Product = z.infer<typeof Product>;
