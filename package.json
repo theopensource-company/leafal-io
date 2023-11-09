@@ -8,11 +8,13 @@
         "build": "vue-tsc && vite build",
         "preview": "vite preview",
         "ts": "vue-tsc --watch",
-        "lint": "eslint . --ext ts --ext vue --max-warnings 0"
+        "lint": "eslint . --ext ts --ext vue --max-warnings 0",
+        "surreal": "surreal start --log debug --user root --pass root --bind 0.0.0.0:14001 file:dev.db"
     },
     "dependencies": {
         "@theopensource-company/feature-flags": "^0.4.5",
         "lucide-vue-next": "^0.292.0",
+        "surrealdb.js": "^0.11.0",
         "url": "^0.11.3",
         "vue": "^3.3.7",
         "vue-meta": "3.0.0-alpha.10",

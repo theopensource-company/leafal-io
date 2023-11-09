@@ -25,3 +25,5 @@ dist-ssr
 
 package-lock.json
 .env
+
+*.db
