@@ -8,7 +8,11 @@
 
 <template>
     <RouterLink :to="path" class="link" v-bind="$attrs">
-        <slot name="icon" class="icon"></slot>
+        <div class="iconContainer">
+            <div class="icon">
+                <slot name="icon"></slot>
+            </div>
+        </div>
         <slot />
     </RouterLink>
 </template>
@@ -25,13 +29,25 @@
         text-decoration: none;
         transition: color 0.2s ease;
 
+        .iconContainer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1em;
+            aspect-ratio: 1;
+            padding: .5em;
+            background-color: #33333355;
+            color: #555;
+            transition: inherit;
+            border-radius: 50%;
+
+            .icon { filter: opacity(70%); }
+        }
+
         &:hover,
         &.router-link-exact-active {
             color: var(--light);
-        }
-
-        .icon {
-            line-height: 1em;
+            & .iconContainer { color: var(--theme); }
         }
     }
 </style>

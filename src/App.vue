@@ -87,9 +87,8 @@
             font-size: 18px;
 
             position: sticky;
-            top: 6rem;
-
-            height: calc(100svh - 7rem);
+            top: calc(6rem + 3px);
+            height: calc(100svh - 8rem - 3px);
 
             backdrop-filter: blur(16px) brightness(30%);
             background-color: var(--light-frosted);
