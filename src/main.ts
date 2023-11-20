@@ -10,10 +10,10 @@ import { createRouter, createWebHistory } from 'vue-router';
 import RoughAuthVue from './routes/RoughAuth.vue';
 
 database.connect(import.meta.env.VITE_SURREAL_ENDPOINT, {
-    namespace: import.meta.env.VITE_SURREAL_NAMESPACE ?? 'leafal_io',
+    namespace: import.meta.env.VITE_SURREAL_NAMESPACE ?? 'leafal-io',
     database:
         import.meta.env.VITE_SURREAL_DATABASE ??
-        'leafal_io-' + import.meta.env.MODE,
+        'leafal-io-deployment_' + import.meta.env.MODE,
 });
 
 const router = createRouter({
