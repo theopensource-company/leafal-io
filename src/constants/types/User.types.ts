@@ -4,7 +4,7 @@ import { record } from './Common.types';
 const user: string = /* surrealql */ `
     DEFINE TABLE user SCHEMAFULL
         PERMISSIONS
-            FOR select FULL,
+            FOR select FULL
             FOR update WHERE id = $auth.id
             FOR delete NONE;
 

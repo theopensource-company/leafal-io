@@ -35,19 +35,23 @@
             justify-content: center;
             line-height: 1em;
             aspect-ratio: 1;
-            padding: .5em;
+            padding: 0.5em;
             background-color: #33333355;
             color: #555;
             transition: inherit;
             border-radius: 50%;
 
-            .icon { filter: opacity(70%); }
+            .icon {
+                filter: opacity(70%);
+            }
         }
 
         &:hover,
         &.router-link-exact-active {
             color: var(--light);
-            & .iconContainer { color: var(--theme); }
+            & .iconContainer {
+                color: var(--theme);
+            }
         }
     }
 </style>

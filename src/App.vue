@@ -7,10 +7,19 @@
     import TextInput from './components/input/TextInput.vue';
     import { ref } from 'vue';
     import { Home, Compass, Archive } from 'lucide-vue-next';
+    import { database } from './library/surreal';
 
     const route = useRoute();
 
     const search = ref('');
+    const query = ref('');
+
+    const submitQuery = () => {
+        database
+            .query(query.value)
+            .then((res) => console.log(`${query.value}:`, res))
+            .catch(console.error);
+    };
 </script>
 
 <template>
@@ -49,6 +58,14 @@
                     <template #icon><Archive /></template>
                     Library
                 </NavbarLink>
+                <div>
+                    <TextInput
+                        v-model="query"
+                        class="search-bar"
+                        placeholder="Query..."
+                    />
+                    <button @click="submitQuery()">Submit</button>
+                </div>
             </Navbar>
         </aside>
         <RouterView :key="route.fullPath" class="view" />
@@ -107,6 +124,7 @@
             .search-bar {
                 line-height: 2em;
                 max-width: 500px;
+                margin: 0 1rem;
             }
         }
 
@@ -130,5 +148,6 @@
         font-size: 3rem;
         height: max-content;
         text-decoration: none;
+        margin-right: 1.5rem;
     }
 </style>
