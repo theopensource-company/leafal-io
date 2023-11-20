@@ -1,11 +1,9 @@
 <script setup lang="ts">
+    import { Product } from '@/constants/types/Product.types';
+
     const { item, size } = defineProps<{
         size?: 'small' | 'big';
-        item?: {
-            slug: string;
-            title: string;
-            thumbnail: string;
-        };
+        item?: Product;
     }>();
 </script>
 
