@@ -4,7 +4,7 @@ import DiscoverVue from '@/routes/Discover.vue';
 import HomeVue from '@/routes/Home.vue';
 import LibraryVue from '@/routes/Library.vue';
 import '@/style.css';
-import { createApp } from 'vue';
+import { createSSRApp } from 'vue';
 import { createMetaManager } from 'vue-meta';
 import { createRouter, createWebHistory } from 'vue-router';
 import RoughAuthVue from './routes/RoughAuth.vue';
@@ -32,4 +32,4 @@ const router = createRouter({
     ],
 });
 
-createApp(App).use(router).use(createMetaManager()).mount('#app');
+createSSRApp(App).use(router).use(createMetaManager()).mount('#app');
