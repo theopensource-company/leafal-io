@@ -1,7 +1,7 @@
 <script setup lang="ts">
-    import Prelaunch from '@/components/Prelaunch.vue';
-    import { useFeatureFlags } from '@/library/featureFlags';
-    import { database } from '@/library/surreal';
+    import Prelaunch from '#/components/Prelaunch.vue';
+    import { useFeatureFlags } from '#/library/featureFlags';
+    import { database } from '#/library/surreal';
     import { ref } from 'vue';
     const [flags] = useFeatureFlags();
 

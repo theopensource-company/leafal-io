@@ -1,13 +1,14 @@
-import App from '@/App.vue';
-import { database } from '@/library/surreal';
-import DiscoverVue from '@/routes/Discover.vue';
-import HomeVue from '@/routes/Home.vue';
-import LibraryVue from '@/routes/Library.vue';
-import '@/style.css';
-import { createSSRApp } from 'vue';
+import App from '#/App.vue';
+import { database } from '#/library/surreal';
+import DiscoverVue from '#/routes/Discover.vue';
+import HomeVue from '#/routes/Home.vue';
+import LibraryVue from '#/routes/Library.vue';
+import '#/style.css';
+import { createApp } from 'vue';
 import { createMetaManager } from 'vue-meta';
 import { createRouter, createWebHistory } from 'vue-router';
 import RoughAuthVue from './routes/RoughAuth.vue';
+import { createPinia } from 'pinia';
 
 database.connect(import.meta.env.VITE_SURREAL_ENDPOINT, {
     namespace: import.meta.env.VITE_SURREAL_NAMESPACE ?? 'leafal-io',
@@ -15,6 +16,8 @@ database.connect(import.meta.env.VITE_SURREAL_ENDPOINT, {
         import.meta.env.VITE_SURREAL_DATABASE ??
         'leafal-io-deployment_' + import.meta.env.MODE,
 });
+
+const pinia = createPinia();
 
 const router = createRouter({
     history: createWebHistory(),
@@ -32,4 +35,8 @@ const router = createRouter({
     ],
 });
 
-createSSRApp(App).use(router).use(createMetaManager()).mount('#app');
+createApp(App)
+    .use(pinia)
+    .use(router)
+    .use(createMetaManager())
+    .mount('#app');

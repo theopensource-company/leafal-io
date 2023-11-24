@@ -1,11 +1,11 @@
 <script setup lang="ts">
-    import Prelaunch from '@/components/Prelaunch.vue';
-    import StoreGrid from '@/components/store/StoreGrid.vue';
-    import StoreItem from '@/components/store/StoreItem.vue';
-    import { Product } from '@/constants/types/Product.types';
-    import { useFeatureFlags } from '@/library/featureFlags';
-    import { getAllProducts } from '@/library/queries/Product.queries';
-    import { ref, watch } from 'vue';
+    import Prelaunch from '#/components/Prelaunch.vue';
+    import StoreGrid from '#/components/store/StoreGrid.vue';
+    import StoreItem from '#/components/store/StoreItem.vue';
+    import { Product } from '#/constants/types/Product.types';
+    import { useFeatureFlags } from '#/library/featureFlags';
+    import { getAllProducts } from '#/library/queries/Product.queries';
+    import { ref } from 'vue';
 
     const [flags] = useFeatureFlags();
     const products = ref<Product[]>();
@@ -14,10 +14,6 @@
         getAllProducts().then((results) => (products.value = results));
 
     loadPageContent();
-
-    watch(products, () =>
-        console.log(!!products.value && Math.ceil(products.value.length / 6))
-    );
 </script>
 
 <template>

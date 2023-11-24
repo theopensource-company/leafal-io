@@ -23,4 +23,6 @@ export const User = z.object({
     password: z.string(),
 });
 
+export type User = z.infer<typeof User>;
+
 export default user;

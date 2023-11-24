@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import { Product } from '@/constants/types/Product.types';
+    import { Product } from '#/constants/types/Product.types';
 
     const { item, size } = defineProps<{
         size?: 'small' | 'big';

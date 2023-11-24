@@ -1,8 +1,8 @@
 <script setup lang="ts">
-    import Navbar from '@/components/nav/Navbar.vue';
-    import NavbarLink from '@/components/nav/NavbarLink.vue';
-    import Account from '@/components/nav/Account.vue';
-    import Logo from '@/components/brand/Logo.vue';
+    import Navbar from '#/components/nav/Navbar.vue';
+    import NavbarLink from '#/components/nav/NavbarLink.vue';
+    import Account from '#/components/nav/Account.vue';
+    import Logo from '#/components/brand/Logo.vue';
     import { RouterLink, RouterView, useRoute } from 'vue-router';
     import TextInput from './components/input/TextInput.vue';
     import { ref } from 'vue';

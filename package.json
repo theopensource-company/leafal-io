@@ -15,8 +15,10 @@
     "dependencies": {
         "@theopensource-company/feature-flags": "^0.4.5",
         "lucide-vue-next": "^0.292.0",
+        "pinia": "^2.1.7",
         "surrealdb.js": "^0.11.0",
         "url": "^0.11.3",
+        "vike": "^0.4.147",
         "vue": "^3.3.7",
         "vue-meta": "3.0.0-alpha.10",
         "vue-router": "^4.2.5",

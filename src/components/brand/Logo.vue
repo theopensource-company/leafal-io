@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import LogoVector from '@/components/brand/LogoVector.vue';
+    import LogoVector from '#/components/brand/LogoVector.vue';
 </script>
 
 <template>

@@ -1,4 +1,4 @@
-import { Product } from '@/constants/types/Product.types';
+import { Product } from '#/constants/types/Product.types';
 import { database } from '../surreal';
 
 export const getAllProducts = async () => {
