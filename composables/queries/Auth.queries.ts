@@ -1,6 +1,3 @@
-import { useDatabase } from "~/composables/useDatabase"
-import type { User } from "~/constants/types/User.types"
-
 /*export const useSignin = async (identifier: string, password: string) => new Promise((resolve, reject) => {
     const database = useDatabase()
         .then(async c => 

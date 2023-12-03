@@ -1,6 +1,3 @@
-import { useDatabase } from '~/composables/useDatabase';
-import type { Product } from '~/constants/types/Product.types';
-
 /*export const useProduct = (slug: string) => new Promise(async (resolve, reject) => {
     const { connected, database } = await useDatabase()
     console.log(database)
