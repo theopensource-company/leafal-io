@@ -20,5 +20,5 @@ export default defineNuxtConfig({
     },
 
     css: ['~/assets/style.scss'],
-    modules: ['@nuxt/image', '@nuxtjs/eslint-module', '@pinia/nuxt'],
+    modules: ['@nuxt/image', '@pinia/nuxt'],
 });
