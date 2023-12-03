@@ -8,11 +8,14 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "surreal": "surreal start --log debug --user root --pass root --bind 0.0.0.0:14001 --auth --allow-guests file:dev.db"
+    "surreal": "surreal start --log debug --user root --pass root --bind 0.0.0.0:14001 --auth --allow-guests file:dev.db",
+    "lint": "eslint . --ext ts --ext tsx --max-warnings 0"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@nuxt/image": "^1.1.0",
+    "@nuxtjs/eslint-module": "^4.1.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
     "eslint": "^8.55.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-json": "^3.1.0",
