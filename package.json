@@ -13,7 +13,16 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@nuxt/image": "^1.1.0",
+    "eslint": "^8.55.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-json": "^3.1.0",
+    "eslint-plugin-only-error": "^1.0.2",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "eslint-plugin-vue": "^9.19.2",
     "nuxt": "^3.8.2",
+    "prettier": "^3.1.0",
+    "prettier-plugin-organize-imports": "^3.2.4",
     "sass": "^1.69.5",
     "vue": "^3.3.8",
     "vue-router": "^4.2.5"

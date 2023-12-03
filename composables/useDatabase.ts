@@ -8,4 +8,3 @@ export const useDatabase = async () => {
     })
     return database
 }
-    
