@@ -2,10 +2,8 @@
     import z from 'zod';
     import { Product } from '~/constants/types/Product.types';
 
-    const { data: results } = await useFetch(`/api/v1/products`);
-
-    let products: Product[] | undefined = undefined;
-    if (!!results.value) products = z.array(Product).parse(results.value);
+    const { data: results } = await useFetch(`/api/v1/products`);    
+    let products = ref<Product[] | undefined>(z.array(Product).parse(results.value)); 
 </script>
 
 <template>

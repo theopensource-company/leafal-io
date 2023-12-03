@@ -31,6 +31,8 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "@pinia/nuxt": "^0.5.1",
+    "pinia": "^2.1.7",
     "surrealdb.js": "^0.11.0",
     "zod": "^3.22.4"
   }

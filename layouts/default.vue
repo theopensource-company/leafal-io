@@ -5,9 +5,12 @@
 <template>
     <div class="overlay">
         <div class="ribbon">
-            <NavLink path="/">
-                <Logo class="logo" />
+            <NavLink path="/" class="logo">
+                <Logo />
             </NavLink>
+            <div class="account">
+                test
+            </div>
         </div>
     </div>
     <div class="content">
@@ -32,6 +35,8 @@
     display: flex;
     max-height: 3rem;
     padding: 1.5rem;
+    flex-direction: row;
+    align-items: center;
 }
 
 .content {
@@ -41,5 +46,6 @@
 
 .logo {
     font-size: 3rem;
+    margin-right: auto;
 }
 </style>
