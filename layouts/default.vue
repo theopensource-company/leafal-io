@@ -1,5 +1,15 @@
 <script setup lang="ts">
-    import Logo from '~/components/brand/Logo.vue';
+    import Logo from '~/components/brand/Logo.vue'
+
+    const auth = useAuthStore()
+
+    const { $surreal } = useNuxtApp()
+
+    async function setup() {
+        auth.authenticate(localStorage.getItem('lflsess') ?? '')
+    }
+
+    if (process.client) setup()
 </script>
 
 <template>
@@ -8,8 +18,8 @@
             <NavLink path="/" class="logo">
                 <Logo />
             </NavLink>
-            <div class="account">
-                test
+            <div class="account" v-if="auth.user">
+                {{ auth.user.username }}
             </div>
         </div>
     </div>
