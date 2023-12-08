@@ -3,13 +3,8 @@
 
     const auth = useAuthStore()
 
-    const { $surreal } = useNuxtApp()
-
-    async function setup() {
+    if (process.client)
         auth.authenticate(localStorage.getItem('lflsess') ?? '')
-    }
-
-    if (process.client) setup()
 </script>
 
 <template>
@@ -19,8 +14,10 @@
                 <Logo />
             </NavLink>
             <div class="account" v-if="auth.user">
-                {{ auth.user.username }}
+                <span class="name" >{{ auth.user.profile.displayname ?? auth.user.username }}</span>
+                <img :src="auth.user.avatar" :alt="auth.user.username" v-if="auth.user">
             </div>
+            <a href="/auth" v-else>Log in</a>
         </div>
     </div>
     <div class="content">
@@ -57,5 +54,22 @@
 .logo {
     font-size: 3rem;
     margin-right: auto;
+}
+
+.account {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-height: 3rem;
+
+    gap: 1em;
+
+    img {
+        width: 3rem;
+        height: 3rem;
+        object-fit: cover;
+        border-radius: 50%;
+    }
 }
 </style>

@@ -10,6 +10,7 @@ export default defineNuxtConfig({
 
     routeRules: {
         '/product/[slug]': { ssr: true },
+        '/profile/[slug]': { ssr: true },
     },
 
     app: {

@@ -23,7 +23,7 @@
         twitterTitle: product.title,
         twitterDescription: product.description,
         twitterImage: product.thumbnail,
-        twitterCard: 'summary'
+        twitterCard: 'summary_large_image'
     })
 </script>
 

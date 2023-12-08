@@ -8,7 +8,7 @@ export type AuthState = {
 }
 
 export const useAuthStore = defineStore('auth', {
-    state: () => ({ token: process.client ? localStorage.getItem('lflsess'): undefined, user: undefined } as AuthState),
+    state: () => ({ token: undefined, user: undefined } as AuthState),
     actions: {
         async fetch() {
             const results = await useSurreal().query<[User[]]>("SELECT * FROM user WHERE id = $auth.id")

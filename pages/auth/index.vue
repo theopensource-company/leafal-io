@@ -6,6 +6,7 @@
         email: "",
         password: ""
     })
+    
     const loginInfo = ref({
         identifier: "",
         password: ""
