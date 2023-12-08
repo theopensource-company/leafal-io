@@ -1,4 +1,4 @@
 export const useSurreal = () => {
-    const { $surreal } = useNuxtApp()
-    return $surreal
-}
+    const { $surreal } = useNuxtApp();
+    return $surreal;
+};

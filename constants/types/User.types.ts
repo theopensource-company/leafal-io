@@ -29,10 +29,14 @@ export const User = z.object({
     password: z.string(),
     avatar: z.string().url(),
     profile: z.object({
-        displayname: z.string().optional()
-    })
+        displayname: z.string().optional(),
+    }),
 });
-export const PublicUser = User.pick({ username: true, avatar: true, profile: true })
+export const PublicUser = User.pick({
+    username: true,
+    avatar: true,
+    profile: true,
+});
 
 export type User = z.infer<typeof User>;
 export type PublicUser = z.infer<typeof PublicUser>;
